@@ -1,0 +1,549 @@
+/* --- Variables de Color --- */
+:root {
+    --font-sans: "Inter", sans-serif;
+    --font-serif: "Lora", serif;
+    --accent-color-vibrant: #000000;
+    /* Tema Claro */
+    --background: #f5f5f7;
+    --text-primary: #1d1d1f;
+    --text-secondary: #515154;
+    --border-color: #d2d2d7;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-bg: rgba(255, 255, 255, 0.8);
+    --toggle-active-bg: #e0e0e0;
+}
+
+body.dark-mode {
+    /* Tema Oscuro */
+    --background: #111111;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --border-color: #333333;
+    --card-background: #1c1c1e;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --modal-bg: rgba(28, 28, 30, 0.8);
+    --toggle-active-bg: #333333;
+}
+
+/* --- Estilos Generales --- */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--text-secondary);
+    margin: 0;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+.main-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* --- Panel Izquierdo con Fondo --- */
+.left-panel {
+    width: 45%;
+    max-width: 550px;
+    padding: 3rem 4rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    border-right: 1px solid var(--border-color);
+    text-align: right;
+    isolation: isolate;
+    /* CAMBIO: Asegurar que el panel no se encoja */
+    flex-shrink: 0;
+}
+.left-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/curvas.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: -1;
+    mask-image: none;
+    transition:
+        opacity 0.3s ease,
+        filter 0.3s ease;
+}
+body.dark-mode .left-panel::before {
+    opacity: 0.1;
+    filter: invert(1);
+}
+
+/* --- Controles Superiores --- */
+.top-controls {
+    position: absolute;
+    top: 2.5rem;
+    left: 4rem;
+    right: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+.language-toggle {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2px;
+}
+.language-toggle span {
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.language-toggle span.active {
+    background-color: var(--toggle-active-bg);
+    color: var(--text-primary);
+}
+.theme-toggle {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-primary);
+}
+.moon-icon {
+    display: none;
+}
+body.dark-mode .sun-icon {
+    display: none;
+}
+body.dark-mode .moon-icon {
+    display: inline-block;
+}
+
+/* --- Contenido Bio --- */
+.bio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* === CAMBIO 1: Estilos para el Logo GIF === */
+.logo-container {
+    width: 100%; /* Ocupa el ancho del panel para centrar la imagen */
+    margin-bottom: 1.5rem;
+}
+.logo-container img {
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    width: 250px; /* Ancho deseado para el logo */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+}
+/* === Fin del CAMBIO 1 === */
+
+.bio-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+.bio-content h2 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0 1.5rem;
+    font-weight: 400;
+}
+.bio-content .summary {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 1.5rem;
+    border-top: none;
+    padding-top: 0;
+}
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.action-btn {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background-color: var(--card-background);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.action-btn:hover {
+    border-color: var(--text-primary);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+.icon-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.icon-links a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+body.light-mode .icon-links a:hover {
+    color: var(--accent-color-vibrant);
+}
+body.dark-mode .icon-links a:hover {
+    color: var(--text-primary);
+}
+.icon-links svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* === CAMBIO 2 y 3: Estructura Panel Derecho === */
+
+/* El .right-panel ahora es un contenedor flex */
+.right-panel {
+    width: 55%;
+    /* CAMBIO: Se quita el padding para dárselo a los hijos */
+    padding: 0;
+    box-sizing: border-box;
+    /* CAMBIO: Convertido en flex container */
+    display: flex;
+    /* CAMBIO: Crece para ocupar el espacio restante */
+    flex-grow: 1;
+}
+
+/* Nuevo wrapper para la lista de proyectos */
+.project-list-wrapper {
+    /* CAMBIO: Ocupa el espacio principal y permite que la sidebar tenga ancho fijo */
+    flex-grow: 1;
+    width: 100%; /* Ocupa todo el espacio si la sidebar colapsa */
+    /* CAMBIO: Padding que antes estaba en .right-panel */
+    padding: 3rem 4rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.project-item {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--card-background);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    /* CAMBIO 2: Altura ajustada para GIF rectangular */
+    height: 160px;
+    transition: all 0.3s ease;
+}
+.project-item:hover {
+    border-color: var(--text-primary);
+    transform: scale(1.01);
+}
+.project-thumbnail {
+    /* CAMBIO 2: Ancho ajustado para GIF rectangular */
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.project-item:hover .project-thumbnail {
+    transform: scale(1.05);
+}
+.project-info {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.project-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.project-info p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    color: var(--text-secondary);
+}
+.project-hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+.project-hashtags span {
+    background-color: var(--background);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.project-hashtags span:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+/* === CAMBIO 3: Estilos de la Nueva Barra Lateral === */
+.sidebar-right {
+    width: 300px; /* Ancho fijo para la barra de servicios */
+    flex-shrink: 0; /* Evita que se encoja */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    border-left: 1px solid var(--border-color);
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite scroll si hay mucho contenido */
+}
+.sidebar-right h4 {
+    /* Título principal de la barra */
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+.sidebar-right h5 {
+    /* Títulos de Área (Hábitat, Comercial...) */
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.sidebar-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-right li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.3rem 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.sidebar-right li:hover {
+    color: var(--text-primary);
+}
+/* === Fin del CAMBIO 3 === */
+
+/* --- Modal --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--modal-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+.modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+#modal-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Modal de Servicios Específico */
+.services-list {
+    list-style-type: none;
+    padding: 0;
+}
+.services-list li {
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+body.light-mode .services-list li:hover {
+    color: var(--accent-color-vibrant);
+}
+body.dark-mode .services-list li:hover {
+    color: var(--text-primary);
+}
+#service-detail-description {
+    margin-bottom: 1.5rem;
+}
+#service-gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+#service-gallery-thumbnails img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+#service-gallery-thumbnails img:hover {
+    transform: scale(1.05);
+}
+#back-to-services {
+    margin-top: 1.5rem;
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 1100px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        max-width: 100%;
+        position: static;
+        height: auto;
+    }
+    .left-panel {
+        padding: 4rem 2rem 2rem;
+        text-align: center;
+        border-right: none;
+        align-items: center;
+    }
+    .left-panel::before {
+        background-attachment: fixed;
+    }
+    .bio-content {
+        align-items: center;
+    }
+    .contact-info {
+        align-items: center;
+    }
+    .icon-links,
+    .action-buttons {
+        justify-content: center;
+    }
+    .top-controls {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background-color: var(--background);
+        z-index: 100;
+        justify-content: space-between;
+    }
+
+    /* === CAMBIOS RESPONSIVOS === */
+    .right-panel {
+        flex-direction: column; /* Apila proyectos y sidebar */
+        height: auto;
+    }
+    .project-list-wrapper {
+        width: 100%;
+        padding: 2rem; /* Menos padding en móvil */
+    }
+    .sidebar-right {
+        width: 100%;
+        position: static; /* Quita el sticky */
+        height: auto;
+        border-left: none;
+        border-top: 1px solid var(--border-color); /* Separador */
+        padding: 2rem;
+    }
+    /* === Fin de CAMBIOS RESPONSIVOS === */
+
+    .project-item {
+        flex-direction: column;
+        text-align: center;
+        height: auto; /* Altura automática en móvil */
+    }
+    .project-thumbnail {
+        margin: 0 auto 1rem auto;
+        width: 100%;
+        height: 200px; /* Altura fija para imagen en móvil */
+    }
+    .project-info {
+        align-items: center;
+    }
+}
