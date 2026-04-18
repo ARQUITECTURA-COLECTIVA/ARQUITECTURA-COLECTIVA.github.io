@@ -1,249 +1,187 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Base de datos de Textos Bilingües con Enfoque de Negocio ---
-  const servicesData = {
-    "geo-analysis": {
-      en: {
-        title: "Market & Risk Analysis",
-        description:
-          "I use advanced geostatistical techniques to analyze market data, identify consumer patterns, predict trends, and generate valuable insights for strategic decision-making.",
-      },
-      es: {
-        title: "Análisis de Mercado y Riesgo",
-        description:
-          "Utilizo técnicas geoestadísticas avanzadas para analizar datos de mercado, identificar patrones de consumo, predecir tendencias y generar insights para la toma de decisiones estratégicas.",
-      },
+// DICCIONARIO DE CONTENIDOS PARA GOBIERNO [B2G]
+// 'image' define la foto que se fusionará con el listón superior del modal.
+const modalData = {
+    // 1. TLAXCO (Territorio)
+    tlaxco: {
+        tag: "Planificación Normativa",
+        title: "Diagnóstico Territorial Regional",
+        image: "tlaxco.jpg",
+        content: `
+            <p>Nuestra metodología de diagnóstico permite a los ayuntamientos y dependencias estatales justificar la asignación de recursos federales y estatales mediante evidencia técnica irrefutable.</p>
+            <ul>
+                <li><strong>Marginación Social:</strong> Análisis espacializado de rezago social para dirigir inversión pública.</li>
+                <li><strong>Cartografía Municipal:</strong> Actualización técnica para Planes Municipales de Desarrollo (PMD).</li>
+                <li><strong>Fundamentación Legal:</strong> Sustento técnico para licitaciones y obras públicas con certidumbre jurídica.</li>
+            </ul>
+        `
     },
-    cartography: {
-      en: {
-        title: "Strategic & Thematic Mapping",
-        description:
-          "I design and produce clear, precise, and aesthetically pleasing thematic maps. I transform raw data into effective cartographic reports and dashboards that intuitively communicate business insights.",
-      },
-      es: {
-        title: "Mapeo Estratégico y Temático",
-        description:
-          "Diseño y produzco mapas temáticos claros y precisos. Transformo datos crudos en reportes cartográficos y dashboards efectivos que comunican insights de negocio de manera intuitiva.",
-      },
+    // 2. MAPAS (Inteligencia)
+    mapas: {
+        tag: "Geointeligencia",
+        title: "Inversión Pública Eficiente",
+        image: "mapas.jpg",
+        content: `
+            <p>Aseguramos que cada peso invertido en infraestructura tenga el mayor retorno social. A través del análisis de algoritmos espaciales y Diagramas de Voronoi, determinamos:</p>
+            <ul>
+                <li><strong>Zonificación Matemática:</strong> Ubicación óptima para nuevos hospitales, escuelas o módulos de seguridad municipal.</li>
+                <li><strong>Cobertura de Servicios:</strong> Identificación de áreas de influencia y brechas de atención ciudadana.</li>
+                <li><strong>Acupuntura Urbana:</strong> Intervenciones precisas en zonas de alta rentabilidad social para reactivación económica.</li>
+            </ul>
+        `
     },
-    "urban-planning": {
-      en: {
-        title: "Site Selection & Regional Strategy",
-        description:
-          "I develop data-driven strategies for site selection and market expansion. My approach integrates socio-economic, environmental, and infrastructure analyses to ensure optimal placement and sustainable growth.",
-      },
-      es: {
-        title: "Selección de Sitios y Estrategia Regional",
-        description:
-          "Desarrollo estrategias basadas en datos para la selección de sitios y expansión de mercado. Mi enfoque integra análisis socioeconómicos, ambientales y de infraestructura para asegurar la ubicación óptima.",
-      },
+    // 3. RENDER (Obra Pública)
+    render: {
+        tag: "Proyección Arquitectónica",
+        title: "El Legado en el Espacio Público",
+        image: "render.jpg",
+        content: `
+            <p>El espacio público es el rostro de la administración. Diseñamos con un enfoque de durabilidad, bajo mantenimiento, alta apropiación ciudadana y estética corporativa.</p>
+            <ul>
+                <li><strong>Planes Maestros de Rescate:</strong> Revitalización integral de parques, plazas y áreas recreativas.</li>
+                <li><strong>Proyectos Ejecutivos Completos:</strong> Planos, especificaciones y presupuestos listos para licitación oficial.</li>
+                <li><strong>Diseño Paramétrico:</strong> Envolventes funcionales para edificios de uso gubernamental y oficinas públicas.</li>
+            </ul>
+        `
     },
-    "urban-design": {
-      en: {
-        title: "Spatial Layout Optimization",
-        description:
-          "I propose data-informed design solutions that improve the efficiency of a physical space, from optimizing retail layouts to designing efficient logistics hubs.",
-      },
-      es: {
-        title: "Optimización de Disposición Espacial",
-        description:
-          "Propongo soluciones de diseño basadas en datos que mejoran la eficiencia de un espacio físico, desde la optimización de layouts para retail hasta el diseño de centros logísticos.",
-      },
+    // 4. DIAGRAMA (Transparencia)
+    diagrama: {
+        tag: "Comunicación Política",
+        title: "Rendición de Cuentas Visual",
+        image: "diagrama.jpg",
+        content: `
+            <p>Facilitamos el diálogo entre el gobierno y la ciudadanía. Traducimos la complejidad de los expedientes técnicos en herramientas visuales comprensibles para la difusión institucional.</p>
+            <ul>
+                <li><strong>Resúmenes de una página (One-pagers):</strong> Jerarquía de datos para uso ejecutivo y cabildo.</li>
+                <li><strong>Infografía de Alto Impacto:</strong> Visualización de avance de obra pública y beneficios sociales.</li>
+                <li><strong>Videos Explicativos y Recorridos:</strong> Herramientas para redes sociales gubernamentales y asambleas.</li>
+            </ul>
+        `
     },
-    visualization: {
-      en: {
-        title: "Data Visualization & Reporting",
-        description:
-          "I transform complex data into impactful 2D/3D visualizations, interactive dashboards, and compelling reports that facilitate stakeholder understanding and support investment proposals.",
-      },
-      es: {
-        title: "Visualización de Datos y Reportería",
-        description:
-          "Transformo datos complejos en visualizaciones 2D/3D impactantes, dashboards interactivos y reportes que facilitan la comunicación a stakeholders y apoyan propuestas de inversión.",
-      },
+    // 5. INSTALACIONES (Resiliencia)
+    instalaciones: {
+        tag: "Protección Civil",
+        title: "Mitigación y Vulnerabilidad",
+        image: "instalaciones.jpg",
+        content: `
+            <p>Gobernar es prevenir. Proporcionamos a los institutos de Protección Civil las herramientas técnicas para pasar de la reacción a la prevención de desastres.</p>
+            <ul>
+                <li><strong>Atlas de Riesgo Municipales/Estatales:</strong> Modelación paramétrica completa o parcial.</li>
+                <li><strong>Detección de Riesgo Estructural:</strong> Modelos para mitigar colapsos en edificaciones por antigüedad o tipo de suelo.</li>
+                <li><strong>Modelación Hidrológica e Hídrica:</strong> Mapas territoriales de vulnerabilidad a inundaciones y sequías (estrés hídrico).</li>
+            </ul>
+        `
     },
-  };
+    // 6. MOVILIDAD (Conectividad)
+    movilidad: {
+        tag: "Ordenamiento Urbano",
+        title: "Conectividad y Movilidad Integral",
+        image: "movilidad.jpg",
+        content: `
+            <p>Resolvemos los cuellos de botella de su municipio. Aplicamos principios de diseño paramétrico, Calles Completas y Visión Cero para garantizar el tránsito eficiente.</p>
+            <ul>
+                <li><strong>Estudios de Aforo y Demanda:</strong> Modelos para el reordenamiento vehicular y de transporte público.</li>
+                <li><strong>Diseño de Corredores de Movilidad Activa:</strong> Ciclovías y andadores seguros para la cohesión comunitaria.</li>
+                <li><strong>Estrategias de Flujo y Señalética:</strong> Reducción técnica de tiempos de traslado municipal.</li>
+            </ul>
+        `
+    },
 
-  // --- Lógica del Modal de Proyectos ---
-  const projectItems = document.querySelectorAll(".project-item");
-  const projectModalOverlay = document.getElementById("project-modal-overlay");
-  const modalImage = document.getElementById("modal-image");
-  const modalTitle = document.getElementById("modal-title");
-  const modalDescriptionProject = document.getElementById(
-    "modal-description-project",
-  );
-  const projectCloseButton = document.getElementById("project-close-button");
+    // PERFILES EQUIPO (USAMOS 'curvas.jpg' para el listón técnico)
+    victor: {
+        tag: "Coordinación",
+        title: "Víctor Luna",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>Especialista en Sistemas de Información Geográfica (SIG) y gestión territorial estratégica para la administración pública.</p><p><strong>Teléfono:</strong> 55 1702 8519</p>"
+    },
+    karen: {
+        tag: "Consultoría Técnica",
+        title: "Karen Josseline",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>Experta en análisis normativo, políticas públicas urbanas y viabilidad legal de proyectos gubernamentales.</p><p><strong>Teléfono:</strong> 55 1471 4640</p>"
+    },
+    brandon: {
+        tag: "Estrategia Urbana",
+        title: "Brándon Yáñez",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>Coordinador de proyectos de resiliencia territorial, prospección de escenarios y participación ciudadana.</p><p><strong>Teléfono:</strong> 55 3972 7186</p>"
+    },
+    // Cristian Mendoza: Cargo e imagen actualizados
+    cristian: {
+        tag: "Diseño e Innovación",
+        title: "Cristian Mendoza",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>Diseñador Industrial encargado del desarrollo de mobiliario urbano, ergonomía del espacio público y modelado 3D de envolventes funcionales.</p><p><strong>Teléfono:</strong> 56 1184 7429</p>"
+    },
 
-  // Función reutilizable para abrir el modal de proyecto
-  const openProjectModal = (item) => {
-    const currentLang = document
-      .querySelector(".language-toggle .active")
-      .id.split("-")[1];
-    modalTitle.textContent = item
-      .querySelector("h3")
-      .getAttribute(`data-${currentLang}`);
-    modalDescriptionProject.textContent = item
-      .querySelector("p")
-      .getAttribute(`data-${currentLang}`);
-    modalImage.src = item.getAttribute("data-image");
-    projectModalOverlay.style.display = "flex";
-  };
-
-  projectItems.forEach((item) => {
-    // Event listener en el contenedor de información (título y descripción)
-    item
-      .querySelector(".project-info")
-      .addEventListener("click", () => openProjectModal(item));
-    // Event listener en la miniatura
-    item
-      .querySelector(".project-thumbnail")
-      .addEventListener("click", () => openProjectModal(item));
-  });
-
-  const closeProjectModal = () => (projectModalOverlay.style.display = "none");
-  projectCloseButton.addEventListener("click", closeProjectModal);
-  projectModalOverlay.addEventListener("click", (e) => {
-    if (e.target === projectModalOverlay) closeProjectModal();
-  });
-
-  // --- Lógica del Modal de Servicios ---
-  const servicesButton = document.getElementById("services-button");
-  const servicesModalOverlay = document.getElementById(
-    "services-modal-overlay",
-  );
-  const servicesCloseButton = document.getElementById("services-close-button");
-  const servicesListContainer = document.getElementById(
-    "services-list-container",
-  );
-  const serviceDetailContainer = document.getElementById(
-    "service-detail-container",
-  );
-  const backToServicesButton = document.getElementById("back-to-services");
-  const serviceDetailTitle = document.getElementById("service-detail-title");
-  const serviceDetailDescription = document.getElementById(
-    "service-detail-description",
-  );
-  const serviceGalleryThumbnails = document.getElementById(
-    "service-gallery-thumbnails",
-  );
-
-  servicesButton.addEventListener("click", () => {
-    servicesListContainer.style.display = "block";
-    serviceDetailContainer.style.display = "none";
-    servicesModalOverlay.style.display = "flex";
-  });
-
-  const closeServicesModal = () =>
-    (servicesModalOverlay.style.display = "none");
-
-  const openServiceDetail = (serviceKey) => {
-    const currentLang = document
-      .querySelector(".language-toggle .active")
-      .id.split("-")[1];
-    const service = servicesData[serviceKey][currentLang];
-
-    serviceDetailTitle.textContent = service.title;
-    serviceDetailDescription.textContent = service.description;
-    serviceGalleryThumbnails.innerHTML = ""; // Limpiar galería
-
-    const matchingProjects = document.querySelectorAll(
-      `.project-item .project-hashtags span[data-service='${serviceKey}']`,
-    );
-
-    matchingProjects.forEach((tag) => {
-      const projectItem = tag.closest(".project-item");
-      const thumb = document.createElement("img");
-      thumb.src = projectItem.dataset.image;
-      thumb.alt = projectItem
-        .querySelector("h3")
-        .getAttribute(`data-${currentLang}`);
-
-      // AÑADIDO: Event listener en la miniatura del servicio
-      thumb.addEventListener("click", () => {
-        closeServicesModal();
-        // Esperar un instante para que la transición entre modales no sea brusca
-        setTimeout(() => {
-          openProjectModal(projectItem);
-        }, 150);
-      });
-
-      serviceGalleryThumbnails.appendChild(thumb);
-    });
-
-    servicesListContainer.style.display = "none";
-    serviceDetailContainer.style.display = "block";
-    servicesModalOverlay.style.display = "flex";
-  };
-
-  document
-    .querySelectorAll(".services-list li, .project-hashtags span")
-    .forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const serviceKey = item.dataset.service;
-        openServiceDetail(serviceKey);
-      });
-    });
-
-  backToServicesButton.addEventListener("click", () => {
-    servicesListContainer.style.display = "block";
-    serviceDetailContainer.style.display = "none";
-  });
-
-  servicesCloseButton.addEventListener("click", closeServicesModal);
-  servicesModalOverlay.addEventListener("click", (e) => {
-    if (e.target === servicesModalOverlay) closeServicesModal();
-  });
-
-  // --- Lógica de Idioma y Tema (SIN CAMBIOS) ---
-  const langENToggle = document.getElementById("lang-en");
-  const langESToggle = document.getElementById("lang-es");
-  const translatableElements = document.querySelectorAll("[data-es]");
-
-  const setLanguage = (lang) => {
-    translatableElements.forEach((el) => {
-      const text = el.getAttribute(`data-${lang}`);
-      if (text) el.innerHTML = text;
-    });
-
-    if (lang === "es") {
-      langESToggle.classList.add("active");
-      langENToggle.classList.remove("active");
-    } else {
-      langENToggle.classList.add("active");
-      langESToggle.classList.remove("active");
+    // LEGAL (USAMOS 'curvas.jpg' para el listón corporativo)
+    privacidad: {
+        tag: "Cumplimiento Institucional",
+        title: "Aviso de Privacidad",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>En [ARQ|COL] garantizamos absoluta confidencialidad en el manejo de cartografía municipal, bases de datos gubernamentales y estadística proporcionada por nuestros clientes, en estricto apego a las leyes de transparencia y protección de datos.</p>"
+    },
+    terminos: {
+        tag: "Condiciones de Servicio",
+        title: "Condiciones de Contratación",
+        image: "curvas.jpg", // Listón técnico
+        content: "<p>Nuestros servicios de asesoría técnica y diseño se rigen por los alcances técnicos definidos en cada adjudicación oficial o contrato individual. Los tiempos de entrega y características de los modelos se estipulan para cada licitación.</p>"
     }
-    localStorage.setItem("language", lang);
-  };
+};
 
-  langENToggle.addEventListener("click", () => setLanguage("en"));
-  langESToggle.addEventListener("click", () => setLanguage("es"));
+const overlay = document.getElementById('modalOverlay');
+const mTag = document.getElementById('modalTag');
+const mTitle = document.getElementById('modalTitle');
+const mBody = document.getElementById('modalBody');
+const mImg = document.getElementById('modalHeaderImg');
+const closeBtn = document.getElementById('closeModal');
 
-  const themeToggleButton = document.getElementById("theme-toggle");
-  const body = document.body;
-  const applyTheme = (theme) => {
-    if (theme === "dark") {
-      body.classList.add("dark-mode");
-    } else {
-      body.classList.remove("dark-mode");
+// Función que abre el modal y llena los datos
+function openModal(key) {
+    const data = modalData[key];
+
+    // Verificación de seguridad por si no existe la key
+    if (!data) return;
+
+    mTag.innerText = data.tag;
+    mTitle.innerText = data.title;
+    mBody.innerHTML = data.content; // Renderiza listas y negritas
+
+    // El listón siempre usa la imagen asociada para enriquecer la narrativa
+    mImg.src = data.image;
+
+    // Muestra el modal con animación (ver CSS .modal-overlay.active .modal-card)
+    overlay.style.display = 'flex';
+    // Espera un milisegundo para activar la transición de opacidad (ver CSS)
+    setTimeout(() => overlay.classList.add('active'), 1);
+
+    // Detiene el scroll del fondo (body) mientras el modal está abierto
+    document.body.style.overflow = 'hidden';
+}
+
+// Función que cierra el modal con suavidad
+function closeModal() {
+    overlay.classList.remove('active');
+
+    // Espera a que termine la animación de opacidad antes de ocultar (400ms en CSS)
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Devuelve el scroll
+    }, 400);
+}
+
+// Asignación de eventos
+closeBtn.onclick = closeModal;
+
+// Cierra al hacer clic en el fondo oscuro
+window.onclick = (e) => {
+    if (e.target == overlay) {
+        closeModal();
     }
-  };
+}
 
-  themeToggleButton.addEventListener("click", () => {
-    const currentTheme = body.classList.contains("dark-mode")
-      ? "light"
-      : "dark";
-    localStorage.setItem("theme", currentTheme);
-    applyTheme(currentTheme);
-  });
-
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (savedTheme) {
-    applyTheme(savedTheme);
-  } else if (prefersDark) {
-    applyTheme("dark");
-  }
-
-  const savedLang = localStorage.getItem("language") || "es";
-  setLanguage(savedLang);
+// Cierra al presionar la tecla 'Escape'
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeModal();
+    }
 });
