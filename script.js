@@ -1,11 +1,9 @@
 // DICCIONARIO DE CONTENIDOS PARA GOBIERNO [B2G]
-// 'image' define la foto que se fusionará con el listón superior del modal.
 const modalData = {
-    // 1. TLAXCO (Territorio)
     tlaxco: {
         tag: "Planificación Normativa",
         title: "Diagnóstico Territorial Regional",
-        image: "tlaxco.jpg",
+        image: "images/tlaxco.png",
         content: `
             <p>Nuestra metodología de diagnóstico permite a los ayuntamientos y dependencias estatales justificar la asignación de recursos federales y estatales mediante evidencia técnica irrefutable.</p>
             <ul>
@@ -15,11 +13,10 @@ const modalData = {
             </ul>
         `
     },
-    // 2. MAPAS (Inteligencia)
     mapas: {
         tag: "Geointeligencia",
         title: "Inversión Pública Eficiente",
-        image: "mapas.jpg",
+        image: "images/mapas.png",
         content: `
             <p>Aseguramos que cada peso invertido en infraestructura tenga el mayor retorno social. A través del análisis de algoritmos espaciales y Diagramas de Voronoi, determinamos:</p>
             <ul>
@@ -29,11 +26,10 @@ const modalData = {
             </ul>
         `
     },
-    // 3. RENDER (Obra Pública)
     render: {
         tag: "Proyección Arquitectónica",
         title: "El Legado en el Espacio Público",
-        image: "render.jpg",
+        image: "images/render.png",
         content: `
             <p>El espacio público es el rostro de la administración. Diseñamos con un enfoque de durabilidad, bajo mantenimiento, alta apropiación ciudadana y estética corporativa.</p>
             <ul>
@@ -43,11 +39,10 @@ const modalData = {
             </ul>
         `
     },
-    // 4. DIAGRAMA (Transparencia)
     diagrama: {
         tag: "Comunicación Política",
         title: "Rendición de Cuentas Visual",
-        image: "diagrama.jpg",
+        image: "images/diagrama.png",
         content: `
             <p>Facilitamos el diálogo entre el gobierno y la ciudadanía. Traducimos la complejidad de los expedientes técnicos en herramientas visuales comprensibles para la difusión institucional.</p>
             <ul>
@@ -57,11 +52,10 @@ const modalData = {
             </ul>
         `
     },
-    // 5. INSTALACIONES (Resiliencia)
     instalaciones: {
         tag: "Protección Civil",
         title: "Mitigación y Vulnerabilidad",
-        image: "instalaciones.jpg",
+        image: "images/instalaciones.png",
         content: `
             <p>Gobernar es prevenir. Proporcionamos a los institutos de Protección Civil las herramientas técnicas para pasar de la reacción a la prevención de desastres.</p>
             <ul>
@@ -71,11 +65,10 @@ const modalData = {
             </ul>
         `
     },
-    // 6. MOVILIDAD (Conectividad)
     movilidad: {
         tag: "Ordenamiento Urbano",
         title: "Conectividad y Movilidad Integral",
-        image: "movilidad.jpg",
+        image: "images/movilidad.png",
         content: `
             <p>Resolvemos los cuellos de botella de su municipio. Aplicamos principios de diseño paramétrico, Calles Completas y Visión Cero para garantizar el tránsito eficiente.</p>
             <ul>
@@ -85,45 +78,40 @@ const modalData = {
             </ul>
         `
     },
-
-    // PERFILES EQUIPO (USAMOS 'curvas.jpg' para el listón técnico)
     victor: {
         tag: "Coordinación",
         title: "Víctor Luna",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>Especialista en Sistemas de Información Geográfica (SIG) y gestión territorial estratégica para la administración pública.</p><p><strong>Teléfono:</strong> 55 1702 8519</p>"
     },
     karen: {
         tag: "Consultoría Técnica",
         title: "Karen Josseline",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>Experta en análisis normativo, políticas públicas urbanas y viabilidad legal de proyectos gubernamentales.</p><p><strong>Teléfono:</strong> 55 1471 4640</p>"
     },
     brandon: {
         tag: "Estrategia Urbana",
         title: "Brándon Yáñez",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>Coordinador de proyectos de resiliencia territorial, prospección de escenarios y participación ciudadana.</p><p><strong>Teléfono:</strong> 55 3972 7186</p>"
     },
-    // Cristian Mendoza: Cargo e imagen actualizados
     cristian: {
         tag: "Diseño e Innovación",
         title: "Cristian Mendoza",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>Diseñador Industrial encargado del desarrollo de mobiliario urbano, ergonomía del espacio público y modelado 3D de envolventes funcionales.</p><p><strong>Teléfono:</strong> 56 1184 7429</p>"
     },
-
-    // LEGAL (USAMOS 'curvas.jpg' para el listón corporativo)
     privacidad: {
         tag: "Cumplimiento Institucional",
         title: "Aviso de Privacidad",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>En [ARQ|COL] garantizamos absoluta confidencialidad en el manejo de cartografía municipal, bases de datos gubernamentales y estadística proporcionada por nuestros clientes, en estricto apego a las leyes de transparencia y protección de datos.</p>"
     },
     terminos: {
         tag: "Condiciones de Servicio",
         title: "Condiciones de Contratación",
-        image: "curvas.jpg", // Listón técnico
+        image: "images/curvas.jpg",
         content: "<p>Nuestros servicios de asesoría técnica y diseño se rigen por los alcances técnicos definidos en cada adjudicación oficial o contrato individual. Los tiempos de entrega y características de los modelos se estipulan para cada licitación.</p>"
     }
 };
@@ -135,53 +123,28 @@ const mBody = document.getElementById('modalBody');
 const mImg = document.getElementById('modalHeaderImg');
 const closeBtn = document.getElementById('closeModal');
 
-// Función que abre el modal y llena los datos
 function openModal(key) {
     const data = modalData[key];
-
-    // Verificación de seguridad por si no existe la key
     if (!data) return;
 
     mTag.innerText = data.tag;
     mTitle.innerText = data.title;
-    mBody.innerHTML = data.content; // Renderiza listas y negritas
-
-    // El listón siempre usa la imagen asociada para enriquecer la narrativa
+    mBody.innerHTML = data.content;
     mImg.src = data.image;
 
-    // Muestra el modal con animación (ver CSS .modal-overlay.active .modal-card)
     overlay.style.display = 'flex';
-    // Espera un milisegundo para activar la transición de opacidad (ver CSS)
     setTimeout(() => overlay.classList.add('active'), 1);
-
-    // Detiene el scroll del fondo (body) mientras el modal está abierto
     document.body.style.overflow = 'hidden';
 }
 
-// Función que cierra el modal con suavidad
 function closeModal() {
     overlay.classList.remove('active');
-
-    // Espera a que termine la animación de opacidad antes de ocultar (400ms en CSS)
     setTimeout(() => {
         overlay.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Devuelve el scroll
+        document.body.style.overflow = 'auto';
     }, 400);
 }
 
-// Asignación de eventos
 closeBtn.onclick = closeModal;
-
-// Cierra al hacer clic en el fondo oscuro
-window.onclick = (e) => {
-    if (e.target == overlay) {
-        closeModal();
-    }
-}
-
-// Cierra al presionar la tecla 'Escape'
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        closeModal();
-    }
-});
+window.onclick = (e) => { if (e.target == overlay) closeModal(); }
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
