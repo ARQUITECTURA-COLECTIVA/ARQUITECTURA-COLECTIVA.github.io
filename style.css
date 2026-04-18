@@ -1,6 +1,6 @@
 /* === ESTILO EDITORIAL / RESTIRADOR (SIN CAJAS) === */
 :root {
-    --bg: #ffffff; /* Blanco puro para que las imágenes se fundan */
+    --bg: #ffffff;
     --text: #1a1a1a;
     --text-muted: #555555;
     --nav-h: 80px;
@@ -58,36 +58,36 @@ nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 65vw; /* Ocupan más de la mitad de la pantalla */
+    width: 65vw;
     height: 90vh;
-    z-index: 1; /* Al fondo */
+    z-index: 1;
 }
 
 .dance-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Respeta los bordes difuminados que hiciste */
-    mix-blend-mode: multiply; /* ESTO ES CLAVE: Funde lo blanco de tu JPG con el fondo */
-    opacity: 0.85; /* Ligera transparencia para que no pelee con el texto */
+    object-fit: contain;
+    mix-blend-mode: multiply; /* FUNDE LOS BORDES CON EL FONDO BLANCO */
+    opacity: 0.85;
 }
 
 /* Alineaciones del Zigzag para imágenes */
 .img-left { left: -5vw; }
 .img-right { right: -5vw; }
 .img-center { left: 50%; transform: translate(-50%, -50%); width: 80vw; }
-.opacity-high img { opacity: 0.3; } /* El hero va más tenue para que se lea el título */
+.opacity-high img { opacity: 0.3; }
 
 /* El texto flotante encimado */
 .dance-text {
     position: relative;
-    z-index: 2; /* Siempre por encima de la imagen */
-    width: 45vw; /* Controlamos el ancho para que no cruce toda la pantalla */
+    z-index: 2;
+    width: 45vw;
     padding: 0 5vw;
 }
 
 /* Alineaciones del Zigzag para textos */
-.text-right { margin-left: auto; } /* Se pega a la derecha, encima del difuminado de la imagen izquierda */
-.text-left { margin-right: auto; } /* Se pega a la izquierda, encima del difuminado de la imagen derecha */
+.text-right { margin-left: auto; }
+.text-left { margin-right: auto; }
 .text-center { margin: 0 auto; text-align: center; width: 60vw; }
 
 /* TIPOGRAFÍA BRUTAL Y LIMPIA */
@@ -100,7 +100,7 @@ nav {
 h1 { font-size: 5.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px; }
 h2 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 25px; }
 p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; font-weight: 400; max-width: 500px; }
-.text-center p { margin-left: auto; margin-right: auto; } /* Centrar p en Hero */
+.text-center p { margin-left: auto; margin-right: auto; }
 
 /* CONTACTO */
 .contact-section { text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 80vh; padding: 0 5%; }
@@ -114,11 +114,16 @@ p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; font-weigh
 .modal-overlay {
     position: fixed; inset: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
     display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+    opacity: 0; transition: opacity 0.3s ease;
 }
+.modal-overlay.active { opacity: 1; }
 .modal-card {
     background: #fff; width: 100%; max-width: 900px; border-radius: 20px; overflow: hidden;
     position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.1); display: flex; flex-direction: column; max-height: 90vh;
+    transform: translateY(20px); transition: transform 0.3s ease;
 }
+.modal-overlay.active .modal-card { transform: translateY(0); }
+
 .modal-banner-ribbon { height: 200px; width: 100%; position: relative; background: #fafafa; }
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; mix-blend-mode: multiply; }
 .ribbon-brand { position: absolute; top: 20px; left: 30px; font-size: 4rem; font-weight: 900; color: rgba(0,0,0,0.03); z-index: 5; }
