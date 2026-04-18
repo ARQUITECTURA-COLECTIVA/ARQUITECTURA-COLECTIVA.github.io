@@ -3,7 +3,7 @@ const modalData = {
     tlaxco: {
         tag: "Planificación Normativa",
         title: "Diagnóstico Territorial Regional",
-        image: "images/tlaxco.png",
+        image: "images/tlaxco.PNG",
         content: `
             <p>Nuestra metodología de diagnóstico permite a los ayuntamientos y dependencias estatales justificar la asignación de recursos federales y estatales mediante evidencia técnica irrefutable.</p>
             <ul>
@@ -16,7 +16,7 @@ const modalData = {
     mapas: {
         tag: "Geointeligencia",
         title: "Inversión Pública Eficiente",
-        image: "images/mapas.png",
+        image: "images/mapas.PNG",
         content: `
             <p>Aseguramos que cada peso invertido en infraestructura tenga el mayor retorno social. A través del análisis de algoritmos espaciales y Diagramas de Voronoi, determinamos:</p>
             <ul>
@@ -29,7 +29,7 @@ const modalData = {
     render: {
         tag: "Proyección Arquitectónica",
         title: "El Legado en el Espacio Público",
-        image: "images/render.png",
+        image: "images/render.PNG",
         content: `
             <p>El espacio público es el rostro de la administración. Diseñamos con un enfoque de durabilidad, bajo mantenimiento, alta apropiación ciudadana y estética corporativa.</p>
             <ul>
@@ -42,7 +42,7 @@ const modalData = {
     diagrama: {
         tag: "Comunicación Política",
         title: "Rendición de Cuentas Visual",
-        image: "images/diagrama.png",
+        image: "images/diagrama.PNG",
         content: `
             <p>Facilitamos el diálogo entre el gobierno y la ciudadanía. Traducimos la complejidad de los expedientes técnicos en herramientas visuales comprensibles para la difusión institucional.</p>
             <ul>
@@ -55,7 +55,7 @@ const modalData = {
     instalaciones: {
         tag: "Protección Civil",
         title: "Mitigación y Vulnerabilidad",
-        image: "images/instalaciones.png",
+        image: "images/instalaciones.PNG",
         content: `
             <p>Gobernar es prevenir. Proporcionamos a los institutos de Protección Civil las herramientas técnicas para pasar de la reacción a la prevención de desastres.</p>
             <ul>
@@ -68,7 +68,7 @@ const modalData = {
     movilidad: {
         tag: "Ordenamiento Urbano",
         title: "Conectividad y Movilidad Integral",
-        image: "images/movilidad.png",
+        image: "images/movilidad.PNG",
         content: `
             <p>Resolvemos los cuellos de botella de su municipio. Aplicamos principios de diseño paramétrico, Calles Completas y Visión Cero para garantizar el tránsito eficiente.</p>
             <ul>
