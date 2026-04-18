@@ -8,11 +8,17 @@
 </head>
 <body>
 
+    <nav class="top-nav">
+        <a href="#hero" class="nav-brand-text">[ARQ|COL]</a>
+        <button class="nav-btn" onclick="location.href='#contacto'">Contacto</button>
+    </nav>
+
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <button class="close-modal" id="closeModal">×</button>
             <div class="modal-banner-ribbon">
-                <img id="modalHeaderImg" src="" alt="Soporte visual">
+                <div class="ribbon-brand">[ARQ|COL]</div>
+                <img id="modalHeaderImg" src="" alt="Banner">
             </div>
             <div class="modal-body-container">
                 <span class="modal-tag" id="modalTag">Categoría</span>
@@ -22,40 +28,35 @@
         </div>
     </div>
 
-    <header class="main-header">
-        <img src="images/logo.png" alt="Logo ARQ COL" class="logo-top">
+    <header id="hero" class="hero-section">
+        <div class="main-brand-text">[ARQ|COL]</div>
+        <span class="hero-tag">Gobernanza basada en evidencia</span>
+        <h1>Arquitectura Colectiva</h1>
+        <p>Traducimos la complejidad del territorio en certidumbre estratégica para la inversión pública.</p>
     </header>
 
     <main>
-        <section class="hero-text-block">
-            <span class="tag">Gobernanza basada en evidencia</span>
-            <h1>Arquitectura Colectiva</h1>
-            <p>Traducimos la complejidad del territorio en certidumbre estratégica para la inversión pública.</p>
-        </section>
-
-        <hr class="divider">
-
         <section class="zigzag-row">
             <div class="text-col">
                 <span class="tag">01 — TERRITORIO</span>
                 <h2>Diagnóstico Regional Estratégico</h2>
                 <p>Las decisiones políticas requieren fundamentos técnicos. Analizamos dinámicas sociodemográficas y espaciales para estructurar Planes de Desarrollo con precisión milimétrica.</p>
-                <button class="btn-clean" onclick="openModal('tlaxco')">Ver alcance técnico <span>→</span></button>
+                <button class="action-link" onclick="openModal('tlaxco')">Ver alcance técnico →</button>
             </div>
             <div class="img-col">
-                <img src="images/tlaxco.PNG" alt="Diagnóstico">
+                <img src="images/tlaxco.PNG" alt="Diagnóstico Territorial">
             </div>
         </section>
 
         <section class="zigzag-row reverse">
             <div class="img-col">
-                <img src="images/mapas.PNG" alt="Inteligencia">
+                <img src="images/mapas.PNG" alt="Inteligencia Geoespacial">
             </div>
             <div class="text-col">
                 <span class="tag">02 — INTELIGENCIA</span>
                 <h2>Inversión Pública Eficiente</h2>
                 <p>Eliminamos la inversión a ciegas. Identificamos zonas de alta rentabilidad social para ubicar equipamiento y reactivar el espacio público.</p>
-                <button class="btn-clean" onclick="openModal('mapas')">Sistemas Geoespaciales <span>→</span></button>
+                <button class="action-link" onclick="openModal('mapas')">Sistemas Geoespaciales →</button>
             </div>
         </section>
 
@@ -64,7 +65,7 @@
                 <span class="tag">03 — VISIÓN</span>
                 <h2>Obra Pública de Impacto</h2>
                 <p>Materializamos los datos en proyectos habitables. Diseñamos espacios que fomentan la cohesión comunitaria y el legado institucional.</p>
-                <button class="btn-clean" onclick="openModal('render')">Prospección Urbana <span>→</span></button>
+                <button class="action-link" onclick="openModal('render')">Prospección Urbana →</button>
             </div>
             <div class="img-col">
                 <img src="images/render.PNG" alt="Obra Pública">
@@ -79,7 +80,7 @@
                 <span class="tag">04 — TRANSPARENCIA</span>
                 <h2>Comunicación Ciudadana</h2>
                 <p>Un gobierno que comunica bien, genera confianza. Transformamos expedientes técnicos complejos en herramientas visuales para rendición de cuentas.</p>
-                <button class="btn-clean" onclick="openModal('diagrama')">Entregables Ejecutivos <span>→</span></button>
+                <button class="action-link" onclick="openModal('diagrama')">Entregables Ejecutivos →</button>
             </div>
         </section>
 
@@ -88,7 +89,7 @@
                 <span class="tag">05 — RESILIENCIA</span>
                 <h2>Gestión y Mitigación de Riesgos</h2>
                 <p>Gobernar es prevenir. Modelamos vulnerabilidades hidrológicas y estructurales para salvaguardar la infraestructura y la seguridad ciudadana.</p>
-                <button class="btn-clean" onclick="openModal('instalaciones')">Modelación de Riesgos <span>→</span></button>
+                <button class="action-link" onclick="openModal('instalaciones')">Modelación de Riesgos →</button>
             </div>
             <div class="img-col">
                 <img src="images/instalaciones.PNG" alt="Resiliencia">
@@ -97,32 +98,31 @@
 
         <section class="zigzag-row reverse">
             <div class="img-col">
-                <img src="images/movilidad.PNG" alt="Movilidad">
+                <img src="images/movilidad.PNG" alt="Movilidad Urbana">
             </div>
             <div class="text-col">
                 <span class="tag">06 — CONECTIVIDAD</span>
                 <h2>Movilidad Urbana Integral</h2>
                 <p>Ciudades que se mueven, progresan. Diseñamos estrategias de flujo integral para reducir tiempos de traslado municipal y mejorar seguridad vial.</p>
-                <button class="btn-clean" onclick="openModal('movilidad')">Estrategias de Flujo <span>→</span></button>
+                <button class="action-link" onclick="openModal('movilidad')">Estrategias de Flujo →</button>
             </div>
         </section>
     </main>
 
-    <hr class="divider">
-
-    <section class="contacto-boceto">
+    <section id="contacto" class="contact-section">
         <h2>Datos profesionales para gobiernos profesionales.</h2>
         <a href="mailto:arq.colectiv@gmail.com" class="email-link">arq.colectiv@gmail.com</a>
 
-        <div class="equipo-links">
-            <button class="btn-clean" onclick="openModal('victor')">Víctor Luna</button>
-            <button class="btn-clean" onclick="openModal('karen')">Karen Josseline</button>
-            <button class="btn-clean" onclick="openModal('brandon')">Brándon Yáñez</button>
-            <button class="btn-clean" onclick="openModal('cristian')">Cristian Mendoza</button>
+        <div class="team-links">
+            <button class="team-btn" onclick="openModal('victor')">Víctor Luna</button>
+            <button class="team-btn" onclick="openModal('karen')">Karen Josseline</button>
+            <button class="team-btn" onclick="openModal('brandon')">Brándon Yáñez</button>
+            <button class="team-btn" onclick="openModal('cristian')">Cristian Mendoza</button>
         </div>
     </section>
 
     <footer>
+        <div class="footer-brand">[ARQ|COL]</div>
         <p>Arquitectura Colectiva · Inteligencia Territorial para Gobiernos</p>
         <div class="legal-links">
             <button onclick="openModal('privacidad')">Aviso de Privacidad</button>
