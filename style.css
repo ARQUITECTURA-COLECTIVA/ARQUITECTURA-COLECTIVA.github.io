@@ -115,7 +115,7 @@ p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; font-weigh
 
 /* HERO ESPECIAL */
 .hero-section { text-align: center; flex-direction: column; justify-content: center; min-height: 90vh; }
-.main-logo { width: 140px; margin-bottom: 30px; }
+.main-logo { width: 85px; margin-bottom: 20px; }
 .hero-text { max-width: 800px; margin: 0 auto; }
 .hero-text h1 { margin-bottom: 10px; }
 .hero-text p { font-size: 1.5rem; color: var(--text); margin-bottom: 40px; line-height: 1.4; font-weight: 400; }
