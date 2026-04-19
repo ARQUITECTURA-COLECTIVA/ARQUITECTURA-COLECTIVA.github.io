@@ -1,10 +1,8 @@
 const modalData = {
-    // MODAL DE CONTACTO LIMPIO
     contactoGeneral: {
-        tag: "Directorio", title: "", // Sin título inútil
+        tag: "", title: "",
         content: `
             <a href="mailto:arq.colectiv@gmail.com" class="contact-big-email">arq.colectiv@gmail.com</a>
-
             <div class="contact-grid-modal">
                 <div class="contact-person">
                     <strong>Víctor Luna</strong>
@@ -53,8 +51,8 @@ const modalData = {
         tag: "Ordenamiento Urbano", title: "Conectividad Urbana Integral", image: "images/movilidad.PNG",
         content: "<ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li><li><strong><span class="brk">[</span>Estrategias<span class="brk">]</span></strong> Reducción de tiempos de traslado.</li></ul>"
     },
-    privacidad: { tag: "Cumplimiento", title: "Aviso de Privacidad", content: "<p>Garantizamos confidencialidad absoluta en el manejo de cartografía gubernamental.</p>" },
-    terminos: { tag: "Contratación", title: "Términos Legales", content: "<p>Nuestros servicios se adaptan a la Ley de Obra Pública oficial.</p>" }
+    privacidad: { tag: "Legal", title: "Aviso de Privacidad", content: "<p>Garantizamos confidencialidad absoluta en el manejo de cartografía gubernamental.</p>" },
+    terminos: { tag: "Legal", title: "Términos Legales", content: "<p>Nuestros servicios se adaptan a la Ley de Obra Pública oficial.</p>" }
 };
 
 const overlay = document.getElementById('modalOverlay');
@@ -69,7 +67,6 @@ function openModal(key) {
     const data = modalData[key];
     if (!data) return;
 
-    // Si es contacto General, oculta el banner y pone fondo tenue
     if(key === 'contactoGeneral') {
         mBanner.style.display = 'none';
         modalCard.classList.add('bg-curvas');
@@ -87,7 +84,6 @@ function openModal(key) {
     }
 
     mContent.innerHTML = data.content;
-
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
