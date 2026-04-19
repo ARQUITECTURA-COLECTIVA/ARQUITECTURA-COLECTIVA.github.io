@@ -1,9 +1,9 @@
-/* === ESTILO ZIGZAG PURO - 100% FIEL AL DIAGRAMA === */
+/* === ESTILO [ARQ|COL] IDENTIDAD BRUTALISTA === */
 :root {
-    --bg: #ffffff; /* Blanco puro para que las imágenes se fundan perfecto */
+    --bg: #fafafa;
     --text: #1a1a1a;
-    --text-muted: #666666;
-    --accent: #990000; /* Rojo arquitectónico sutil */
+    --text-muted: #555555;
+    --accent: #b32a2a; /* Color de acento consistente */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,112 +15,165 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Evita scroll horizontal por imágenes empotradas */
 }
 
-/* LA MARCA EN TEXTO [ARQ|COL] */
-.main-brand-text {
-    font-size: 3.5rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: var(--text);
-    margin-bottom: 40px;
-}
-.nav-brand-text { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--text); text-decoration: none; }
-.footer-brand { font-weight: 900; font-size: 2rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); margin-bottom: 20px; }
-.ribbon-brand { position: absolute; top: 20px; left: 30px; font-size: 3rem; font-weight: 900; letter-spacing: 0.1em; color: rgba(0,0,0,0.05); z-index: 5; }
+/* LA MARCA Y ORGANIZADORES TIPOGRÁFICOS */
+.accent { color: var(--accent); font-weight: 800; }
+.nav-brand-text { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.1em; color: var(--text); text-decoration: none; }
+.footer-brand { font-weight: 900; font-size: 2rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 20px; }
 
-/* NAV */
+/* NAV TRANSPARENTE */
 .top-nav {
     position: fixed; top: 0; width: 100%; height: 80px;
-    background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+    background: transparent; /* Transparente como pediste */
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0 5%; z-index: 1000;
 }
-.nav-btn { background: none; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; color: var(--text-muted); transition: color 0.3s; }
-.nav-btn:hover { color: var(--text); }
 
-/* HERO */
+/* BOTÓN DE CONTACTO EVIDENTE */
+.nav-btn-solid {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.nav-btn-solid:hover { background-color: #8a1f1f; transform: scale(1.05); }
+
+/* HERO (Menos espacio arriba) */
 .hero-section {
     text-align: center;
-    padding: 150px 5% 80px 5%;
+    padding: 120px 5% 40px 5%; /* Reducido el espacio superior */
     max-width: 900px;
     margin: 0 auto;
 }
-.hero-tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 20px; }
-.hero-section h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+.hero-tag { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
+.hero-section h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; }
 .hero-section p { font-size: 1.4rem; color: var(--text-muted); }
 
-/* === EL LAYOUT ZIGZAG 50/50 === */
+/* === EL LAYOUT ZIGZAG (Menos espacio entre secciones) === */
+.flush-container {
+    width: 100%;
+    max-width: 100%; /* Permite empotrar imágenes a los lados */
+    overflow: hidden;
+}
+
 .zigzag-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 5%;
-    gap: 5%;
+    padding: 40px 0; /* Menos espacio vertical */
 }
 .zigzag-row.reverse { flex-direction: row-reverse; }
 
-.text-col { flex: 1; padding: 20px; }
-.img-col { flex: 1.2; display: flex; justify-content: center; align-items: center; }
+.text-col { flex: 1; padding: 0 8vw; max-width: 800px; }
+.img-col { flex: 1; display: flex; align-items: center; }
 
-/* EL EFECTO FUSIÓN DE IMAGEN (Sin cajas, se dibuja en el fondo) */
+/* Tlaxco más grande y sin márgenes */
+.img-hero-size { justify-content: center; width: 100%; padding: 0; margin-top: -20px; }
+.img-hero-size img { max-width: 90%; transform: scale(1.1); }
+
+/* EFECTO FUSIÓN (Multiply) */
 .img-col img {
     width: 100%;
-    max-width: 650px;
     height: auto;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Esto desaparece el fondo blanco de tus JPG/PNG */
-    /* Cero bordes, cero sombras */
+    mix-blend-mode: multiply;
 }
 
+/* IMÁGENES EMPOTRADAS */
+.flush-right { justify-content: flex-end; margin-right: -10vw; } /* Mapas a la derecha */
+.flush-left { justify-content: flex-start; margin-left: -10vw; } /* Instalaciones a la izq */
+.center-img { justify-content: center; }
+
 /* TIPOGRAFÍA SECCIONES */
-.tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 15px; }
+.tag { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em; color: var(--text-muted); display: block; margin-bottom: 15px; }
 .text-col h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
 .text-col p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px; }
 
-/* BOTONES LIMPIOS */
+/* BOTONES LIMPIOS (Consistencia de Acento) */
 .action-link {
     background: none; border: none; font-size: 1.05rem; font-weight: 700; color: var(--text);
-    padding-bottom: 5px; border-bottom: 2px solid var(--text); cursor: pointer; transition: all 0.3s ease;
+    padding: 5px 10px; border-left: 3px solid var(--accent); /* Margen de color */
+    cursor: pointer; transition: all 0.3s ease; text-align: left;
 }
-.action-link:hover { color: var(--accent); border-color: var(--accent); transform: translateX(5px); }
+.action-link:hover { color: var(--accent); background: rgba(179, 42, 42, 0.05); padding-left: 15px; }
 
-/* CONTACTO */
-.contact-section { text-align: center; padding: 100px 5%; background: #fdfdfd; border-top: 1px solid rgba(0,0,0,0.05); }
-.contact-section h2 { font-size: 2.2rem; margin-bottom: 20px; }
-.email-link { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 50px; }
-.email-link:hover { text-decoration: underline; }
-.team-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-.team-btn { background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--text-muted); cursor: pointer; }
-.team-btn:hover { color: var(--text); text-decoration: underline; }
+/* CONTACTO Y EQUIPO */
+.contact-section { text-align: center; padding: 80px 5%; background: transparent; }
+.contact-section h2 { font-size: 2.2rem; margin-bottom: 40px; }
 
-/* MODALES */
-.modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
-.modal-card { background: #fff; width: 100%; max-width: 800px; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; max-height: 90vh; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-.modal-banner-ribbon { height: 180px; width: 100%; position: relative; background: #f5f5f5; }
-.modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
-.modal-body-container { padding: 40px 60px; overflow-y: auto; }
-.close-modal { position: absolute; top: 20px; right: 20px; background: #fff; border: 1px solid #ddd; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; }
-.close-modal:hover { background: #000; color: #fff; }
-.modal-tag { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
-.modal-body-container h3 { font-size: 2.2rem; margin-bottom: 20px; }
-.modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
-.modal-body-container li { margin-bottom: 10px; color: var(--text-muted); }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.team-btn {
+    background: none; border: 1px solid var(--border); padding: 15px;
+    font-size: 1.1rem; font-weight: 600; color: var(--text-muted); cursor: pointer;
+    transition: all 0.3s;
+}
+.team-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(179,42,42,0.02); }
 
-/* FOOTER */
+/* FOOTER SERIO */
 footer { text-align: center; padding: 60px 5%; background: #111; color: #fff; }
+.social-links { margin: 20px 0 40px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.social-links a { color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; transition: color 0.3s; }
+.social-links a:hover { color: var(--accent); }
+
 .legal-links { margin: 20px 0; }
 .legal-links button { background: none; border: none; color: #888; font-size: 0.9rem; margin: 0 15px; cursor: pointer; }
 .legal-links button:hover { color: #fff; }
 .copyright { font-size: 0.8rem; color: #555; margin-top: 30px; letter-spacing: 0.1em; }
 
+/* MODALES */
+.modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.98); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
+.modal-card { background: #fff; width: 100%; max-width: 800px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; position: relative; display: flex; flex-direction: column; max-height: 90vh; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+/* Header del Modal Transparente */
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 30px; background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid var(--border);
+}
+.modal-brand { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.1em; }
+.close-modal { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text); line-height: 1; }
+.close-modal:hover { color: var(--accent); }
+
+.modal-body-container { padding: 40px; overflow-y: auto; }
+.modal-tag { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
+.modal-body-container h3 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.1; }
+.modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
+.modal-body-container li { margin-bottom: 10px; color: var(--text-muted); }
+
+/* MODAL DE CONTACTO GENERAL (Estilo específico) */
+.contact-big-email { font-size: 2.5rem; font-weight: 800; color: var(--accent); display: block; margin: 20px 0; text-decoration: none; }
+.contact-grid-modal { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+.contact-person strong { display: block; font-size: 1.2rem; color: var(--text); }
+.contact-person span { color: var(--accent); font-size: 0.9rem; font-weight: 700; }
+.contact-person p { color: var(--text-muted); font-size: 0.95rem; margin-top: 5px; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
-    .zigzag-row, .zigzag-row.reverse { flex-direction: column; text-align: center; padding: 40px 5%; gap: 30px; }
+    /* Orden móvil: Tlaxco entre Hero y 01 */
+    .zigzag-row, .zigzag-row.reverse { flex-direction: column; text-align: center; padding: 20px 5%; }
+    .img-col { order: 1; width: 100%; margin: 0; justify-content: center; } /* Imágenes siempre arriba */
+    .text-col { order: 2; padding: 0; margin-top: 20px; }
+
     .hero-section h1 { font-size: 3rem; }
     .text-col h2 { font-size: 2.2rem; }
-    .email-link { font-size: 2rem; }
-    .modal-body-container { padding: 30px; }
+
+    /* Equipo en dos columnas en móvil */
+    .team-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Modal de contacto a 1 columna en móvil */
+    .contact-grid-modal { grid-template-columns: 1fr; }
+    .contact-big-email { font-size: 1.5rem; }
 }
