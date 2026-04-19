@@ -9,10 +9,10 @@
 <body>
 
     <nav class="top-nav">
-        <a href="#hero" class="nav-brand-text">
+        <button class="nav-box-btn" onclick="location.href='#hero'">
             <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>
-        </a>
-        <button class="btn-box" onclick="openModal('contactoGeneral')">
+        </button>
+        <button class="nav-box-btn" onclick="openModal('contactoGeneral')">
             <span class="brk">[</span>Contacto<span class="brk">]</span>
         </button>
     </nav>
@@ -20,10 +20,9 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card" id="modalCardBox">
             <div class="modal-header">
-                <button class="modal-brand" onclick="closeModal()" title="Cerrar modal">
-                    <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>
-                </button>
-                <button class="close-modal" id="closeModal" onclick="closeModal()">×</button>
+                <button class="back-modal" onclick="goBackModal()">←</button>
+                <div class="modal-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
+                <button class="close-modal" onclick="closeModal()">×</button>
             </div>
             <div class="modal-banner-ribbon" id="modalBanner">
                 <img id="modalHeaderImg" src="" alt="Banner">
@@ -40,81 +39,99 @@
         <div class="hero-text-wrapper">
             <span class="hero-tag"><span class="brk">[</span>Gobernanza basada en evidencia<span class="brk">]</span></span>
             <h1 class="light-title"><span class="brk">[</span>Arquitectura Colectiva<span class="brk">]</span></h1>
-            <p>Traducimos la complejidad del territorio en certidumbre estratégica para la inversión pública.</p>
+            <p><span class="brk">[</span>Traducimos la complejidad del territorio en certidumbre estratégica para la inversión pública.<span class="brk">]</span></p>
         </div>
     </header>
 
     <main class="zigzag-container">
 
-        <section class="zigzag-row row-text-left relative-row">
+        <section class="zigzag-row row-img-left relative-row">
+            <div class="img-col tlaxco-huge z-back">
+                <div class="img-wrapper">
+                    <img src="images/tlaxco.PNG" alt="Diagnóstico Territorial">
+                    <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
+            </div>
             <div class="text-col z-front">
                 <span class="tag"><span class="brk">[</span>01<span class="brk">|</span>TERRITORIO<span class="brk">]</span></span>
-                <h2>Diagnóstico Regional Estratégico</h2>
-                <p>Las decisiones políticas requieren fundamentos técnicos. Analizamos dinámicas sociodemográficas y espaciales para estructurar Planes de Desarrollo con precisión milimétrica.</p>
-                <button class="btn-box" onclick="openModal('tlaxco')"><span class="brk">[</span>Ver alcance técnico<span class="brk">]</span></button>
-            </div>
-            <div class="img-col tlaxco-huge z-back">
-                <img src="images/tlaxco.PNG" alt="Diagnóstico Territorial">
+                <h2><span class="brk">[</span>Diagnóstico Regional Estratégico<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Las decisiones políticas requieren fundamentos técnicos. Analizamos dinámicas sociodemográficas y espaciales para estructurar Planes de Desarrollo con precisión milimétrica.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Ver alcance técnico<span class="brk">]</span></button>
             </div>
         </section>
 
-        <section class="zigzag-row row-text-right">
-            <div class="img-col">
-                <img src="images/mapas.PNG" class="mapas-faded" alt="Inteligencia Geoespacial">
-            </div>
+        <section class="zigzag-row row-img-right">
             <div class="text-col">
                 <span class="tag"><span class="brk">[</span>02<span class="brk">|</span>INTELIGENCIA<span class="brk">]</span></span>
-                <h2>Inversión Pública Eficiente</h2>
-                <p>Eliminamos la inversión a ciegas. Identificamos zonas de alta rentabilidad social para ubicar equipamiento y reactivar el espacio público.</p>
-                <button class="btn-box" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas Geoespaciales<span class="brk">]</span></button>
+                <h2><span class="brk">[</span>Inversión Pública Eficiente<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Eliminamos la inversión a ciegas. Identificamos zonas de alta rentabilidad social para ubicar equipamiento y reactivar el espacio público.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas Geoespaciales<span class="brk">]</span></button>
+            </div>
+            <div class="img-col">
+                <div class="img-wrapper">
+                    <img src="images/mapas.PNG" class="mapas-faded" alt="Inteligencia Geoespacial">
+                    <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
             </div>
         </section>
 
-        <section class="zigzag-row row-text-left">
+        <section class="zigzag-row row-img-left">
+            <div class="img-col z-middle render-huge">
+                <div class="img-wrapper">
+                    <img src="images/render.PNG" alt="Obra Pública">
+                    <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
+            </div>
             <div class="text-col z-front">
                 <span class="tag"><span class="brk">[</span>03<span class="brk">|</span>VISIÓN<span class="brk">]</span></span>
-                <h2>Obra Pública de Impacto</h2>
-                <p>Materializamos los datos en proyectos habitables. Diseñamos espacios que fomentan la cohesión comunitaria y el legado institucional.</p>
-                <button class="btn-box" onclick="openModal('render')"><span class="brk">[</span>Prospección Urbana<span class="brk">]</span></button>
-            </div>
-            <div class="img-col z-middle render-huge">
-                <img src="images/render.PNG" alt="Obra Pública">
+                <h2><span class="brk">[</span>Obra Pública de Impacto<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Materializamos los datos en proyectos habitables. Diseñamos espacios que fomentan la cohesión comunitaria y el legado institucional.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('render')"><span class="brk">[</span>Prospección Urbana<span class="brk">]</span></button>
             </div>
         </section>
 
-        <section class="zigzag-row row-text-right">
-            <div class="img-col diagrama-huge">
-                <img src="images/diagrama.PNG" class="diagrama-faded" alt="Transparencia">
-            </div>
+        <section class="zigzag-row row-img-right">
             <div class="text-col">
                 <span class="tag"><span class="brk">[</span>04<span class="brk">|</span>TRANSPARENCIA<span class="brk">]</span></span>
-                <h2>Comunicación Ciudadana</h2>
-                <p>Un gobierno que comunica bien, genera confianza. Transformamos expedientes técnicos complejos en herramientas visuales para rendición de cuentas.</p>
-                <button class="btn-box" onclick="openModal('diagrama')"><span class="brk">[</span>Entregables Ejecutivos<span class="brk">]</span></button>
+                <h2><span class="brk">[</span>Comunicación Ciudadana<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Un gobierno que comunica bien, genera confianza. Transformamos expedientes técnicos complejos en herramientas visuales para rendición de cuentas.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('diagrama')"><span class="brk">[</span>Entregables Ejecutivos<span class="brk">]</span></button>
+            </div>
+            <div class="img-col diagrama-huge">
+                <div class="img-wrapper">
+                    <img src="images/diagrama.PNG" class="diagrama-faded" alt="Transparencia">
+                    <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
             </div>
         </section>
 
-        <section class="zigzag-row row-text-left">
+        <section class="zigzag-row row-img-left">
+            <div class="img-col flush-left">
+                <div class="img-wrapper">
+                    <img src="images/instalaciones.PNG" alt="Resiliencia">
+                    <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
+            </div>
             <div class="text-col">
                 <span class="tag"><span class="brk">[</span>05<span class="brk">|</span>RESILIENCIA<span class="brk">]</span></span>
-                <h2>Gestión y Mitigación de Riesgos</h2>
-                <p>Gobernar es prevenir. Modelamos vulnerabilidades hidrológicas y estructurales para salvaguardar la infraestructura y la seguridad ciudadana.</p>
-                <button class="btn-box" onclick="openModal('instalaciones')"><span class="brk">[</span>Modelación de Riesgos<span class="brk">]</span></button>
-            </div>
-            <div class="img-col">
-                <img src="images/instalaciones.PNG" alt="Resiliencia">
+                <h2><span class="brk">[</span>Gestión y Mitigación de Riesgos<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Gobernar es prevenir. Modelamos vulnerabilidades hidrológicas y estructurales para salvaguardar la infraestructura y la seguridad ciudadana.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('instalaciones')"><span class="brk">[</span>Modelación de Riesgos<span class="brk">]</span></button>
             </div>
         </section>
 
-        <section class="zigzag-row row-text-right">
-            <div class="img-col">
-                <img src="images/movilidad.PNG" alt="Movilidad Urbana">
-            </div>
+        <section class="zigzag-row row-img-right">
             <div class="text-col">
                 <span class="tag"><span class="brk">[</span>06<span class="brk">|</span>CONECTIVIDAD<span class="brk">]</span></span>
-                <h2>Movilidad Urbana Integral</h2>
-                <p>Ciudades que se mueven, progresan. Diseñamos estrategias de flujo integral para reducir tiempos de traslado municipal y mejorar seguridad vial.</p>
-                <button class="btn-box" onclick="openModal('movilidad')"><span class="brk">[</span>Estrategias de Flujo<span class="brk">]</span></button>
+                <h2><span class="brk">[</span>Movilidad Urbana Integral<span class="brk">]</span></h2>
+                <p><span class="brk">[</span>Ciudades que se mueven, progresan. Diseñamos estrategias de flujo integral para reducir tiempos de traslado municipal y mejorar seguridad vial.<span class="brk">]</span></p>
+                <button class="action-btn" onclick="openModal('movilidad')"><span class="brk">[</span>Estrategias de Flujo<span class="brk">]</span></button>
+            </div>
+            <div class="img-col flush-right">
+                <div class="img-wrapper">
+                    <img src="images/movilidad.PNG" alt="Movilidad Urbana">
+                    <button class="floating-pill" onclick="openModal('proj_movilidad')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                </div>
             </div>
         </section>
     </main>
@@ -123,12 +140,12 @@
         <button class="big-contact-frame" onclick="openModal('contactoGeneral')">
             <h2 class="email-title"><span class="brk">[</span>arq.colectiv@gmail.com<span class="brk">]</span></h2>
             <div class="team-grid-preview">
-                <span>Víctor Luna</span>
-                <span>Karen Josseline</span>
-                <span>Brándon Yáñez</span>
-                <span>Cristian Mendoza</span>
+                <span><span class="brk">[</span>Víctor Luna<span class="brk">]</span></span>
+                <span><span class="brk">[</span>Karen Josseline<span class="brk">]</span></span>
+                <span><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></span>
+                <span><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></span>
             </div>
-            <span class="frame-hint">Haz clic para abrir el directorio</span>
+            <span class="frame-hint"><span class="brk">[</span>Haz clic para abrir el directorio<span class="brk">]</span></span>
         </button>
     </section>
 
@@ -137,25 +154,25 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                    <p class="footer-desc">Inteligencia Territorial y Arquitectura Colectiva para Gobiernos Locales.</p>
+                    <p class="footer-desc"><span class="brk">[</span>Inteligencia Territorial y Arquitectura Colectiva para Gobiernos Locales.<span class="brk">]</span></p>
                 </div>
                 <div class="footer-col">
                     <h4><span class="brk">[</span>Servicios<span class="brk">]</span></h4>
-                    <button class="glass-btn" onclick="openModal('tlaxco')">Diagnóstico Regional</button>
-                    <button class="glass-btn" onclick="openModal('mapas')">Sistemas SIG</button>
-                    <button class="glass-btn" onclick="openModal('render')">Planes Maestros</button>
+                    <button class="glass-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Diagnóstico Regional<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas SIG<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('render')"><span class="brk">[</span>Planes Maestros<span class="brk">]</span></button>
                 </div>
                 <div class="footer-col">
                     <h4><span class="brk">[</span>Redes<span class="brk">]</span></h4>
-                    <a href="#" class="glass-btn">LinkedIn</a>
-                    <a href="#" class="glass-btn">Behance</a>
-                    <a href="#" class="glass-btn">Pinterest</a>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>LinkedIn<span class="brk">]</span></a>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>Behance<span class="brk">]</span></a>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>Pinterest<span class="brk">]</span></a>
                 </div>
                 <div class="footer-col">
                     <h4><span class="brk">[</span>Legal & Oficinas<span class="brk">]</span></h4>
-                    <button class="glass-btn" onclick="openModal('privacidad')">Aviso de Privacidad</button>
-                    <button class="glass-btn" onclick="openModal('terminos')">Términos de Servicio</button>
-                    <span class="glass-text">CDMX / Tlaxcala</span>
+                    <button class="glass-btn" onclick="openModal('privacidad')"><span class="brk">[</span>Aviso de Privacidad<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('terminos')"><span class="brk">[</span>Términos de Servicio<span class="brk">]</span></button>
+                    <span class="glass-text"><span class="brk">[</span>CDMX / Tlaxcala<span class="brk">]</span></span>
                 </div>
             </div>
             <div class="footer-bottom">
