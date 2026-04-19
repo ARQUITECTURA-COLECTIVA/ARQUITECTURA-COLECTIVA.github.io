@@ -55,17 +55,17 @@ const modalData = {
     terminos: { tag: "Legal", title: "Términos Legales", content: "<p>Nuestros servicios se adaptan a la Ley de Obra Pública oficial.</p>" }
 };
 
+const overlay = document.getElementById('modalOverlay');
+const mTag = document.getElementById('modalTag');
+const mTitle = document.getElementById('modalTitle');
+const mContent = document.getElementById('modalContent');
+const mImg = document.getElementById('modalHeaderImg');
+const mBanner = document.getElementById('modalBanner');
+const modalCard = document.getElementById('modalCardBox');
+
 function openModal(key) {
     const data = modalData[key];
     if (!data) return;
-
-    const overlay = document.getElementById('modalOverlay');
-    const mTag = document.getElementById('modalTag');
-    const mTitle = document.getElementById('modalTitle');
-    const mContent = document.getElementById('modalContent');
-    const mImg = document.getElementById('modalHeaderImg');
-    const mBanner = document.getElementById('modalBanner');
-    const modalCard = document.getElementById('modalCardBox');
 
     if(key === 'contactoGeneral') {
         mBanner.style.display = 'none';
@@ -89,14 +89,12 @@ function openModal(key) {
 }
 
 function closeModal() {
-    document.getElementById('modalOverlay').style.display = 'none';
+    overlay.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Cierra modal al hacer click en la X, en el fondo, o presionar ESC
-window.onclick = (e) => {
-    if (e.target == document.getElementById('modalOverlay')) closeModal();
-}
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+document.querySelectorAll('.close-modal, .modal-header').forEach(el => {
+    el.onclick = closeModal;
 });
+window.onclick = (e) => { if (e.target == overlay) closeModal(); }
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
