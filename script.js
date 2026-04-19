@@ -1,58 +1,57 @@
 const modalData = {
-    // MODAL GENERAL DE CONTACTO (NUEVO)
+    // MODAL DE CONTACTO LIMPIO
     contactoGeneral: {
-        tag: "Directorio", title: "Contacto Institucional",
+        tag: "Directorio", title: "", // Sin título inútil
         content: `
-            <p>Comunícate directamente con nuestra coordinación para agendar una mesa de trabajo o solicitar cotizaciones formales.</p>
             <a href="mailto:arq.colectiv@gmail.com" class="contact-big-email">arq.colectiv@gmail.com</a>
 
             <div class="contact-grid-modal">
                 <div class="contact-person">
                     <strong>Víctor Luna</strong>
-                    <span>[ Coordinación de Proyecto ]</span>
-                    <p>Especialista SIG y estrategia territorial.<br>Tel: 55 1702 8519</p>
+                    <span class="specialty"><span class="brk">[</span>Sistemas de Información Geográfica<span class="brk">]</span></span>
+                    <span class="phone">55 1702 8519</span>
                 </div>
                 <div class="contact-person">
                     <strong>Karen Josseline</strong>
-                    <span>[ Consultoría Técnica ]</span>
-                    <p>Normatividad y viabilidad de políticas.<br>Tel: 55 1471 4640</p>
+                    <span class="specialty"><span class="brk">[</span>Análisis Normativo Urbano<span class="brk">]</span></span>
+                    <span class="phone">55 1471 4640</span>
                 </div>
                 <div class="contact-person">
                     <strong>Brándon Yáñez</strong>
-                    <span>[ Estrategia Urbana ]</span>
-                    <p>Resiliencia y participación ciudadana.<br>Tel: 55 3972 7186</p>
+                    <span class="specialty"><span class="brk">[</span>Prospección y Resiliencia<span class="brk">]</span></span>
+                    <span class="phone">55 3972 7186</span>
                 </div>
                 <div class="contact-person">
                     <strong>Cristian Mendoza</strong>
-                    <span>[ Diseño e Innovación ]</span>
-                    <p>Mobiliario urbano y modelado 3D.<br>Tel: 56 1184 7429</p>
+                    <span class="specialty"><span class="brk">[</span>Diseño de Mobiliario Urbano<span class="brk">]</span></span>
+                    <span class="phone">56 1184 7429</span>
                 </div>
             </div>
         `
     },
     tlaxco: {
-        tag: "Planificación Normativa", title: "Diagnóstico Territorial Regional",
-        content: "<p>Nuestra metodología permite a los ayuntamientos justificar recursos mediante evidencia técnica.</p><ul><li><strong>[ Rezago Social ]</strong> Identificación geoespacializada.</li><li><strong>[ Cartografía ]</strong> Actualización para Planes de Desarrollo.</li><li><strong>[ Certidumbre ]</strong> Sustento técnico para licitaciones.</li></ul>"
+        tag: "Planificación Normativa", title: "Diagnóstico Territorial Regional", image: "images/tlaxco.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>Rezago Social<span class="brk">]</span></strong> Identificación geoespacializada.</li><li><strong><span class="brk">[</span>Cartografía<span class="brk">]</span></strong> Actualización para Planes de Desarrollo.</li><li><strong><span class="brk">[</span>Certidumbre<span class="brk">]</span></strong> Sustento técnico para licitaciones.</li></ul>"
     },
     mapas: {
-        tag: "Geointeligencia", title: "Inversión Pública Eficiente",
-        content: "<p>Aseguramos que cada peso invertido tenga el mayor retorno social mediante algoritmos espaciales.</p><ul><li><strong>[ Ubicación ]</strong> Localización óptima de equipamiento.</li><li><strong>[ Reactivación ]</strong> Acupuntura espacial en zonas degradadas.</li><li><strong>[ Optimización ]</strong> Reducción de costos operativos.</li></ul>"
+        tag: "Geointeligencia", title: "Inversión Pública Eficiente", image: "images/mapas.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>Ubicación<span class="brk">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class="brk">[</span>Reactivación<span class="brk">]</span></strong> Acupuntura espacial en zonas degradadas.</li><li><strong><span class="brk">[</span>Optimización<span class="brk">]</span></strong> Reducción de costos operativos.</li></ul>"
     },
     render: {
-        tag: "Proyección Arquitectónica", title: "El Legado en el Espacio Público",
-        content: "<p>Diseñamos con enfoque de durabilidad, bajo mantenimiento y estética institucional.</p><ul><li><strong>[ Planes Maestros ]</strong> Rescate de parques y plazas.</li><li><strong>[ Proyectos Ejecutivos ]</strong> Listos para obra pública.</li><li><strong>[ Diseño Paramétrico ]</strong> Envolventes funcionales.</li></ul>"
+        tag: "Proyección Arquitectónica", title: "El Legado en el Espacio Público", image: "images/render.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>Planes Maestros<span class="brk">]</span></strong> Rescate de parques y plazas.</li><li><strong><span class="brk">[</span>Proyectos Ejecutivos<span class="brk">]</span></strong> Listos para obra pública.</li><li><strong><span class="brk">[</span>Diseño Paramétrico<span class="brk">]</span></strong> Envolventes funcionales.</li></ul>"
     },
     diagrama: {
-        tag: "Comunicación Política", title: "Rendición de Cuentas Visual",
-        content: "<p>Traducimos reportes técnicos en herramientas visuales listas para difusión institucional.</p><ul><li><strong>[ One-Pagers ]</strong> Jerarquía de datos para cabildo.</li><li><strong>[ Infografías ]</strong> Visualización de avance de obra.</li><li><strong>[ Material Digital ]</strong> Para redes sociales.</li></ul>"
+        tag: "Comunicación Política", title: "Rendición de Cuentas Visual", image: "images/diagrama.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>One-Pagers<span class="brk">]</span></strong> Jerarquía de datos para cabildo.</li><li><strong><span class="brk">[</span>Infografías<span class="brk">]</span></strong> Visualización de avance de obra.</li><li><strong><span class="brk">[</span>Material Digital<span class="brk">]</span></strong> Para redes sociales.</li></ul>"
     },
     instalaciones: {
-        tag: "Protección Civil", title: "Mitigación y Vulnerabilidad",
-        content: "<p>Proporcionamos herramientas para pasar de la reacción a la prevención de riesgos.</p><ul><li><strong>[ Atlas de Riesgo ]</strong> Modelación climática.</li><li><strong>[ Vulnerabilidad ]</strong> Zonas de estrés hídrico.</li><li><strong>[ Dictaminación ]</strong> Modelos en edificaciones críticas.</li></ul>"
+        tag: "Protección Civil", title: "Mitigación y Vulnerabilidad", image: "images/instalaciones.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>Atlas de Riesgo<span class="brk">]</span></strong> Modelación climática.</li><li><strong><span class="brk">[</span>Vulnerabilidad<span class="brk">]</span></strong> Zonas de estrés hídrico.</li><li><strong><span class="brk">[</span>Dictaminación<span class="brk">]</span></strong> Modelos en edificaciones críticas.</li></ul>"
     },
     movilidad: {
-        tag: "Ordenamiento Urbano", title: "Conectividad Urbana Integral",
-        content: "<p>Resolvemos cuellos de botella aplicando principios de diseño y seguridad vial.</p><ul><li><strong>[ Ordenamiento ]</strong> Reordenamiento vehicular.</li><li><strong>[ Movilidad Activa ]</strong> Ciclovías seguras.</li><li><strong>[ Estrategias ]</strong> Reducción de tiempos de traslado.</li></ul>"
+        tag: "Ordenamiento Urbano", title: "Conectividad Urbana Integral", image: "images/movilidad.PNG",
+        content: "<ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li><li><strong><span class="brk">[</span>Estrategias<span class="brk">]</span></strong> Reducción de tiempos de traslado.</li></ul>"
     },
     privacidad: { tag: "Cumplimiento", title: "Aviso de Privacidad", content: "<p>Garantizamos confidencialidad absoluta en el manejo de cartografía gubernamental.</p>" },
     terminos: { tag: "Contratación", title: "Términos Legales", content: "<p>Nuestros servicios se adaptan a la Ley de Obra Pública oficial.</p>" }
@@ -62,14 +61,31 @@ const overlay = document.getElementById('modalOverlay');
 const mTag = document.getElementById('modalTag');
 const mTitle = document.getElementById('modalTitle');
 const mContent = document.getElementById('modalContent');
-const closeBtn = document.getElementById('closeModal');
+const mImg = document.getElementById('modalHeaderImg');
+const mBanner = document.getElementById('modalBanner');
+const modalCard = document.getElementById('modalCardBox');
 
 function openModal(key) {
     const data = modalData[key];
     if (!data) return;
 
-    mTag.innerHTML = `<span class="accent">[</span> ${data.tag} <span class="accent">]</span>`;
-    mTitle.innerText = data.title;
+    // Si es contacto General, oculta el banner y pone fondo tenue
+    if(key === 'contactoGeneral') {
+        mBanner.style.display = 'none';
+        modalCard.classList.add('bg-curvas');
+        mTag.style.display = 'none';
+        mTitle.style.display = 'none';
+    } else {
+        mBanner.style.display = 'block';
+        modalCard.classList.remove('bg-curvas');
+        mTag.style.display = 'block';
+        mTitle.style.display = 'block';
+
+        mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
+        mTitle.innerText = data.title;
+        mImg.src = data.image ? data.image : '';
+    }
+
     mContent.innerHTML = data.content;
 
     overlay.style.display = 'flex';
@@ -81,6 +97,8 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-closeBtn.onclick = closeModal;
+document.querySelectorAll('.close-modal, .modal-header').forEach(el => {
+    el.onclick = closeModal;
+});
 window.onclick = (e) => { if (e.target == overlay) closeModal(); }
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
