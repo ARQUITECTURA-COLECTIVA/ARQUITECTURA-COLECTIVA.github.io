@@ -2,30 +2,6 @@
 let modalHistory = [];
 
 const modalData = {
-    contactoGeneral: {
-        tag: "", title: "",
-        content: `
-            <a href="mailto:arq.colectiv@gmail.com" class="contact-big-email"><span class="brk">[</span>arq.colectiv@gmail.com<span class="brk">]</span></a>
-            <div class="contact-grid-modal">
-                <button class="person-btn" onclick="openModal('victor')">
-                    <strong><span class="brk">[</span>Víctor Luna<span class="brk">]</span></strong>
-                    <span class="specialty"><span class="brk">[</span>Sistemas de Información Geográfica<span class="brk">]</span></span>
-                </button>
-                <button class="person-btn" onclick="openModal('karen')">
-                    <strong><span class="brk">[</span>Karen Josseline<span class="brk">]</span></strong>
-                    <span class="specialty"><span class="brk">[</span>Análisis Normativo Urbano<span class="brk">]</span></span>
-                </button>
-                <button class="person-btn" onclick="openModal('brandon')">
-                    <strong><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></strong>
-                    <span class="specialty"><span class="brk">[</span>Prospección y Resiliencia<span class="brk">]</span></span>
-                </button>
-                <button class="person-btn" onclick="openModal('cristian')">
-                    <strong><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></strong>
-                    <span class="specialty"><span class="brk">[</span>Diseño de Mobiliario Urbano<span class="brk">]</span></span>
-                </button>
-            </div>
-        `
-    },
     victor: {
         tag: "Coordinación", title: "Víctor Luna",
         content: `
@@ -35,11 +11,11 @@ const modalData = {
                 <div class="carousel-track" id="car-victor">
                     <div class="carousel-item-wrapper">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
                     </div>
                     <div class="carousel-item-wrapper">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -54,7 +30,7 @@ const modalData = {
                 <div class="carousel-track" id="car-karen">
                     <div class="carousel-item-wrapper">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -69,7 +45,7 @@ const modalData = {
                 <div class="carousel-track" id="car-brandon">
                     <div class="carousel-item-wrapper">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -84,14 +60,14 @@ const modalData = {
                 <div class="carousel-track" id="car-cristian">
                     <div class="carousel-item-wrapper">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
 
-    // SECCIONES CON NUEVOS TÍTULOS
+    // SECCIONES
     tlaxco: {
         tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
@@ -147,7 +123,7 @@ const modalData = {
         `
     },
 
-    // CLONES PARA LOS BOTONES FLOTANTES
+    // CLONES DE PROYECTOS (BOTONES FLOTANTES)
     proj_tlaxco: { tag: "Proyecto", title: "Plan Maestro de Regeneración", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
     proj_mapas: { tag: "Proyecto", title: "Zonificación Hospitalaria", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
     proj_render: { tag: "Proyecto", title: "Plaza Central 2026", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
@@ -173,21 +149,13 @@ function renderModal(key) {
 
     backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
 
-    if(key === 'contactoGeneral') {
-        mBanner.style.display = 'none';
-        modalCard.classList.add('bg-curvas');
-        mTag.style.display = 'none';
-        mTitle.style.display = 'none';
-    } else {
-        mBanner.style.display = 'block';
-        modalCard.classList.remove('bg-curvas');
-        mTag.style.display = 'block';
-        mTitle.style.display = 'block';
+    mBanner.style.display = 'block';
+    mTag.style.display = 'block';
+    mTitle.style.display = 'block';
 
-        mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
-        mTitle.innerHTML = `<span class="brk">[</span>${data.title}<span class="brk">]</span>`;
-        if(mImg) mImg.src = data.image ? data.image : '';
-    }
+    mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
+    mTitle.innerHTML = `<span class="brk">[</span>${data.title}<span class="brk">]</span>`;
+    if(mImg) mImg.src = data.image ? data.image : '';
 
     mContent.innerHTML = data.content;
 
