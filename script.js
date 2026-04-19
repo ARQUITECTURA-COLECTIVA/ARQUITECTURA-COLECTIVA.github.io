@@ -11,11 +11,11 @@ const modalData = {
                 <div class="carousel-track" id="car-victor">
                     <div class="carousel-item-wrapper">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                     <div class="carousel-item-wrapper">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ const modalData = {
                 <div class="carousel-track" id="car-karen">
                     <div class="carousel-item-wrapper">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ const modalData = {
                 <div class="carousel-track" id="car-brandon">
                     <div class="carousel-item-wrapper">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -60,14 +60,14 @@ const modalData = {
                 <div class="carousel-track" id="car-cristian">
                     <div class="carousel-item-wrapper">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
 
-    // SECCIONES
+    // SECCIONES CON TÍTULOS NUEVOS
     tlaxco: {
         tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
@@ -124,10 +124,10 @@ const modalData = {
     },
 
     // CLONES DE PROYECTOS (BOTONES FLOTANTES)
-    proj_tlaxco: { tag: "Proyecto", title: "Plan Maestro de Regeneración", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
-    proj_mapas: { tag: "Proyecto", title: "Zonificación Hospitalaria", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
-    proj_render: { tag: "Proyecto", title: "Plaza Central 2026", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
-    proj_diagrama: { tag: "Proyecto", title: "Reporte de Cabildo", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación política.<span class=\"brk\">]</span></p>" },
+    proj_tlaxco: { tag: "Proyecto", title: "Atlas Regional Estratégico", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
+    proj_mapas: { tag: "Proyecto", title: "Zonificación de Salud", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
+    proj_render: { tag: "Proyecto", title: "Parque Central", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
+    proj_diagrama: { tag: "Proyecto", title: "Reporte Ejecutivo de Cabildo", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación política.<span class=\"brk\">]</span></p>" },
     proj_instalaciones: { tag: "Proyecto", title: "Mitigación Hídrica", image: "images/instalaciones.PNG", content: "<p><span class=\"brk\">[</span>Mapeo de vulnerabilidades hidrológicas.<span class=\"brk\">]</span></p>" },
     proj_movilidad: { tag: "Proyecto", title: "Red Ciclista Urbana", image: "images/movilidad.PNG", content: "<p><span class=\"brk\">[</span>Planeación de conectividad urbana integral.<span class=\"brk\">]</span></p>" },
     privacidad: { tag: "Legal", title: "Aviso de Privacidad", content: "<p><span class=\"brk\">[</span>Garantizamos confidencialidad absoluta en el manejo de datos.<span class=\"brk\">]</span></p>" },

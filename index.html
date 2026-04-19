@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ARQ|COL] · Inteligencia Territorial</title>
+    <title>[ARQ|COL] · Arquitectura con Raíz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,27 +35,30 @@
         </div>
     </div>
 
-    <header id="hero" class="hero-section">
-        <div class="zigzag-row row-img-left">
-            <div class="img-col tlaxco-huge z-back">
-                <div class="img-wrapper">
-                    <img src="images/tlaxco.PNG" alt="Territorio">
+    <main class="zigzag-container">
+
+        <section id="hero" class="zigzag-row row-img-left" style="padding-top: 140px;">
+            <div class="img-col">
+                <div class="img-wrapper tlaxco-huge">
+                    <img src="images/tlaxco.PNG" alt="Diagnóstico y Contexto Estratégico">
                     <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS REGIONAL<span class="brk">]</span></button>
                 </div>
             </div>
             <div class="text-col z-front">
                 <div class="glass-panel">
-                    <span class="hero-tag"><span class="brk">[</span>01<span class="brk">|</span>TERRITORIO Y GOBERNANZA<span class="brk">]</span></span>
+                    <span class="hero-tag"><span class="brk">[</span>Arquitectura Colectiva<span class="brk">]</span></span>
                     <h1 class="light-title"><span class="brk">[</span>Arquitectura con raíz.<br>Gobernanza con rigor.<span class="brk">]</span></h1>
                     <p class="hero-subtitle"><span class="brk">[</span>Traducimos la complejidad del territorio en certidumbre estratégica. Aplicamos rigor técnico y análisis espacial para asegurar la rentabilidad de la inversión pública y el valor patrimonial del proyecto privado.<span class="brk">]</span></p>
+
+                    <div class="separator-line"></div>
+
+                    <span class="tag"><span class="brk">[</span>01<span class="brk">|</span>TERRITORIO<span class="brk">]</span></span>
+                    <h2><span class="brk">[</span>Diagnóstico y Contexto Estratégico<span class="brk">]</span></h2>
                     <p><span class="brk">[</span>El territorio mexicano tiene capas que el software genérico no lee. Analizamos dinámicas sociodemográficas, topografía e historia con la misma precisión con que se trazaron las primeras ciudades de esta tierra. Desde un Plan de Desarrollo Urbano hasta la inserción milimétrica de una obra privada en su sitio.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('tlaxco')" style="margin-top: 15px;"><span class="brk">[</span>Ver alcance técnico<span class="brk">]</span></button>
+                    <button class="action-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Ver alcance técnico<span class="brk">]</span></button>
                 </div>
             </div>
         </section>
-    </header>
-
-    <main class="zigzag-container">
 
         <section class="zigzag-row row-img-right">
             <div class="text-col z-front">
@@ -66,7 +69,7 @@
                     <button class="action-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas Geoespaciales<span class="brk">]</span></button>
                 </div>
             </div>
-            <div class="img-col z-back">
+            <div class="img-col">
                 <div class="img-wrapper mapas-huge">
                     <img src="images/mapas.PNG" class="mapas-faded" alt="Inversión y Desarrollo Eficiente">
                     <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: ZONIFICACIÓN<span class="brk">]</span></button>
@@ -75,8 +78,8 @@
         </section>
 
         <section class="zigzag-row row-img-left">
-            <div class="img-col z-back render-huge">
-                <div class="img-wrapper">
+            <div class="img-col">
+                <div class="img-wrapper render-huge">
                     <img src="images/render.PNG" alt="Arquitectura de Impacto">
                     <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE CENTRAL<span class="brk">]</span></button>
                 </div>
@@ -100,8 +103,8 @@
                     <button class="action-btn" onclick="openModal('diagrama')"><span class="brk">[</span>Entregables Ejecutivos<span class="brk">]</span></button>
                 </div>
             </div>
-            <div class="img-col z-back diagrama-huge">
-                <div class="img-wrapper">
+            <div class="img-col">
+                <div class="img-wrapper diagrama-huge">
                     <img src="images/diagrama.PNG" class="diagrama-faded" alt="Comunicación y Claridad">
                     <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: REPORTE CABILDO<span class="brk">]</span></button>
                 </div>
@@ -109,8 +112,8 @@
         </section>
 
         <section class="zigzag-row row-img-left">
-            <div class="img-col z-back flush-left">
-                <div class="img-wrapper">
+            <div class="img-col">
+                <div class="img-wrapper instalaciones-huge">
                     <img src="images/instalaciones.PNG" alt="Prevención y Seguridad Estructural">
                     <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
                 </div>
@@ -134,7 +137,7 @@
                     <button class="action-btn" onclick="openModal('movilidad')"><span class="brk">[</span>Estrategias de Flujo<span class="brk">]</span></button>
                 </div>
             </div>
-            <div class="img-col z-back flush-right">
+            <div class="img-col">
                 <div class="img-wrapper">
                     <img src="images/movilidad.PNG" alt="Flujo e Integración Espacial">
                     <button class="floating-pill" onclick="openModal('proj_movilidad')"><span class="brk">[</span>PROY: RED CICLISTA<span class="brk">]</span></button>
@@ -156,33 +159,35 @@
     </section>
 
     <footer class="footer-curvas">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="glass-text-box footer-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                <div class="glass-text-box"><span class="brk">[</span>Arquitectura con raíz. Inteligencia territorial de alta precisión.<span class="brk">]</span></div>
+        <div class="footer-glass-overlay">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="glass-text-box footer-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
+                    <div class="glass-text-box"><span class="brk">[</span>Arquitectura con raíz. Inteligencia territorial de alta precisión.<span class="brk">]</span></div>
+                </div>
+                <div class="footer-col">
+                    <div class="glass-text-box"><h4><span class="brk">[</span>Servicios<span class="brk">]</span></h4></div>
+                    <button class="glass-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Diagnóstico Regional<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas SIG<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('render')"><span class="brk">[</span>Planes Maestros<span class="brk">]</span></button>
+                </div>
+                <div class="footer-col">
+                    <div class="glass-text-box"><h4><span class="brk">[</span>Redes<span class="brk">]</span></h4></div>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>LinkedIn<span class="brk">]</span></a>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>Behance<span class="brk">]</span></a>
+                    <a href="#" class="glass-btn"><span class="brk">[</span>Pinterest<span class="brk">]</span></a>
+                </div>
+                <div class="footer-col">
+                    <div class="glass-text-box"><h4><span class="brk">[</span>Legal & Oficinas<span class="brk">]</span></h4></div>
+                    <button class="glass-btn" onclick="openModal('privacidad')"><span class="brk">[</span>Aviso de Privacidad<span class="brk">]</span></button>
+                    <button class="glass-btn" onclick="openModal('terminos')"><span class="brk">[</span>Términos de Servicio<span class="brk">]</span></button>
+                    <div class="glass-text-box"><span class="brk">[</span>CDMX / Tlaxcala<span class="brk">]</span></div>
+                </div>
             </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Servicios<span class="brk">]</span></h4></div>
-                <button class="glass-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Diagnóstico Regional<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas SIG<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('render')"><span class="brk">[</span>Planes Maestros<span class="brk">]</span></button>
-            </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Redes<span class="brk">]</span></h4></div>
-                <a href="#" class="glass-btn"><span class="brk">[</span>LinkedIn<span class="brk">]</span></a>
-                <a href="#" class="glass-btn"><span class="brk">[</span>Behance<span class="brk">]</span></a>
-                <a href="#" class="glass-btn"><span class="brk">[</span>Pinterest<span class="brk">]</span></a>
-            </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Legal & Oficinas<span class="brk">]</span></h4></div>
-                <button class="glass-btn" onclick="openModal('privacidad')"><span class="brk">[</span>Aviso de Privacidad<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('terminos')"><span class="brk">[</span>Términos de Servicio<span class="brk">]</span></button>
-                <div class="glass-text-box"><span class="brk">[</span>CDMX / Tlaxcala<span class="brk">]</span></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="glass-text-box" style="display: inline-block;">
-                <p class="copyright">© 2026 <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <div class="glass-text-box" style="display: inline-block;">
+                    <p class="copyright">© 2026 <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>. Todos los derechos reservados.</p>
+                </div>
             </div>
         </div>
     </footer>

@@ -1,192 +1,227 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ARQ|COL] · Inteligencia Territorial</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* === ESTILO EDITORIAL BRUTALISTA === */
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --text-muted: #333333;
+    --accent: #b32a2a;
+    --border: rgba(0,0,0,0.15);
+}
 
-    <nav class="top-nav">
-        <button class="nav-box-btn" onclick="location.href='#hero'">
-            <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>
-        </button>
-        <button class="nav-box-btn" onclick="location.href='#contacto'">
-            <span class="brk">[</span>Contacto<span class="brk">]</span>
-        </button>
-    </nav>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-card" id="modalCardBox">
-            <div class="modal-header">
-                <button class="back-modal" onclick="goBackModal()">←</button>
-                <div class="modal-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                <button class="close-modal" onclick="closeModal()">×</button>
-            </div>
-            <div class="modal-banner-ribbon" id="modalBanner">
-                <img id="modalHeaderImg" src="" alt="Banner">
-            </div>
-            <div class="modal-body-container">
-                <span class="modal-tag" id="modalTag"></span>
-                <h3 id="modalTitle">Título</h3>
-                <div id="modalContent">Contenido</div>
-            </div>
-        </div>
-    </div>
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-weight: 500;
+}
 
-    <header id="hero" class="hero-section">
-        <div class="zigzag-row row-img-left">
-            <div class="img-col tlaxco-huge z-back">
-                <div class="img-wrapper">
-                    <img src="images/tlaxco.PNG" alt="Territorio">
-                    <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS REGIONAL<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="hero-tag"><span class="brk">[</span>01<span class="brk">|</span>TERRITORIO Y GOBERNANZA<span class="brk">]</span></span>
-                    <h1 class="light-title"><span class="brk">[</span>Arquitectura con raíz.<br>Gobernanza con rigor.<span class="brk">]</span></h1>
-                    <p class="hero-subtitle"><span class="brk">[</span>Traducimos la complejidad del territorio en certidumbre estratégica. Aplicamos rigor técnico y análisis espacial para asegurar la rentabilidad de la inversión pública y el valor patrimonial del proyecto privado.<span class="brk">]</span></p>
-                    <p><span class="brk">[</span>El territorio mexicano tiene capas que el software genérico no lee. Analizamos dinámicas sociodemográficas, topografía e historia con la misma precisión con que se trazaron las primeras ciudades de esta tierra. Desde un Plan de Desarrollo Urbano hasta la inserción milimétrica de una obra privada en su sitio.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('tlaxco')" style="margin-top: 15px;"><span class="brk">[</span>Ver alcance técnico<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
-    </header>
+/* MARCADORES TIPOGRÁFICOS [] | SÚPER DELGADOS Y OPACOS */
+.brk {
+    color: inherit;
+    opacity: 1;
+    font-weight: 300 !important;
+    transition: color 0.3s;
+}
 
-    <main class="zigzag-container">
+/* NAV TRANSPARENTE */
+.top-nav {
+    position: fixed; top: 0; width: 100%; height: 80px;
+    background: transparent;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; z-index: 1000;
+    pointer-events: none;
+}
 
-        <section class="zigzag-row row-img-right">
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="tag"><span class="brk">[</span>02<span class="brk">|</span>INTELIGENCIA<span class="brk">]</span></span>
-                    <h2><span class="brk">[</span>Inversión y Desarrollo Eficiente<span class="brk">]</span></h2>
-                    <p><span class="brk">[</span>Tlatelolco fue el mercado más grande del mundo conocido no por abundancia, sino por inteligencia territorial. Aplicamos esa misma lógica ancestral para identificar las condiciones óptimas de equipamiento público y proyectos privados. Maximizamos la viabilidad desde el origen.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas Geoespaciales<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="img-col z-back">
-                <div class="img-wrapper mapas-huge">
-                    <img src="images/mapas.PNG" class="mapas-faded" alt="Inversión y Desarrollo Eficiente">
-                    <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: ZONIFICACIÓN<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
+/* BOTONES DEL HEADER SIN BORDE (Blur puro) */
+.nav-box-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: none;
+    padding: 8px 18px; border-radius: 6px;
+    font-family: inherit; font-size: 1.1rem; font-weight: 800;
+    color: #111; cursor: pointer; display: inline-flex; align-items: center;
+    transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.nav-box-btn:hover { background: rgba(255, 255, 255, 1); transform: translateY(-2px); }
+.nav-box-btn:hover .brk { color: var(--accent); }
 
-        <section class="zigzag-row row-img-left">
-            <div class="img-col z-back render-huge">
-                <div class="img-wrapper">
-                    <img src="images/render.PNG" alt="Arquitectura de Impacto">
-                    <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE CENTRAL<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="tag"><span class="brk">[</span>03<span class="brk">|</span>VISIÓN<span class="brk">]</span></span>
-                    <h2><span class="brk">[</span>Arquitectura de Impacto<span class="brk">]</span></h2>
-                    <p><span class="brk">[</span>Materializamos los datos en espacios habitables. Diseñamos para que cada proyecto —de la vivienda a la gran obra pública— trascienda su escala. Porque la arquitectura con raíz no solo ocupa el territorio: lo define para las generaciones que vienen.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('render')"><span class="brk">[</span>Prospección Urbana<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
+/* === LÓGICA ZIGZAG SÓLIDA === */
+.zigzag-container { width: 100%; overflow: hidden; padding-bottom: 60px; }
 
-        <section class="zigzag-row row-img-right">
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="tag"><span class="brk">[</span>04<span class="brk">|</span>TRANSPARENCIA<span class="brk">]</span></span>
-                    <h2><span class="brk">[</span>Comunicación y Claridad<span class="brk">]</span></h2>
-                    <p><span class="brk">[</span>Un proyecto bien comunicado genera confianza y acelera permisos. Transformamos expedientes técnicos complejos en herramientas visuales claras. Tanto para la rendición de cuentas institucional como para la certidumbre total del cliente privado.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('diagrama')"><span class="brk">[</span>Entregables Ejecutivos<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="img-col z-back diagrama-huge">
-                <div class="img-wrapper">
-                    <img src="images/diagrama.PNG" class="diagrama-faded" alt="Comunicación y Claridad">
-                    <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: REPORTE CABILDO<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
+.zigzag-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 5%; margin-bottom: 20px; position: relative;
+    max-width: 1400px; margin: 0 auto;
+}
 
-        <section class="zigzag-row row-img-left">
-            <div class="img-col z-back flush-left">
-                <div class="img-wrapper">
-                    <img src="images/instalaciones.PNG" alt="Prevención y Seguridad Estructural">
-                    <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="tag"><span class="brk">[</span>05<span class="brk">|</span>RESILIENCIA<span class="brk">]</span></span>
-                    <h2><span class="brk">[</span>Prevención y Seguridad Estructural<span class="brk">]</span></h2>
-                    <p><span class="brk">[</span>Tenochtitlán se construyó sobre el agua. La ingeniería hidráulica no llegó con los europeos; ya estaba aquí. Hoy modelamos esas mismas vulnerabilidades hidrológicas y topográficas para salvaguardar la infraestructura municipal y garantizar la seguridad constructiva de cada edificación.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('instalaciones')"><span class="brk">[</span>Modelación de Riesgos<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
+/* Z-INDEX Y EFECTO DE CRISTAL (Permite encimar imágenes de forma segura) */
+.z-front { position: relative; z-index: 10; }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    padding: 40px; border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.5);
+}
 
-        <section class="zigzag-row row-img-right">
-            <div class="text-col z-front">
-                <div class="glass-panel">
-                    <span class="tag"><span class="brk">[</span>06<span class="brk">|</span>CONECTIVIDAD<span class="brk">]</span></span>
-                    <h2><span class="brk">[</span>Flujo e Integración Espacial<span class="brk">]</span></h2>
-                    <p><span class="brk">[</span>Las calzadas de Tenochtitlán no eran simples caminos: eran decisiones estratégicas que conectaban un imperio. Diseñamos con esa lógica. Cada obra, pública o privada, debe integrarse a su entorno con precisión milimétrica para mejorar la accesibilidad y la calidad de vida.<span class="brk">]</span></p>
-                    <button class="action-btn" onclick="openModal('movilidad')"><span class="brk">[</span>Estrategias de Flujo<span class="brk">]</span></button>
-                </div>
-            </div>
-            <div class="img-col z-back flush-right">
-                <div class="img-wrapper">
-                    <img src="images/movilidad.PNG" alt="Flujo e Integración Espacial">
-                    <button class="floating-pill" onclick="openModal('proj_movilidad')"><span class="brk">[</span>PROY: RED CICLISTA<span class="brk">]</span></button>
-                </div>
-            </div>
-        </section>
-    </main>
+/* DIRECCIONES DEL ZIGZAG (Usando Flexbox seguro) */
+.row-img-left { flex-direction: row; }
+.row-img-right { flex-direction: row-reverse; }
 
-    <section id="contacto" class="contact-section">
-        <a href="mailto:arq.colectiv@gmail.com" class="email-title-link">
-            <span class="brk">[</span>arq.colectiv@gmail.com<span class="brk">]</span>
-        </a>
-        <div class="team-grid">
-            <button class="btn-box" onclick="openModal('victor')"><span class="brk">[</span>Víctor Luna<span class="brk">]</span></button>
-            <button class="btn-box" onclick="openModal('karen')"><span class="brk">[</span>Karen Josseline<span class="brk">]</span></button>
-            <button class="btn-box" onclick="openModal('brandon')"><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></button>
-            <button class="btn-box" onclick="openModal('cristian')"><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></button>
-        </div>
-    </section>
+/* Jalamos las imágenes hacia adentro para que pasen debajo del cristal */
+.row-img-left .img-col { margin-right: -10vw; margin-left: -5vw; }
+.row-img-right .img-col { margin-left: -10vw; margin-right: -5vw; }
 
-    <footer class="footer-curvas">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="glass-text-box footer-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                <div class="glass-text-box"><span class="brk">[</span>Arquitectura con raíz. Inteligencia territorial de alta precisión.<span class="brk">]</span></div>
-            </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Servicios<span class="brk">]</span></h4></div>
-                <button class="glass-btn" onclick="openModal('tlaxco')"><span class="brk">[</span>Diagnóstico Regional<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('mapas')"><span class="brk">[</span>Sistemas SIG<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('render')"><span class="brk">[</span>Planes Maestros<span class="brk">]</span></button>
-            </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Redes<span class="brk">]</span></h4></div>
-                <a href="#" class="glass-btn"><span class="brk">[</span>LinkedIn<span class="brk">]</span></a>
-                <a href="#" class="glass-btn"><span class="brk">[</span>Behance<span class="brk">]</span></a>
-                <a href="#" class="glass-btn"><span class="brk">[</span>Pinterest<span class="brk">]</span></a>
-            </div>
-            <div class="footer-col">
-                <div class="glass-text-box"><h4><span class="brk">[</span>Legal & Oficinas<span class="brk">]</span></h4></div>
-                <button class="glass-btn" onclick="openModal('privacidad')"><span class="brk">[</span>Aviso de Privacidad<span class="brk">]</span></button>
-                <button class="glass-btn" onclick="openModal('terminos')"><span class="brk">[</span>Términos de Servicio<span class="brk">]</span></button>
-                <div class="glass-text-box"><span class="brk">[</span>CDMX / Tlaxcala<span class="brk">]</span></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="glass-text-box" style="display: inline-block;">
-                <p class="copyright">© 2026 <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+.text-col { flex: 1; max-width: 750px; }
+.img-col { flex: 1.2; display: flex; position: relative; z-index: 1;}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* TAMAÑOS DE IMÁGENES ESPECÍFICOS */
+.img-wrapper { position: relative; display: inline-block; width: 100%; }
+.img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+
+.tlaxco-huge { width: 110%; transform: scale(1.1); transform-origin: left center;}
+.mapas-huge { width: 130%; transform: scale(1.2); }
+.render-huge { transform: scale(1.15); transform-origin: left center;}
+.diagrama-huge { transform: scale(1.2); transform-origin: right center;}
+.instalaciones-huge { transform: scale(1.1); }
+
+/* MÁSCARAS DE DIFUMINADO */
+.mapas-faded {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+.diagrama-faded {
+    -webkit-mask-image: linear-gradient(to left, transparent, black 25%, black);
+    mask-image: linear-gradient(to left, transparent, black 25%, black);
+}
+
+/* PÍLDORAS FLOTANTES (MINIATURAS) */
+.floating-pill {
+    position: absolute; bottom: 20px;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: none; padding: 8px 15px; border-radius: 50px;
+    font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #111; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s; z-index: 20;
+}
+.row-img-left .floating-pill { left: 20px; right: auto; }
+.row-img-right .floating-pill { right: 20px; left: auto; }
+.floating-pill:hover { background: #fff; transform: translateY(-2px); }
+.floating-pill:hover .brk { color: var(--accent); }
+
+/* TIPOGRAFÍA HERO Y SECCIONES */
+.hero-tag { font-size: 0.9rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
+.light-title { font-size: 3.5rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #111; }
+.hero-subtitle { font-size: 1.15rem; color: var(--text); font-weight: 800; margin-bottom: 25px; line-height: 1.5; }
+.separator-line { width: 50px; height: 2px; background: var(--accent); margin: 30px 0; opacity: 0.5;}
+
+.tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px; }
+.text-col h2 { font-size: 2.4rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #000; }
+.text-col p { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+
+/* BOTONES DE TEXTO (Secciones) */
+.action-btn { background: none; border: none; font-size: 1.1rem; font-weight: 800; color: #111; cursor: pointer; transition: all 0.3s ease; padding: 0; text-align: left; }
+.action-btn:hover .brk { color: var(--accent); }
+
+/* === CONTACTO DIRECTO === */
+.contact-section { text-align: center; padding: 60px 5% 100px 5%; }
+.email-title-link {
+    display: inline-block; font-size: 4.5rem; font-weight: 300; color: #111;
+    text-decoration: none; margin-bottom: 50px; transition: transform 0.3s;
+    line-height: 1; letter-spacing: -0.02em;
+}
+.email-title-link:hover { transform: scale(1.02); }
+.email-title-link:hover .brk { color: var(--accent); }
+
+.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
+.btn-box {
+    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: none; padding: 12px 24px; border-radius: 6px;
+    font-family: inherit; font-size: 1.1rem; font-weight: 800;
+    color: #111; cursor: pointer; display: inline-flex; align-items: center;
+    transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.btn-box:hover { background: #fff; transform: translateY(-2px); }
+.btn-box:hover .brk { color: var(--accent); }
+
+/* FOOTER SALVAJE PERO LEGIBLE */
+.footer-curvas {
+    background-image: url('images/curvas.jpg'); background-size: cover; background-position: center;
+    padding: 80px 5% 40px 5%; color: #111;
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+
+.glass-text-box {
+    background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 10px 15px; border-radius: 6px; margin-bottom: 10px;
+    color: #111; font-weight: 800; display: inline-block; width: 100%;
+}
+.footer-brand { font-weight: 900; font-size: 2.2rem; letter-spacing: 0.1em; color: #111; margin-bottom: 10px; }
+.footer-col h4 { font-size: 1rem; font-weight: 900; color: #111; margin: 0; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.glass-btn {
+    display: block; width: 100%; text-align: left;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: none; color: #111; font-size: 0.95rem; font-weight: 800;
+    padding: 10px 15px; margin-bottom: 10px; border-radius: 6px; cursor: pointer; transition: all 0.3s;
+}
+.glass-btn:hover { background: #fff; transform: translateX(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+.glass-btn:hover .brk { color: var(--accent); }
+
+.footer-bottom { margin-top: 60px; text-align: center; }
+.copyright { font-size: 0.85rem; font-weight: 800; color: #111; margin: 0; }
+
+/* === MODALES GIGANTES === */
+.modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
+.modal-card { background: #fff; width: 96vw; max-width: 1600px; height: 96vh; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 80px rgba(0,0,0,0.2); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 10; }
+.back-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s;}
+.back-modal:hover { color: var(--accent); }
+.modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
+.close-modal { background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #111; line-height: 1; font-weight: 300; transition: color 0.3s;}
+.close-modal:hover { color: var(--accent); }
+.modal-banner-ribbon { height: 250px; width: 100%; background: #f5f5f5; flex-shrink: 0;}
+.modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
+.modal-body-container { padding: 50px 80px; overflow-y: auto; background: #fff; flex: 1; }
+.modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
+.modal-body-container h3 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
+.modal-body-container p { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;}
+.modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
+.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1.1rem; }
+
+/* Modal Personas y Carrusel */
+.person-phone { display: block; margin: 20px 0; font-size: 1.8rem; font-weight: 300; opacity: 0.6; color: var(--accent); }
+.carousel-wrapper { margin-top: 40px; width: 100%; overflow: hidden; position: relative; }
+.carousel-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 20px; cursor: grab; }
+.carousel-track:active { cursor: grabbing; }
+.carousel-track::-webkit-scrollbar { height: 8px; }
+.carousel-track::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.carousel-item-wrapper { position: relative; height: 350px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;}
+.carousel-item-wrapper img { height: 100%; width: auto; object-fit: cover; pointer-events: none;}
+.carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; left: auto; font-size: 0.65rem;}
+
+/* RESPONSIVE MÓVIL ESTRICTO */
+@media (max-width: 900px) {
+    .zigzag-row { flex-direction: column !important; text-align: center; padding: 20px 5%; margin-bottom: 40px; }
+
+    /* En móvil, el texto siempre va primero y sin márgenes negativos */
+    .text-col { order: 1; padding: 0 !important; margin-top: 0; max-width: 100%; z-index: 10; }
+    .img-col { order: 2; width: 100%; margin: 20px 0 0 0 !important; justify-content: center; align-self: center !important; z-index: 1;}
+
+    .tlaxco-huge { width: 100%; }
+    .mapas-huge { width: 100%; }
+
+    .floating-pill { left: auto !important; right: 20px !important; }
+
+    .light-title { font-size: 2.8rem; }
+    .text-col h2 { font-size: 2.2rem; }
+    .email-title-link { font-size: 1.8rem; }
+
+    .modal-body-container { padding: 30px 20px; }
+    .modal-card { width: 100vw; height: 100vh; border-radius: 0; }
+}
