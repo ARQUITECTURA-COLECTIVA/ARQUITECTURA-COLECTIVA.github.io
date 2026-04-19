@@ -36,31 +36,31 @@ body {
     padding: 0 5%; z-index: 1000;
     pointer-events: none;
 }
-.nav-brand-text, .nav-box-btn { pointer-events: auto; }
 
-/* BOTONES DEL HEADER Y UNIVERSALES (Blur puro sin borde dibujado) */
+/* BOTONES DEL HEADER Y UNIVERSALES (Blur puro sin borde) */
 .nav-box-btn, .btn-box {
+    pointer-events: auto;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border: none;
     padding: 8px 18px; border-radius: 6px;
     font-family: inherit; font-size: 1.1rem; font-weight: 800;
-    color: #111; cursor: pointer; display: inline-flex; align-items: center;
-    transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    color: #111; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 .nav-box-btn:hover, .btn-box:hover { background: rgba(255, 255, 255, 0.95); transform: translateY(-2px); }
 .nav-box-btn:hover .brk, .btn-box:hover .brk { color: var(--accent); }
 
 /* === HERO UNIFICADO === */
-.hero-centered { text-align: center; padding: 140px 5% 40px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
-.hero-text-wrapper { margin-bottom: 40px; }
+.hero-centered { text-align: center; padding: 140px 5% 20px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
+.hero-text-wrapper { margin-bottom: 20px; }
 .hero-tag { font-size: 0.9rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 15px; }
-.light-title { font-size: 4rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #111; }
+.light-title { font-size: 3.8rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #111; }
 .hero-subtitle { font-size: 1.25rem; color: var(--text); font-weight: 800; margin-bottom: 20px; line-height: 1.5; }
-.hero-body { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 40px; line-height: 1.6; }
-.cta-hero { font-size: 1.2rem; padding: 12px 30px; margin-bottom: 20px; }
+.hero-body { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 20px; line-height: 1.6; }
+.cta-hero { font-size: 1.2rem; padding: 12px 30px; margin-top: 0; }
 
-/* IMAGEN HERO (TLAXCO CENTRADA) */
+/* IMAGEN HERO (TLAXCO MÁS CERCA) */
 .hero-img-wrapper { position: relative; width: 100%; max-width: 800px; margin: 0 auto; display: block; }
 .hero-img-wrapper img { width: 100%; height: auto; mix-blend-mode: multiply; }
 
@@ -77,6 +77,7 @@ body {
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     padding: 40px; border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.5);
 }
 
 /* IZQUIERDA Y DERECHA */
@@ -89,8 +90,27 @@ body {
 .row-img-right .text-col { padding-left: 5vw; padding-right: 2vw; }
 
 .text-col { flex: 1; max-width: 750px; }
-.img-col { flex: 1; display: flex; position: relative; }
-.img-col img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+.img-col { flex: 1.2; display: flex; position: relative; z-index: 1;}
+
+/* === TAMAÑOS Y POSICIONES REBELDES DE IMÁGENES === */
+.img-wrapper { position: relative; display: inline-block; width: 100%; }
+.img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+
+/* Mapas más grande */
+.mapas-huge { width: 140%; transform: scale(1.3); transform-origin: right center; }
+.mapas-faded { -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); }
+
+/* Render más pequeño */
+.render-huge img { transform: scale(0.9); transform-origin: left center; }
+
+/* Diagrama escondido a la izquierda */
+.diagrama-huge { margin-left: -20vw; }
+.diagrama-faded { transform: scale(1.1); transform-origin: left center; -webkit-mask-image: linear-gradient(to right, transparent, black 25%, black); mask-image: linear-gradient(to right, transparent, black 25%, black); }
+
+/* Instalaciones escondido MUY a la izquierda */
+.instalaciones-huge { margin-left: -30vw; transform: scale(1.1); }
+
+.flush-right { justify-content: flex-end; margin-right: -10vw; }
 
 /* PÍLDORAS FLOTANTES PROTEGIDAS DEL Z-INDEX */
 .floating-pill {
@@ -99,9 +119,8 @@ body {
     border: none; padding: 6px 12px; border-radius: 50px; font-size: 0.65rem;
     font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #111;
     cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s;
-    z-index: 50; /* Super alto para no quedar bajo el glass */
+    z-index: 50;
 }
-/* Ubicaciones seguras para las píldoras (fuera del panel de texto) */
 .pill-left { left: 5vw; bottom: 20px; }
 .pill-right { right: 5vw; bottom: 20px; }
 .pill-center { left: 50%; transform: translateX(-50%); bottom: -10px; }
@@ -109,19 +128,10 @@ body {
 .floating-pill:hover { background: rgba(255,255,255,0.95); transform: translateY(-2px); }
 .floating-pill:hover .brk { color: var(--accent); }
 
-/* === TAMAÑOS Y MÁSCARAS === */
-.mapas-huge { width: 130%; max-width: none; }
-.mapas-faded { -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); }
-.render-huge img { transform: scale(1.3); transform-origin: center left; }
-.diagrama-huge { margin-left: -10vw; }
-.diagrama-faded { transform: scale(1.2); transform-origin: center right; -webkit-mask-image: linear-gradient(to left, transparent, black 25%, black); mask-image: linear-gradient(to left, transparent, black 25%, black); }
-.flush-left { justify-content: flex-start; margin-left: -10vw; }
-.flush-right { justify-content: flex-end; margin-right: -10vw; }
-
 /* TIPOGRAFÍA SECCIONES */
 .tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.text-col h2 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
-.text-col p { font-size: 1.1rem; font-weight: 700; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+.text-col h2 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #000; }
+.text-col p { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
 
 /* BOTONES DE TEXTO (Secciones) */
 .action-btn { background: none; border: none; font-size: 1.1rem; font-weight: 800; color: #111; cursor: pointer; transition: all 0.3s ease; padding: 0; text-align: left; }
@@ -130,7 +140,7 @@ body {
 /* === CONTACTO DIRECTO === */
 .contact-section { text-align: center; padding: 40px 5% 100px 5%; }
 .email-title-link {
-    display: inline-block; font-size: 4.5rem; font-weight: 300; color: #111;
+    display: inline-block; font-size: 4.2rem; font-weight: 300; color: #111;
     text-decoration: none; margin-bottom: 50px; transition: transform 0.3s;
     line-height: 1; letter-spacing: -0.02em;
 }
@@ -145,9 +155,8 @@ body {
 }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 
-/* Textos no botones: Mucho más transparentes */
 .glass-text-box {
-    background: rgba(255,255,255,0.15); /* Súper tenue */
+    background: rgba(255,255,255,0.15);
     backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
     padding: 10px 15px; border-radius: 6px; margin-bottom: 10px;
     color: #111; font-weight: 800; display: inline-block; width: 100%;
@@ -155,7 +164,6 @@ body {
 .footer-brand { font-weight: 900; font-size: 2.2rem; letter-spacing: 0.1em; color: #111; margin-bottom: 10px; }
 .footer-col h4 { font-size: 1rem; font-weight: 900; color: #111; margin: 0; text-transform: uppercase; letter-spacing: 0.1em; }
 
-/* Botones en footer: Un poco más visibles para que se entienda el click */
 .glass-btn {
     display: block; width: 100%; text-align: left;
     background: rgba(255,255,255,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -171,20 +179,24 @@ body {
 /* === MODALES GIGANTES === */
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
 .modal-card { background: #fff; width: 96vw; max-width: 1600px; height: 96vh; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 80px rgba(0,0,0,0.2); }
-.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 10; }
-.back-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s;}
-.back-modal:hover { color: var(--accent); }
-.modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
-.close-modal { background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #111; line-height: 1; font-weight: 300; transition: color 0.3s;}
-.close-modal:hover { color: var(--accent); }
+
+/* Header de Modal idéntico a Nav Principal */
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 20; }
+.modal-nav-controls { display: flex; gap: 10px; }
+
 .modal-banner-ribbon { height: 250px; width: 100%; background: #f5f5f5; flex-shrink: 0;}
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
 .modal-body-container { padding: 50px 80px; overflow-y: auto; background: #fff; flex: 1; }
 .modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
 .modal-body-container h3 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-.modal-body-container p { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;}
+
+/* Textos de Perfiles más densos */
+.modal-body-container p { font-size: 1rem; font-weight: 500; margin-bottom: 20px; line-height: 1.7;}
 .modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
-.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1.1rem; }
+.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1rem; }
+
+/* Teléfonos Negros, Pequeños, Bold, entre [] */
+.person-phone { display: block; margin: 15px 0; font-size: 1rem; font-weight: 800; color: #111; }
 
 /* Modal Contacto General */
 .bg-curvas { background-image: url('images/curvas.jpg'); background-size: cover; background-position: center; background-blend-mode: multiply; }
@@ -197,8 +209,7 @@ body {
 .person-btn strong { display: block; font-size: 1.5rem; font-weight: 800; color: var(--text); }
 .person-btn .specialty { color: var(--text-muted); font-size: 1rem; font-weight: 700; display: block; margin: 5px 0; }
 
-/* Modal Personas y Carrusel */
-.person-phone { display: block; margin: 20px 0; font-size: 1.8rem; font-weight: 300; opacity: 0.6; color: var(--accent); }
+/* Carrusel */
 .carousel-wrapper { margin-top: 40px; width: 100%; overflow: hidden; position: relative; }
 .carousel-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 20px; cursor: grab; }
 .carousel-track:active { cursor: grabbing; }
@@ -208,10 +219,9 @@ body {
 .carousel-item-wrapper img { height: 100%; width: auto; object-fit: cover; pointer-events: none;}
 .carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; left: auto; font-size: 0.65rem;}
 
-/* RESPONSIVE MÓVIL ESTRICTO */
+/* RESPONSIVE MÓVIL ESTRICTO (Títulos más pequeños y orden de imágenes) */
 @media (max-width: 900px) {
     .hero-centered { padding-top: 100px; }
-    .hero-img-wrapper { margin-top: 40px; }
 
     .zigzag-row { flex-direction: column !important; text-align: center; padding: 20px 5%; margin-bottom: 40px; }
 
@@ -220,14 +230,8 @@ body {
 
     .pill-left, .pill-right, .pill-center { position: relative; left: auto !important; right: auto !important; bottom: auto; margin: 10px auto 0 auto; display: inline-block;}
 
+    /* Cancelamos márgenes locos en celular */
     .row-img-left .img-col, .row-img-right .img-col { margin-left: 0; margin-right: 0; }
-    .mapas-huge { width: 100%; }
-
-    .light-title { font-size: 2.8rem; }
-    .text-col h2 { font-size: 2.2rem; }
-    .email-title-link { font-size: 1.8rem; }
-
-    .contact-grid-modal { grid-template-columns: 1fr; }
-    .modal-body-container { padding: 30px 20px; }
-    .modal-card { width: 100vw; height: 100vh; border-radius: 0; }
-}
+    .mapas-huge { width: 100%; transform: scale(1); }
+    .diagrama-huge { margin-left: 0; }
+    .instalaciones-huge { margin-left: 0; transform: scale(1); }

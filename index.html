@@ -20,10 +20,22 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card" id="modalCardBox">
             <div class="modal-header">
-                <button class="back-modal" onclick="goBackModal()">←</button>
-                <div class="modal-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                <button class="close-modal" onclick="closeModal()">×</button>
+                <button class="nav-box-btn" onclick="closeModal()">
+                    <span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span>
+                </button>
+                <div class="modal-nav-controls">
+                    <button class="nav-box-btn back-modal" onclick="goBackModal()">
+                        <span class="brk">[</span>←<span class="brk">]</span>
+                    </button>
+                    <button class="nav-box-btn close-modal" onclick="closeModal()">
+                        <span class="brk">[</span>×<span class="brk">]</span>
+                    </button>
+                </div>
+                <button class="nav-box-btn" onclick="openModal('contactoGeneral')">
+                    <span class="brk">[</span>Contacto<span class="brk">]</span>
+                </button>
             </div>
+
             <div class="modal-banner-ribbon" id="modalBanner">
                 <img id="modalHeaderImg" src="" alt="Banner">
             </div>
@@ -65,7 +77,9 @@
                 </div>
             </div>
             <div class="img-col z-back">
-                <img src="images/mapas.PNG" class="mapas-faded" alt="Inversión y Desarrollo Eficiente">
+                <div class="img-wrapper mapas-huge">
+                    <img src="images/mapas.PNG" class="mapas-faded" alt="Inversión y Desarrollo Eficiente">
+                </div>
             </div>
             <button class="floating-pill pill-right" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: ZONIFICACIÓN<span class="brk">]</span></button>
         </section>
@@ -85,7 +99,11 @@
             </div>
         </section>
 
-        <section class="zigzag-row row-img-right">
+        <section class="zigzag-row row-img-left">
+            <div class="img-col z-back diagrama-huge">
+                <img src="images/diagrama.PNG" class="diagrama-faded" alt="Comunicación y Claridad">
+            </div>
+            <button class="floating-pill pill-left" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: REPORTE CABILDO<span class="brk">]</span></button>
             <div class="text-col z-front">
                 <div class="glass-panel">
                     <span class="tag"><span class="brk">[</span>03<span class="brk">|</span>TRANSPARENCIA<span class="brk">]</span></span>
@@ -94,14 +112,10 @@
                     <button class="action-btn" onclick="openModal('diagrama')"><span class="brk">[</span>Entregables Ejecutivos<span class="brk">]</span></button>
                 </div>
             </div>
-            <div class="img-col z-back diagrama-huge">
-                <img src="images/diagrama.PNG" class="diagrama-faded" alt="Comunicación y Claridad">
-            </div>
-            <button class="floating-pill pill-right" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: REPORTE CABILDO<span class="brk">]</span></button>
         </section>
 
         <section class="zigzag-row row-img-left">
-            <div class="img-col z-back flush-left">
+            <div class="img-col z-back instalaciones-huge">
                 <img src="images/instalaciones.PNG" alt="Prevención y Seguridad Estructural">
             </div>
             <button class="floating-pill pill-left" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>

@@ -29,17 +29,17 @@ const modalData = {
     victor: {
         tag: "Coordinación", title: "Víctor Luna",
         content: `
-            <p><span class="brk">[</span>Especialista en Sistemas de Información Geográfica y estrategia territorial para la administración pública.<span class="brk">]</span></p>
-            <span class="person-phone">55 1702 8519</span>
+            <span class="person-phone"><span class="brk">[</span>55 1702 8519<span class="brk">]</span></span>
+            <p><span class="brk">[</span>Especialista en Sistemas de Información Geográfica y estrategia territorial para la administración pública. Con amplia experiencia en la coordinación de proyectos urbanos a gran escala, integrando análisis de datos socioespaciales con normatividad vigente para garantizar la viabilidad técnica y financiera de cada intervención. Su enfoque permite transformar bases de datos complejas en herramientas de decisión ejecutiva claras y contundentes.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-victor">
                     <div class="carousel-item-wrapper">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
                     </div>
                     <div class="carousel-item-wrapper">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -48,13 +48,13 @@ const modalData = {
     karen: {
         tag: "Consultoría", title: "Karen Josseline",
         content: `
-            <p><span class="brk">[</span>Experta en normatividad, viabilidad legal de proyectos y políticas públicas urbanas.<span class="brk">]</span></p>
-            <span class="person-phone">55 1471 4640</span>
+            <span class="person-phone"><span class="brk">[</span>55 1471 4640<span class="brk">]</span></span>
+            <p><span class="brk">[</span>Experta en normatividad, viabilidad legal de proyectos y políticas públicas urbanas. Posee una profunda comprensión de los marcos regulatorios a nivel municipal, estatal y federal. Su labor asegura que cada desarrollo territorial cumpla con los más altos estándares legales, facilitando la obtención de permisos y minimizando los riesgos jurídicos en la ejecución de obra pública y privada.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-karen">
                     <div class="carousel-item-wrapper">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -63,13 +63,13 @@ const modalData = {
     brandon: {
         tag: "Estrategia", title: "Brándon Yáñez",
         content: `
-            <p><span class="brk">[</span>Coordinador de resiliencia territorial, prevención de riesgos y participación ciudadana.<span class="brk">]</span></p>
-            <span class="person-phone">55 3972 7186</span>
+            <span class="person-phone"><span class="brk">[</span>55 3972 7186<span class="brk">]</span></span>
+            <p><span class="brk">[</span>Coordinador de resiliencia territorial, prevención de riesgos y participación ciudadana. Especializado en la elaboración de Atlas de Riesgo y el diseño de planes de contingencia para escenarios hidrológicos, geológicos y climáticos. Además, lidera metodologías de integración social para garantizar que la infraestructura propuesta cuente con la apropiación y respaldo de las comunidades locales.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-brandon">
                     <div class="carousel-item-wrapper">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -78,20 +78,20 @@ const modalData = {
     cristian: {
         tag: "Diseño", title: "Cristian Mendoza",
         content: `
-            <p><span class="brk">[</span>Diseñador Industrial encargado del mobiliario urbano y modelado 3D de envolventes funcionales.<span class="brk">]</span></p>
-            <span class="person-phone">56 1184 7429</span>
+            <span class="person-phone"><span class="brk">[</span>56 1184 7429<span class="brk">]</span></span>
+            <p><span class="brk">[</span>Diseñador Industrial encargado del mobiliario urbano y modelado 3D de envolventes funcionales. Transforma los diagnósticos espaciales y urbanos en elementos tangibles que interactúan directamente con el usuario. Su trabajo garantiza que la infraestructura no solo sea eficiente a nivel técnico, sino también estéticamente perdurable, ergonómica y adaptable a las exigencias climáticas de cada territorio.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-cristian">
                     <div class="carousel-item-wrapper">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
 
-    // SECCIONES
+    // SECCIONES NORMALES
     tlaxco: {
         tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
@@ -147,7 +147,7 @@ const modalData = {
         `
     },
 
-    // CLONES DE PROYECTOS (BOTONES FLOTANTES)
+    // CLONES DE PROYECTOS
     proj_tlaxco: { tag: "Proyecto", title: "Atlas Regional Estratégico", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
     proj_mapas: { tag: "Proyecto", title: "Zonificación de Salud", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
     proj_render: { tag: "Proyecto", title: "Parque Central", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
