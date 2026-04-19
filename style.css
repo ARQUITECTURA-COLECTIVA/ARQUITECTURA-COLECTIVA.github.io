@@ -17,14 +17,14 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    font-weight: 500; /* Letra general más pesada para contraste */
+    font-weight: 500;
 }
 
-/* MARCADORES TIPOGRÁFICOS [] | SÚPER DELGADOS */
+/* MARCADORES TIPOGRÁFICOS [] | SÚPER DELGADOS Y OPACOS */
 .brk {
     color: inherit;
     opacity: 1;
-    font-weight: 300 !important; /* Siempre súper delgados */
+    font-weight: 300 !important;
     transition: color 0.3s;
 }
 
@@ -55,7 +55,7 @@ body {
 .hero-section { text-align: center; padding: 120px 5% 0px 5%; max-width: 900px; margin: 0 auto; position: relative; z-index: 10; }
 .hero-tag { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
 .light-title { font-size: 4rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #111; }
-.hero-subtitle { font-size: 1.3rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0; } /* Cercano a Tlaxco */
+.hero-subtitle { font-size: 1.3rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0; }
 
 /* === LÓGICA ZIGZAG: IZQ -> DER -> IZQ ESTRICTO === */
 .zigzag-container { width: 100%; overflow: hidden; padding-bottom: 60px; }
@@ -74,39 +74,37 @@ body {
 .text-col { flex: 1; max-width: 700px; }
 .img-col { flex: 1; display: flex; position: relative; }
 
-/* PÍLDORAS FLOTANTES SOBRE IMÁGENES (Estilo Header) */
+/* PÍLDORAS FLOTANTES (MINIATURAS) */
 .img-wrapper { position: relative; display: inline-block; width: 100%; }
 .img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
 
 .floating-pill {
     position: absolute; bottom: 20px;
     background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: none; padding: 6px 14px; border-radius: 4px;
-    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    border: none; padding: 6px 12px; border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
     color: #111; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s; z-index: 20;
 }
-/* Lejos del botón principal */
 .row-img-left .floating-pill { left: 15%; right: auto; }
 .row-img-right .floating-pill { right: 15%; left: auto; }
 .floating-pill:hover { background: rgba(255,255,255,0.95); transform: translateY(-2px); }
 .floating-pill:hover .brk { color: var(--accent); }
 
-/* === TAMAÑOS DE IMAGEN === */
-/* Tlaxco: Completa, cerca del hero, tamaño natural pero grande */
+/* === TAMAÑOS DE IMAGEN NATURALES Y LIMPIOS === */
 .tlaxco-row { margin-top: -30px; }
-.tlaxco-huge img { width: 110%; max-width: none; transform: scale(1.05); transform-origin: top left; }
+.tlaxco-clean { right: auto; left: auto; width: 100%; }
 
 .mapas-faded { max-width: 450px; -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); }
-.render-large { transform: scale(1.1); transform-origin: center left; }
-.diagrama-faded { transform: scale(1.2); transform-origin: center right; -webkit-mask-image: linear-gradient(to left, transparent, black 30%, black); mask-image: linear-gradient(to left, transparent, black 30%, black); }
+.diagrama-faded { -webkit-mask-image: linear-gradient(to left, transparent, black 30%, black); mask-image: linear-gradient(to left, transparent, black 30%, black); }
 
 .flush-left { justify-content: flex-start; margin-left: -10vw; }
 .flush-right { justify-content: flex-end; margin-right: -10vw; }
 
 /* TIPOGRAFÍA SECCIONES */
 .tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.text-col h2 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
-.text-col p { font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+.text-col h2 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
+.text-col p { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
 
 /* BOTONES DE TEXTO (Secciones) */
 .action-btn { background: none; border: none; font-size: 1.1rem; font-weight: 800; color: #111; cursor: pointer; transition: all 0.3s ease; padding: 0; text-align: left; }
@@ -126,19 +124,34 @@ body {
 .team-grid-preview span { font-size: 1.1rem; font-weight: 700; color: var(--text-muted); }
 .frame-hint { display: block; font-size: 0.85rem; color: #999; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 20px; }
 
-/* FOOTER CURVAS & GLASSMORPHISM */
-.footer-curvas { background-image: url('images/curvas.jpg'); background-size: cover; background-position: center; background-blend-mode: multiply; position: relative; color: #fff; }
-.footer-glass-overlay { background: rgba(17, 17, 17, 0.85); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); padding: 80px 5% 40px 5%; width: 100%; height: 100%; }
+/* FOOTER NATURAL CON GLASSMORPHISM */
+.footer-curvas {
+    background-image: url('images/curvas.jpg');
+    background-size: cover; background-position: center;
+    background-blend-mode: normal;
+    position: relative; color: #111;
+}
+.footer-glass-overlay {
+    background: transparent;
+    padding: 80px 5% 40px 5%; width: 100%; height: 100%;
+}
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-.footer-brand { font-weight: 900; font-size: 2.2rem; letter-spacing: 0.1em; color: #fff; margin-bottom: 15px; }
-.footer-desc { color: #ccc; font-size: 0.95rem; font-weight: 700;}
-.footer-col h4 { font-size: 1rem; font-weight: 300; color: #aaa; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.1em; }
-.glass-btn, .glass-text { display: block; width: 100%; text-align: left; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #eee; font-size: 0.9rem; font-weight: 700; padding: 8px 12px; margin-bottom: 10px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: all 0.3s; }
-.glass-btn:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3); transform: translateX(5px); }
+.footer-brand { font-weight: 900; font-size: 2.2rem; letter-spacing: 0.1em; color: #111; margin-bottom: 15px; }
+.footer-desc { color: #444; font-size: 0.95rem; font-weight: 700;}
+.footer-col h4 { font-size: 1rem; font-weight: 800; color: #555; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.glass-btn, .glass-text {
+    display: block; width: 100%; text-align: left;
+    background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.1); color: #111;
+    font-size: 0.9rem; font-weight: 700; padding: 8px 12px; margin-bottom: 10px;
+    border-radius: 6px; cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.glass-btn:hover { background: rgba(255,255,255,0.95); color: #111; border-color: var(--accent); transform: translateX(5px); }
 .glass-btn:hover .brk { color: var(--accent); }
 .glass-text { cursor: default; background: transparent; border: none; padding-left: 0; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 20px; text-align: center; }
-.copyright { font-size: 0.8rem; color: #888; letter-spacing: 0.1em; }
+.footer-bottom { border-top: 1px solid rgba(0,0,0,0.1); margin-top: 60px; padding-top: 20px; text-align: center; }
+.copyright { font-size: 0.8rem; color: #666; letter-spacing: 0.1em; font-weight: 700; }
 
 /* === MODALES GIGANTES === */
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
@@ -154,9 +167,9 @@ body {
 .modal-body-container { padding: 50px 80px; overflow-y: auto; background: #fff; flex: 1; }
 .modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
 .modal-body-container h3 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-.modal-body-container p { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px;}
+.modal-body-container p { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;}
 .modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
-.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 600; font-size: 1.1rem; }
+.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1.1rem; }
 
 /* Modal Contacto General */
 .bg-curvas { background-image: url('images/curvas.jpg'); background-size: cover; background-position: center; background-blend-mode: multiply; }
@@ -178,14 +191,18 @@ body {
 .carousel-track::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 .carousel-item-wrapper { position: relative; height: 350px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;}
 .carousel-item-wrapper img { height: 100%; width: auto; object-fit: cover; pointer-events: none;}
-.carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; left: auto;}
+.carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; left: auto; font-size: 0.65rem;}
 
-/* RESPONSIVE */
+/* RESPONSIVE MÓVIL ESTRICTO */
 @media (max-width: 900px) {
     .zigzag-row { flex-direction: column !important; text-align: center; padding: 20px 5%; margin-bottom: 40px; }
-    .img-col { width: 100%; margin: 0; justify-content: center; align-self: center !important;}
 
-    .row-img-left .text-col, .row-img-right .text-col { padding: 0; margin-top: 20px; }
+    .text-col { order: 1; padding: 0; margin-top: 0; }
+    .img-col { order: 2; width: 100%; margin-top: 30px; justify-content: center; align-self: center !important;}
+
+    .row-img-left .img-col, .row-img-right .img-col { margin-left: 0; margin-right: 0; }
+    .tlaxco-clean { width: 100%; }
+
     .floating-pill { left: auto !important; right: 20px !important; }
 
     .light-title { font-size: 3rem; }

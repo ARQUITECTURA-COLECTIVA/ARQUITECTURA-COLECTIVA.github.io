@@ -35,11 +35,11 @@ const modalData = {
                 <div class="carousel-track" id="car-victor">
                     <div class="carousel-item-wrapper">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                     <div class="carousel-item-wrapper">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ const modalData = {
                 <div class="carousel-track" id="car-karen">
                     <div class="carousel-item-wrapper">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ const modalData = {
                 <div class="carousel-track" id="car-brandon">
                     <div class="carousel-item-wrapper">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -84,16 +84,16 @@ const modalData = {
                 <div class="carousel-track" id="car-cristian">
                     <div class="carousel-item-wrapper">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
 
-    // SECCIONES CON CARRUSELES
+    // SECCIONES CON NUEVOS TÍTULOS
     tlaxco: {
-        tag: "Planificación", title: "Diagnóstico Territorial", image: "images/tlaxco.PNG",
+        tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>Rezago Social<span class="brk">]</span></strong> Identificación geoespacializada.</li><li><strong><span class="brk">[</span>Cartografía<span class="brk">]</span></strong> Actualización para Planes.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-tlaxco">
@@ -102,7 +102,7 @@ const modalData = {
         `
     },
     mapas: {
-        tag: "Geointeligencia", title: "Inversión Eficiente", image: "images/mapas.PNG",
+        tag: "Geointeligencia", title: "Inversión y Desarrollo Eficiente", image: "images/mapas.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>Ubicación<span class="brk">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class="brk">[</span>Reactivación<span class="brk">]</span></strong> Acupuntura espacial.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-mapas">
@@ -111,7 +111,7 @@ const modalData = {
         `
     },
     render: {
-        tag: "Proyección", title: "Legado en el Espacio Público", image: "images/render.PNG",
+        tag: "Proyección", title: "Arquitectura de Impacto", image: "images/render.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>Planes Maestros<span class="brk">]</span></strong> Rescate de parques.</li><li><strong><span class="brk">[</span>Proyectos Ejecutivos<span class="brk">]</span></strong> Listos para obra pública.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-render">
@@ -120,7 +120,7 @@ const modalData = {
         `
     },
     diagrama: {
-        tag: "Comunicación", title: "Rendición de Cuentas", image: "images/diagrama.PNG",
+        tag: "Comunicación", title: "Comunicación y Claridad", image: "images/diagrama.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>One-Pagers<span class="brk">]</span></strong> Jerarquía de datos.</li><li><strong><span class="brk">[</span>Infografías<span class="brk">]</span></strong> Visualización de avance.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-diagrama">
@@ -129,7 +129,7 @@ const modalData = {
         `
     },
     instalaciones: {
-        tag: "Protección Civil", title: "Mitigación y Riesgos", image: "images/instalaciones.PNG",
+        tag: "Protección Civil", title: "Prevención y Seguridad Estructural", image: "images/instalaciones.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>Atlas de Riesgo<span class="brk">]</span></strong> Modelación climática.</li><li><strong><span class="brk">[</span>Vulnerabilidad<span class="brk">]</span></strong> Zonas de estrés.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-instalaciones">
@@ -138,7 +138,7 @@ const modalData = {
         `
     },
     movilidad: {
-        tag: "Ordenamiento", title: "Conectividad Urbana", image: "images/movilidad.PNG",
+        tag: "Ordenamiento", title: "Flujo e Integración Espacial", image: "images/movilidad.PNG",
         content: `
             <ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-movilidad">
@@ -171,7 +171,6 @@ function renderModal(key) {
     const data = modalData[key];
     if (!data) return;
 
-    // Mostrar u ocultar la flecha de regreso
     backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
 
     if(key === 'contactoGeneral') {
@@ -192,7 +191,6 @@ function renderModal(key) {
 
     mContent.innerHTML = data.content;
 
-    // Iniciar carruseles
     if(['victor', 'karen', 'brandon', 'cristian', 'tlaxco', 'mapas', 'render', 'diagrama', 'instalaciones', 'movilidad'].includes(key)) {
         setTimeout(() => initCarousel(`car-${key}`), 100);
     }
