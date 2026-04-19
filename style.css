@@ -1,4 +1,4 @@
-/* === ESTILO EDITORIAL BRUTALISTA === */
+/* === ESTILO EDITORIAL ZIGZAG ESTRICTO === */
 :root {
     --bg: #ffffff;
     --text: #111111;
@@ -22,7 +22,7 @@ body {
 .brk {
     color: #111;
     opacity: 0.3;
-    font-weight: 300; /* Letra ultra delgada para corchetes */
+    font-weight: 300;
     transition: color 0.3s, opacity 0.3s;
 }
 
@@ -34,10 +34,8 @@ body {
     padding: 0 5%; z-index: 1000;
     pointer-events: none;
 }
+.nav-brand-text, .btn-box { pointer-events: auto; }
 
-.nav-brand-text, .nav-btn-bracket { pointer-events: auto; }
-
-/* El Logo en el Nav (Fondo tenue) */
 .nav-brand-text {
     background: rgba(255, 255, 255, 0.85);
     padding: 5px 12px; border-radius: 4px;
@@ -46,74 +44,62 @@ body {
 }
 .nav-brand-text:hover .brk { color: var(--accent); opacity: 1; }
 
-/* Botón Contacto en el Nav */
-.nav-btn-bracket {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 5px 12px; border-radius: 4px; border: none;
-    font-size: 1.1rem; font-weight: 800; color: #000;
-    cursor: pointer; backdrop-filter: blur(5px);
+/* === BOTONES UNIVERSALES (CAJITA TRANSPARENTOSA) === */
+.btn-box {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 10px 20px; border-radius: 6px;
+    font-family: inherit; font-size: 1.05rem; font-weight: 700;
+    color: #111; cursor: pointer; display: inline-flex; align-items: center;
+    transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
-.nav-btn-bracket:hover .brk { color: var(--accent); opacity: 1; }
+.btn-box:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+.btn-box:hover .brk { color: var(--accent); opacity: 1; }
 
 /* HERO */
-.hero-section {
-    text-align: center; padding: 100px 5% 20px 5%;
-    max-width: 900px; margin: 0 auto;
-}
+.hero-section { text-align: center; padding: 120px 5% 40px 5%; max-width: 900px; margin: 0 auto; }
 .hero-tag { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.hero-section h1 { font-size: 3.8rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; }
+.hero-section h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; }
 .hero-section p { font-size: 1.2rem; color: var(--text-muted); font-weight: 700; }
 
-/* === EL LAYOUT ZIGZAG === */
-.flush-container { width: 100%; max-width: 100%; overflow: hidden; }
+/* === LÓGICA ZIGZAG ESTRICTA === */
+.zigzag-container { width: 100%; max-width: 100%; overflow: hidden; padding-bottom: 60px; }
 
 .zigzag-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 40px 0;
-    margin-bottom: 80px; /* Más espacio entre secciones */
+    padding: 60px 0; margin-bottom: 40px;
 }
-.zigzag-row.reverse { flex-direction: row-reverse; }
+.text-col { flex: 1; padding: 0 5vw; max-width: 800px; z-index: 2; }
+.img-col { flex: 1; display: flex; z-index: 1; }
 
-.text-col { flex: 1; padding: 0 8vw; max-width: 800px; }
-.img-col { flex: 1; display: flex; align-items: center; }
-
-/* TLAXCO GIGANTE */
-.tlaxco-row { padding-top: 0; }
-.img-hero-size { justify-content: center; width: 100%; padding: 0; margin-bottom: -30px; }
-.img-hero-size img { width: 120%; max-width: none; transform: scale(1.1); }
-
-/* EFECTO FUSIÓN (Multiply) */
 .img-col img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
 
-/* IMÁGENES EMPOTRADAS */
-.flush-left { justify-content: flex-start; margin-left: -12vw; } /* Mapas */
-.flush-right { justify-content: flex-end; margin-right: -12vw; } /* Instalaciones */
-.center-img { justify-content: center; }
+/* EMPOTRADOS ESTRICTOS ESCRITORIO */
+.row-img-left { flex-direction: row; }
+.row-img-left .img-col { justify-content: flex-start; margin-left: -10vw; }
 
-/* TIPOGRAFÍA SECCIONES INVERTIDA */
+.row-img-right { flex-direction: row; }
+.row-img-right .text-col { order: 1; }
+.row-img-right .img-col { order: 2; justify-content: flex-end; margin-right: -10vw; }
+
+/* TIPOGRAFÍA SECCIONES */
 .tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.text-col h2 {
-    font-size: 2.8rem; /* Reducido para no gritar */
-    font-weight: 300; /* Texto grande y delgado */
-    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000;
-}
-.text-col p {
-    font-size: 1.05rem;
-    font-weight: 700; /* Texto de soporte en negritas */
-    color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;
-}
-
-/* BOTONES GENERALES UNIFICADOS */
-.action-btn {
-    background: none; border: none; font-size: 1.1rem; font-weight: 800; color: #111;
-    cursor: pointer; transition: all 0.3s ease; padding: 0; text-align: left;
-}
-.action-btn:hover .brk { color: var(--accent); opacity: 1; }
+.text-col h2 { font-size: 2.8rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
+.text-col p { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
 
 /* CONTACTO */
-.contact-section { text-align: center; padding: 60px 5%; background: transparent; margin-bottom: 60px;}
-.contact-section h2 { font-size: 2.2rem; font-weight: 300; margin-bottom: 40px; }
-.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: 0 auto; }
+.contact-section { text-align: center; padding: 40px 5% 100px 5%; }
+.title-as-btn {
+    background: none; border: none; font-family: inherit; font-size: 2.5rem; font-weight: 300;
+    color: #111; cursor: pointer; margin-bottom: 50px; display: inline-block;
+}
+.title-as-btn:hover .brk { color: var(--accent); opacity: 1; }
+.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
 
 /* FOOTER MASIVO */
 footer { padding: 80px 5% 40px 5%; background: #111; color: #fff; }
@@ -130,9 +116,9 @@ footer { padding: 80px 5% 40px 5%; background: #111; color: #fff; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 20px; text-align: center; }
 .copyright { font-size: 0.8rem; color: #666; letter-spacing: 0.1em; }
 
-/* MODALES */
+/* === MODALES (A PRUEBA DE BALAS) === */
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
-.modal-card { background: #fff; width: 100%; max-width: 800px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; position: relative; display: flex; flex-direction: column; max-height: 90vh; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+.modal-card { background: #fff; width: 100%; max-width: 800px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; position: relative; display: flex; flex-direction: column; max-height: 90vh; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
 .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 10; }
 .modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
 .modal-brand .brk { color: #000; opacity: 0.4; }
@@ -142,7 +128,7 @@ footer { padding: 80px 5% 40px 5%; background: #111; color: #fff; }
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
 .modal-body-container { padding: 40px; overflow-y: auto; background: #fff; }
 .modal-tag { display: block; font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
-.modal-body-container h3 { font-size: 2.2rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
+.modal-body-container h3 { font-size: 2.5rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
 .modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
 .modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 0.95rem; }
 
@@ -155,24 +141,23 @@ footer { padding: 80px 5% 40px 5%; background: #111; color: #fff; }
 .contact-person .specialty { color: var(--text-muted); font-size: 0.85rem; font-weight: 700; display: block; margin: 2px 0; }
 .contact-person .phone { color: var(--accent); font-size: 1rem; font-weight: 700; display: block; }
 
-/* RESPONSIVE */
+/* RESPONSIVE ZIGZAG MÓVIL */
 @media (max-width: 900px) {
-    .zigzag-row, .zigzag-row.reverse { flex-direction: column; text-align: center; padding: 20px 5%; margin-bottom: 60px; }
-    .img-col { order: 1; width: 100%; margin: 0; justify-content: center; }
-    .text-col { order: 2; padding: 0; margin-top: 20px; }
+    .zigzag-row { flex-direction: column !important; padding: 20px 0; gap: 20px; }
 
-    /* Empotradas en móvil también se salen un poco */
-    .flush-left { margin-left: -5vw; margin-right: 0; width: 110vw; }
-    .flush-right { margin-right: -5vw; margin-left: 0; width: 110vw; }
+    /* En móvil, empotramos las imágenes a los lados para mantener el zigzag */
+    .img-col { width: 100%; padding: 0; }
+    .img-col img { width: 110%; max-width: none; }
 
-    .tlaxco-row .img-col { order: -1; margin-bottom: 20px; }
+    .row-img-left .img-col { justify-content: flex-start; margin-left: -10vw; margin-right: 0; align-self: flex-start; }
+    .row-img-right .img-col { justify-content: flex-end; margin-right: -10vw; margin-left: 0; align-self: flex-end; }
 
-    .hero-section h1 { font-size: 3rem; }
-    .text-col h2 { font-size: 2.2rem; }
+    .text-col { padding: 0 5vw; margin-top: 15px; }
 
+    .hero-section h1 { font-size: 2.8rem; }
+    .title-as-btn { font-size: 1.8rem; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-col button, .footer-col a, .location-text { text-align: center; }
-
+    .footer-col button, .footer-col a, .location-text { text-align: center; margin-left: auto; margin-right: auto; }
     .contact-grid-modal { grid-template-columns: 1fr; }
     .contact-big-email { font-size: 1.8rem; }
 }
