@@ -2,6 +2,30 @@
 let modalHistory = [];
 
 const modalData = {
+    contactoGeneral: {
+        tag: "", title: "",
+        content: `
+            <a href="mailto:arq.colectiv@gmail.com" class="contact-big-email"><span class="brk">[</span>arq.colectiv@gmail.com<span class="brk">]</span></a>
+            <div class="contact-grid-modal">
+                <button class="person-btn" onclick="openModal('victor')">
+                    <strong><span class="brk">[</span>Víctor Luna<span class="brk">]</span></strong>
+                    <span class="specialty"><span class="brk">[</span>Sistemas de Información Geográfica<span class="brk">]</span></span>
+                </button>
+                <button class="person-btn" onclick="openModal('karen')">
+                    <strong><span class="brk">[</span>Karen Josseline<span class="brk">]</span></strong>
+                    <span class="specialty"><span class="brk">[</span>Análisis Normativo Urbano<span class="brk">]</span></span>
+                </button>
+                <button class="person-btn" onclick="openModal('brandon')">
+                    <strong><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></strong>
+                    <span class="specialty"><span class="brk">[</span>Prospección y Resiliencia<span class="brk">]</span></span>
+                </button>
+                <button class="person-btn" onclick="openModal('cristian')">
+                    <strong><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></strong>
+                    <span class="specialty"><span class="brk">[</span>Diseño de Mobiliario Urbano<span class="brk">]</span></span>
+                </button>
+            </div>
+        `
+    },
     victor: {
         tag: "Coordinación", title: "Víctor Luna",
         content: `
@@ -67,7 +91,7 @@ const modalData = {
         `
     },
 
-    // SECCIONES CON TÍTULOS NUEVOS
+    // SECCIONES
     tlaxco: {
         tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
@@ -149,13 +173,21 @@ function renderModal(key) {
 
     backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
 
-    mBanner.style.display = 'block';
-    mTag.style.display = 'block';
-    mTitle.style.display = 'block';
+    if(key === 'contactoGeneral') {
+        mBanner.style.display = 'none';
+        modalCard.classList.add('bg-curvas');
+        mTag.style.display = 'none';
+        mTitle.style.display = 'none';
+    } else {
+        mBanner.style.display = 'block';
+        modalCard.classList.remove('bg-curvas');
+        mTag.style.display = 'block';
+        mTitle.style.display = 'block';
 
-    mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
-    mTitle.innerHTML = `<span class="brk">[</span>${data.title}<span class="brk">]</span>`;
-    if(mImg) mImg.src = data.image ? data.image : '';
+        mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
+        mTitle.innerHTML = `<span class="brk">[</span>${data.title}<span class="brk">]</span>`;
+        if(mImg) mImg.src = data.image ? data.image : '';
+    }
 
     mContent.innerHTML = data.content;
 
