@@ -8,19 +8,19 @@ const modalData = {
             <a href="mailto:arq.colectiv@gmail.com" class="contact-big-email"><span class="brk">[</span>arq.colectiv@gmail.com<span class="brk">]</span></a>
             <div class="contact-grid-modal">
                 <button class="person-btn" onclick="openModal('victor')">
-                    <strong>Víctor Luna</strong>
+                    <strong><span class="brk">[</span>Víctor Luna<span class="brk">]</span></strong>
                     <span class="specialty"><span class="brk">[</span>Sistemas de Información Geográfica<span class="brk">]</span></span>
                 </button>
                 <button class="person-btn" onclick="openModal('karen')">
-                    <strong>Karen Josseline</strong>
+                    <strong><span class="brk">[</span>Karen Josseline<span class="brk">]</span></strong>
                     <span class="specialty"><span class="brk">[</span>Análisis Normativo Urbano<span class="brk">]</span></span>
                 </button>
                 <button class="person-btn" onclick="openModal('brandon')">
-                    <strong>Brándon Yáñez</strong>
+                    <strong><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></strong>
                     <span class="specialty"><span class="brk">[</span>Prospección y Resiliencia<span class="brk">]</span></span>
                 </button>
                 <button class="person-btn" onclick="openModal('cristian')">
-                    <strong>Cristian Mendoza</strong>
+                    <strong><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></strong>
                     <span class="specialty"><span class="brk">[</span>Diseño de Mobiliario Urbano<span class="brk">]</span></span>
                 </button>
             </div>
@@ -35,11 +35,11 @@ const modalData = {
                 <div class="carousel-track" id="car-victor">
                     <div class="carousel-item-wrapper">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
                     </div>
                     <div class="carousel-item-wrapper">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ const modalData = {
                 <div class="carousel-track" id="car-karen">
                     <div class="carousel-item-wrapper">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ const modalData = {
                 <div class="carousel-track" id="car-brandon">
                     <div class="carousel-item-wrapper">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -84,26 +84,76 @@ const modalData = {
                 <div class="carousel-track" id="car-cristian">
                     <div class="carousel-item-wrapper">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver Proyecto<span class="brk">]</span></button>
+                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
-    // SECCIONES NORMALES / PROYECTOS
-    tlaxco: { tag: "Planificación", title: "Diagnóstico Territorial", image: "images/tlaxco.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>Rezago Social<span class=\"brk\">]</span></strong> Identificación geoespacializada.</li><li><strong><span class=\"brk\">[</span>Cartografía<span class=\"brk\">]</span></strong> Actualización para Planes.</li></ul>" },
-    mapas: { tag: "Geointeligencia", title: "Inversión Eficiente", image: "images/mapas.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>Ubicación<span class=\"brk\">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class=\"brk\">[</span>Reactivación<span class=\"brk\">]</span></strong> Acupuntura espacial en zonas degradadas.</li></ul>" },
-    render: { tag: "Proyección", title: "Legado en el Espacio Público", image: "images/render.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>Planes Maestros<span class=\"brk\">]</span></strong> Rescate de parques.</li><li><strong><span class=\"brk\">[</span>Proyectos Ejecutivos<span class=\"brk\">]</span></strong> Listos para obra pública.</li></ul>" },
-    diagrama: { tag: "Comunicación", title: "Rendición de Cuentas", image: "images/diagrama.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>One-Pagers<span class=\"brk\">]</span></strong> Jerarquía de datos.</li><li><strong><span class=\"brk\">[</span>Infografías<span class=\"brk\">]</span></strong> Visualización de avance de obra.</li></ul>" },
-    instalaciones: { tag: "Protección Civil", title: "Mitigación y Riesgos", image: "images/instalaciones.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>Atlas de Riesgo<span class=\"brk\">]</span></strong> Modelación climática.</li><li><strong><span class=\"brk\">[</span>Vulnerabilidad<span class=\"brk\">]</span></strong> Zonas de estrés hídrico.</li></ul>" },
-    movilidad: { tag: "Ordenamiento", title: "Conectividad Urbana", image: "images/movilidad.PNG", content: "<ul><li><strong><span class=\"brk\">[</span>Ordenamiento<span class=\"brk\">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class=\"brk\">[</span>Movilidad Activa<span class=\"brk\">]</span></strong> Ciclovías seguras.</li></ul>" },
+
+    // SECCIONES CON CARRUSELES
+    tlaxco: {
+        tag: "Planificación", title: "Diagnóstico Territorial", image: "images/tlaxco.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>Rezago Social<span class="brk">]</span></strong> Identificación geoespacializada.</li><li><strong><span class="brk">[</span>Cartografía<span class="brk">]</span></strong> Actualización para Planes.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-tlaxco">
+                <div class="carousel-item-wrapper"><img src="images/tlaxco.PNG"><button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+    mapas: {
+        tag: "Geointeligencia", title: "Inversión Eficiente", image: "images/mapas.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>Ubicación<span class="brk">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class="brk">[</span>Reactivación<span class="brk">]</span></strong> Acupuntura espacial.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-mapas">
+                <div class="carousel-item-wrapper"><img src="images/mapas.PNG"><button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+    render: {
+        tag: "Proyección", title: "Legado en el Espacio Público", image: "images/render.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>Planes Maestros<span class="brk">]</span></strong> Rescate de parques.</li><li><strong><span class="brk">[</span>Proyectos Ejecutivos<span class="brk">]</span></strong> Listos para obra pública.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-render">
+                <div class="carousel-item-wrapper"><img src="images/render.PNG"><button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+    diagrama: {
+        tag: "Comunicación", title: "Rendición de Cuentas", image: "images/diagrama.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>One-Pagers<span class="brk">]</span></strong> Jerarquía de datos.</li><li><strong><span class="brk">[</span>Infografías<span class="brk">]</span></strong> Visualización de avance.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-diagrama">
+                <div class="carousel-item-wrapper"><img src="images/diagrama.PNG"><button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+    instalaciones: {
+        tag: "Protección Civil", title: "Mitigación y Riesgos", image: "images/instalaciones.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>Atlas de Riesgo<span class="brk">]</span></strong> Modelación climática.</li><li><strong><span class="brk">[</span>Vulnerabilidad<span class="brk">]</span></strong> Zonas de estrés.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-instalaciones">
+                <div class="carousel-item-wrapper"><img src="images/instalaciones.PNG"><button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+    movilidad: {
+        tag: "Ordenamiento", title: "Conectividad Urbana", image: "images/movilidad.PNG",
+        content: `
+            <ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li></ul>
+            <div class="carousel-wrapper"><div class="carousel-track" id="car-movilidad">
+                <div class="carousel-item-wrapper"><img src="images/movilidad.PNG"><button class="floating-pill" onclick="openModal('proj_movilidad')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+            </div></div>
+        `
+    },
+
     // CLONES PARA LOS BOTONES FLOTANTES
-    proj_tlaxco: { tag: "Proyecto", title: "Diagnóstico Regional", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
-    proj_mapas: { tag: "Proyecto", title: "Sistemas Geoespaciales", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
-    proj_render: { tag: "Proyecto", title: "Prospección Urbana", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
-    proj_diagrama: { tag: "Proyecto", title: "Entregables Ejecutivos", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación política.<span class=\"brk\">]</span></p>" },
-    proj_instalaciones: { tag: "Proyecto", title: "Modelación de Riesgos", image: "images/instalaciones.PNG", content: "<p><span class=\"brk\">[</span>Mapeo de vulnerabilidades hidrológicas.<span class=\"brk\">]</span></p>" },
-    proj_movilidad: { tag: "Proyecto", title: "Estrategias de Flujo", image: "images/movilidad.PNG", content: "<p><span class=\"brk\">[</span>Planeación de conectividad urbana integral.<span class=\"brk\">]</span></p>" },
+    proj_tlaxco: { tag: "Proyecto", title: "Plan Maestro de Regeneración", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
+    proj_mapas: { tag: "Proyecto", title: "Zonificación Hospitalaria", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
+    proj_render: { tag: "Proyecto", title: "Plaza Central 2026", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
+    proj_diagrama: { tag: "Proyecto", title: "Reporte de Cabildo", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación política.<span class=\"brk\">]</span></p>" },
+    proj_instalaciones: { tag: "Proyecto", title: "Mitigación Hídrica", image: "images/instalaciones.PNG", content: "<p><span class=\"brk\">[</span>Mapeo de vulnerabilidades hidrológicas.<span class=\"brk\">]</span></p>" },
+    proj_movilidad: { tag: "Proyecto", title: "Red Ciclista Urbana", image: "images/movilidad.PNG", content: "<p><span class=\"brk\">[</span>Planeación de conectividad urbana integral.<span class=\"brk\">]</span></p>" },
     privacidad: { tag: "Legal", title: "Aviso de Privacidad", content: "<p><span class=\"brk\">[</span>Garantizamos confidencialidad absoluta en el manejo de datos.<span class=\"brk\">]</span></p>" },
     terminos: { tag: "Legal", title: "Términos Legales", content: "<p><span class=\"brk\">[</span>Nuestros servicios se adaptan a la Ley de Obra Pública.<span class=\"brk\">]</span></p>" }
 };
@@ -121,7 +171,7 @@ function renderModal(key) {
     const data = modalData[key];
     if (!data) return;
 
-    // Mostrar u ocultar la flecha de regreso dependiendo del historial
+    // Mostrar u ocultar la flecha de regreso
     backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
 
     if(key === 'contactoGeneral') {
@@ -142,30 +192,30 @@ function renderModal(key) {
 
     mContent.innerHTML = data.content;
 
-    // Iniciar carrusel si el modal es de una persona
-    if(['victor', 'karen', 'brandon', 'cristian'].includes(key)) {
+    // Iniciar carruseles
+    if(['victor', 'karen', 'brandon', 'cristian', 'tlaxco', 'mapas', 'render', 'diagrama', 'instalaciones', 'movilidad'].includes(key)) {
         setTimeout(() => initCarousel(`car-${key}`), 100);
     }
 }
 
 function openModal(key) {
-    modalHistory.push(key); // Agrega al historial
+    modalHistory.push(key);
     renderModal(key);
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
 function goBackModal() {
-    modalHistory.pop(); // Saca el actual
+    modalHistory.pop();
     if(modalHistory.length > 0) {
-        renderModal(modalHistory[modalHistory.length - 1]); // Renderiza el anterior
+        renderModal(modalHistory[modalHistory.length - 1]);
     } else {
         closeModal();
     }
 }
 
 function closeModal() {
-    modalHistory = []; // Limpia el historial
+    modalHistory = [];
     overlay.style.display = 'none';
     document.body.style.overflow = 'auto';
 }

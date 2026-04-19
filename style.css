@@ -4,6 +4,7 @@
     --text: #111111;
     --text-muted: #444444;
     --accent: #b32a2a;
+    --border: rgba(0,0,0,0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,13 +17,14 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    font-weight: 500; /* Letra general más pesada para contraste */
 }
 
-/* MARCADORES TIPOGRÁFICOS DELGADOS [] | */
+/* MARCADORES TIPOGRÁFICOS [] | SÚPER DELGADOS */
 .brk {
-    color: inherit; /* Hereda el color de donde esté, pero cambia el peso */
-    opacity: 1; /* Opacidad completa como pediste */
-    font-weight: 300 !important; /* Siempre delgados */
+    color: inherit;
+    opacity: 1;
+    font-weight: 300 !important; /* Siempre súper delgados */
     transition: color 0.3s;
 }
 
@@ -35,12 +37,12 @@ body {
     pointer-events: none;
 }
 
-/* BOTONES DEL HEADER SIN BORDE */
+/* BOTONES DEL HEADER SIN BORDE (Blur puro) */
 .nav-box-btn {
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: none; /* Cero bordes */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: none;
     padding: 8px 18px; border-radius: 6px;
     font-family: inherit; font-size: 1.1rem; font-weight: 800;
     color: #111; cursor: pointer; display: inline-flex; align-items: center;
@@ -50,81 +52,63 @@ body {
 .nav-box-btn:hover .brk { color: var(--accent); }
 
 /* HERO */
-.hero-section { text-align: center; padding: 120px 5% 40px 5%; max-width: 900px; margin: 0 auto; position: relative; z-index: 10; }
+.hero-section { text-align: center; padding: 120px 5% 0px 5%; max-width: 900px; margin: 0 auto; position: relative; z-index: 10; }
 .hero-tag { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.light-title { font-size: 4.2rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #111; }
-.hero-section p { font-size: 1.2rem; color: var(--text-muted); font-weight: 700; }
+.light-title { font-size: 4rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 15px; color: #111; }
+.hero-subtitle { font-size: 1.3rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0; } /* Cercano a Tlaxco */
 
-/* === LÓGICA ZIGZAG Y CAPAS === */
+/* === LÓGICA ZIGZAG: IZQ -> DER -> IZQ ESTRICTO === */
 .zigzag-container { width: 100%; overflow: hidden; padding-bottom: 60px; }
+.zigzag-row { display: flex; align-items: center; justify-content: space-between; padding: 40px 0; margin-bottom: 30px; }
 
-.zigzag-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 40px 0; margin-bottom: 30px; position: relative;
-}
-
-/* Z-INDEX UTILS */
-.relative-row { position: relative; min-height: 60vh; }
-.z-front { position: relative; z-index: 10; }
-.z-middle { position: relative; z-index: 5; }
-.z-back { position: absolute; z-index: 1; }
-
-/* ZIGZAG IZQ-DER-IZQ ESTRICTO */
 /* IMG IZQUIERDA / TEXTO DERECHA */
 .row-img-left { flex-direction: row; }
 .row-img-left .img-col { justify-content: flex-start; margin-left: -5vw; margin-right: 0;}
-.row-img-left .text-col { padding-right: 5vw; padding-left: 0; }
+.row-img-left .text-col { padding-right: 5vw; padding-left: 2vw; }
 
 /* TEXTO IZQUIERDA / IMG DERECHA */
 .row-img-right { flex-direction: row-reverse; }
 .row-img-right .img-col { justify-content: flex-end; margin-right: -5vw; margin-left: 0;}
-.row-img-right .text-col { padding-left: 5vw; padding-right: 0; }
+.row-img-right .text-col { padding-left: 5vw; padding-right: 2vw; }
 
 .text-col { flex: 1; max-width: 700px; }
 .img-col { flex: 1; display: flex; position: relative; }
 
-/* PÍLDORAS FLOTANTES SOBRE IMÁGENES */
+/* PÍLDORAS FLOTANTES SOBRE IMÁGENES (Estilo Header) */
 .img-wrapper { position: relative; display: inline-block; width: 100%; }
 .img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+
 .floating-pill {
-    position: absolute; bottom: 30px; right: 30px;
-    background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: none; padding: 10px 20px; border-radius: 50px;
-    font-size: 0.95rem; font-weight: 700; color: #111; cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: all 0.3s; z-index: 20;
+    position: absolute; bottom: 20px;
+    background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: none; padding: 6px 14px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #111; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s; z-index: 20;
 }
-.floating-pill:hover { background: rgba(255,255,255,0.9); transform: scale(1.05); }
+/* Lejos del botón principal */
+.row-img-left .floating-pill { left: 15%; right: auto; }
+.row-img-right .floating-pill { right: 15%; left: auto; }
+.floating-pill:hover { background: rgba(255,255,255,0.95); transform: translateY(-2px); }
 .floating-pill:hover .brk { color: var(--accent); }
 
-/* === TAMAÑOS Y MÁSCARAS DE IMAGEN (ESPECÍFICOS) === */
-.tlaxco-huge { right: auto; left: -10vw; top: -10vh; width: 80vw; opacity: 0.8; pointer-events: none; }
-.tlaxco-huge img { width: 100%; transform: scale(1.3); }
-.tlaxco-huge .floating-pill { pointer-events: auto; }
+/* === TAMAÑOS DE IMAGEN === */
+/* Tlaxco: Completa, cerca del hero, tamaño natural pero grande */
+.tlaxco-row { margin-top: -30px; }
+.tlaxco-huge img { width: 110%; max-width: none; transform: scale(1.05); transform-origin: top left; }
 
-.mapas-faded {
-    max-width: 450px; margin-right: -5vw;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-}
-
-.render-huge img { transform: scale(1.4); transform-origin: center left; }
-
-.diagrama-huge { margin-right: -10vw; }
-.diagrama-faded {
-    transform: scale(1.3); transform-origin: center right;
-    -webkit-mask-image: linear-gradient(to left, transparent, black 30%, black);
-    mask-image: linear-gradient(to left, transparent, black 30%, black);
-}
+.mapas-faded { max-width: 450px; -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); }
+.render-large { transform: scale(1.1); transform-origin: center left; }
+.diagrama-faded { transform: scale(1.2); transform-origin: center right; -webkit-mask-image: linear-gradient(to left, transparent, black 30%, black); mask-image: linear-gradient(to left, transparent, black 30%, black); }
 
 .flush-left { justify-content: flex-start; margin-left: -10vw; }
 .flush-right { justify-content: flex-end; margin-right: -10vw; }
 
 /* TIPOGRAFÍA SECCIONES */
 .tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px; }
-.text-col h2 { font-size: 2.6rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
-.text-col p { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+.text-col h2 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #000; }
+.text-col p { font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
 
-/* BOTONES DE TEXTO */
+/* BOTONES DE TEXTO (Secciones) */
 .action-btn { background: none; border: none; font-size: 1.1rem; font-weight: 800; color: #111; cursor: pointer; transition: all 0.3s ease; padding: 0; text-align: left; }
 .action-btn:hover .brk { color: var(--accent); }
 
@@ -159,23 +143,20 @@ body {
 /* === MODALES GIGANTES === */
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
 .modal-card { background: #fff; width: 96vw; max-width: 1600px; height: 96vh; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 80px rgba(0,0,0,0.2); }
-
-/* Header Modal Flecha y Tache */
 .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 10; }
 .back-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s;}
 .back-modal:hover { color: var(--accent); }
 .modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
 .close-modal { background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #111; line-height: 1; font-weight: 300; transition: color 0.3s;}
 .close-modal:hover { color: var(--accent); }
-
 .modal-banner-ribbon { height: 250px; width: 100%; background: #f5f5f5; flex-shrink: 0;}
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
 .modal-body-container { padding: 50px 80px; overflow-y: auto; background: #fff; flex: 1; }
 .modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
 .modal-body-container h3 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-.modal-body-container p { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;}
+.modal-body-container p { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px;}
 .modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
-.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1.1rem; }
+.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 600; font-size: 1.1rem; }
 
 /* Modal Contacto General */
 .bg-curvas { background-image: url('images/curvas.jpg'); background-size: cover; background-position: center; background-blend-mode: multiply; }
@@ -197,7 +178,7 @@ body {
 .carousel-track::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 .carousel-item-wrapper { position: relative; height: 350px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;}
 .carousel-item-wrapper img { height: 100%; width: auto; object-fit: cover; pointer-events: none;}
-.carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; font-size: 0.8rem; padding: 8px 15px; }
+.carousel-item-wrapper .floating-pill { bottom: 15px; right: 15px; left: auto;}
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -205,7 +186,7 @@ body {
     .img-col { width: 100%; margin: 0; justify-content: center; align-self: center !important;}
 
     .row-img-left .text-col, .row-img-right .text-col { padding: 0; margin-top: 20px; }
-    .tlaxco-huge { position: relative; right: auto; left: auto; top: auto; width: 120%; order: -1; }
+    .floating-pill { left: auto !important; right: 20px !important; }
 
     .light-title { font-size: 3rem; }
     .text-col h2 { font-size: 2.2rem; }
