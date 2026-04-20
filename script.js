@@ -1,3 +1,31 @@
+// LÓGICA DEL MENÚ DE NAVEGACIÓN
+function toggleMainMenu(event) {
+    event.stopPropagation();
+    const menu = document.getElementById('mainMenu');
+    menu.classList.toggle('active');
+}
+
+function toggleSubMenu(submenuId, event) {
+    event.stopPropagation();
+    const submenu = document.getElementById(submenuId);
+    submenu.classList.toggle('active');
+}
+
+function openModalAndCloseMenu(key) {
+    document.getElementById('mainMenu').classList.remove('active');
+    openModal(key);
+}
+
+// Cierra el menú al hacer clic fuera
+document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mainMenu');
+    const menuContainer = document.querySelector('.menu-container');
+    if (menu.classList.contains('active') && !menuContainer.contains(e.target)) {
+        menu.classList.remove('active');
+    }
+});
+
+
 // HISTORIAL PARA LA FLECHA DE REGRESO
 let modalHistory = [];
 
@@ -9,10 +37,10 @@ const modalData = {
             <p><span class="brk">[</span>Especialista en Sistemas de Información Geográfica y estrategia territorial para la administración pública. Con amplia experiencia en la coordinación de proyectos urbanos a gran escala, integrando análisis de datos socioespaciales con normatividad vigente para garantizar la viabilidad técnica y financiera de cada intervención. Su enfoque permite transformar bases de datos complejas en herramientas de decisión ejecutiva claras y contundentes.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-victor">
-                    <div class="carousel-item-wrapper" onclick="openModal('proj_mapas')" style="cursor: pointer;">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_zmvm')" style="cursor: pointer;">
                         <img src="images/mapas.PNG">
                     </div>
-                    <div class="carousel-item-wrapper" onclick="openModal('proj_tlaxco')" style="cursor: pointer;">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_iztapalapa')" style="cursor: pointer;">
                         <img src="images/tlaxco.PNG">
                     </div>
                 </div>
@@ -26,7 +54,7 @@ const modalData = {
             <p><span class="brk">[</span>Experta en normatividad, viabilidad legal de proyectos y políticas públicas urbanas. Posee una profunda comprensión de los marcos regulatorios a nivel municipal, estatal y federal. Su labor asegura que cada desarrollo territorial cumpla con los más altos estándares legales, facilitando la obtención de permisos y minimizando los riesgos jurídicos en la ejecución de obra pública y privada.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-karen">
-                    <div class="carousel-item-wrapper" onclick="openModal('proj_diagrama')" style="cursor: pointer;">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_viabilidad')" style="cursor: pointer;">
                         <img src="images/diagrama.PNG">
                     </div>
                 </div>
@@ -40,7 +68,7 @@ const modalData = {
             <p><span class="brk">[</span>Coordinador de resiliencia territorial, prevención de riesgos y participación ciudadana. Especializado en la elaboración de Atlas de Riesgo y el diseño de planes de contingencia para escenarios hidrológicos, geológicos y climáticos. Además, lidera metodologías de integración social para garantizar que la infraestructura propuesta cuente con la apropiación y respaldo de las comunidades locales.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-brandon">
-                    <div class="carousel-item-wrapper" onclick="openModal('proj_instalaciones')" style="cursor: pointer;">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_casa')" style="cursor: pointer;">
                         <img src="images/instalaciones.PNG">
                     </div>
                 </div>
@@ -54,7 +82,7 @@ const modalData = {
             <p><span class="brk">[</span>Diseñador Industrial encargado del mobiliario urbano y modelado 3D de envolventes funcionales. Transforma los diagnósticos espaciales y urbanos en elementos tangibles que interactúan directamente con el usuario. Su trabajo garantiza que la infraestructura no solo sea eficiente a nivel técnico, sino también estéticamente perdurable, ergonómica y adaptable a las exigencias climáticas de cada territorio.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-cristian">
-                    <div class="carousel-item-wrapper" onclick="openModal('proj_render')" style="cursor: pointer;">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_mixto')" style="cursor: pointer;">
                         <img src="images/render.PNG">
                     </div>
                 </div>
@@ -62,33 +90,9 @@ const modalData = {
         `
     },
 
-    // SECCIONES EXTENSAS DE SERVICIOS
-    tlaxco: {
-        tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
-        content: `
-            <p>Comprendemos el territorio antes de intervenirlo. Ofrecemos herramientas de diagnóstico robustas para la correcta toma de decisiones a nivel municipal y regional.</p>
-
-            <h4>Planeación Municipal</h4>
-            <ul>
-                <li><strong>Planes Municipales de Desarrollo Urbano (PMDU):</strong> Elaboración integral alineada a la normativa vigente.</li>
-                <li><strong>Actualización Cartográfica:</strong> Levantamiento y rectificación de límites urbanos y ejidales.</li>
-                <li><strong>Zonificación Primaria y Secundaria:</strong> Definición de usos de suelo y coeficientes de ocupación.</li>
-            </ul>
-
-            <h4>Análisis Demográfico y Social</h4>
-            <ul>
-                <li><strong>Identificación de Rezago Social:</strong> Mapeo de indicadores de marginación para focalizar inversión.</li>
-                <li><strong>Estudios de Crecimiento Poblacional:</strong> Proyecciones a corto, mediano y largo plazo.</li>
-                <li><strong>Diagnóstico de Equipamiento:</strong> Evaluación de déficit y superávit de infraestructura pública.</li>
-            </ul>
-
-            <div class="carousel-wrapper"><div class="carousel-track" id="car-tlaxco">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_tlaxco')" style="cursor: pointer;"><img src="images/tlaxco.PNG"></div>
-            </div></div>
-        `
-    },
+    // SECCIONES DE SERVICIOS
     mapas: {
-        tag: "Geointeligencia", title: "Inversión y Desarrollo Eficiente", image: "images/mapas.PNG",
+        tag: "Geointeligencia", title: "Servicios Cartográficos", image: "images/mapas.PNG",
         content: `
             <p>Utilizamos Sistemas de Información Geográfica (SIG) para traducir datos abstractos en mapas estratégicos que garantizan el éxito de los proyectos.</p>
 
@@ -107,12 +111,12 @@ const modalData = {
             </ul>
 
             <div class="carousel-wrapper"><div class="carousel-track" id="car-mapas">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_mapas')" style="cursor: pointer;"><img src="images/mapas.PNG"></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_zmvm')" style="cursor: pointer;"><img src="images/mapas.PNG"></div>
             </div></div>
         `
     },
     render: {
-        tag: "Proyección", title: "Arquitectura de Impacto", image: "images/render.PNG",
+        tag: "Proyección", title: "Servicios de Diseño", image: "images/render.PNG",
         content: `
             <p>Llevamos la estrategia del papel a la realidad construida. Diseñamos espacios que trascienden su escala y generan arraigo comunitario.</p>
 
@@ -131,12 +135,12 @@ const modalData = {
             </ul>
 
             <div class="carousel-wrapper"><div class="carousel-track" id="car-render">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_render')" style="cursor: pointer;"><img src="images/render.PNG"></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_mixto')" style="cursor: pointer;"><img src="images/render.PNG"></div>
             </div></div>
         `
     },
     diagrama: {
-        tag: "Comunicación", title: "Comunicación y Claridad", image: "images/diagrama.PNG",
+        tag: "Comunicación", title: "Servicios de Comunicación", image: "images/diagrama.PNG",
         content: `
             <p>Transformamos expedientes técnicos complejos en herramientas de comunicación visual claras para autoridades, inversores y ciudadanos.</p>
 
@@ -155,12 +159,12 @@ const modalData = {
             </ul>
 
             <div class="carousel-wrapper"><div class="carousel-track" id="car-diagrama">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_diagrama')" style="cursor: pointer;"><img src="images/diagrama.PNG"></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_viabilidad')" style="cursor: pointer;"><img src="images/diagrama.PNG"></div>
             </div></div>
         `
     },
     instalaciones: {
-        tag: "Protección Civil", title: "Prevención y Seguridad Estructural", image: "images/instalaciones.PNG",
+        tag: "Protección Civil", title: "Servicios de Consultoría", image: "images/instalaciones.PNG",
         content: `
             <p>Modelamos y prevenimos riesgos territoriales para garantizar la seguridad de la población y la resiliencia de la infraestructura a largo plazo.</p>
 
@@ -179,12 +183,12 @@ const modalData = {
             </ul>
 
             <div class="carousel-wrapper"><div class="carousel-track" id="car-instalaciones">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_instalaciones')" style="cursor: pointer;"><img src="images/instalaciones.PNG"></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_casa')" style="cursor: pointer;"><img src="images/instalaciones.PNG"></div>
             </div></div>
         `
     },
     movilidad: {
-        tag: "Ordenamiento", title: "Flujo e Integración Espacial", image: "images/movilidad.PNG",
+        tag: "Ordenamiento", title: "Soluciones de Conciliación", image: "images/movilidad.PNG",
         content: `
             <p>Diseñamos sistemas de movimiento que priorizan a las personas, mejoran la accesibilidad y reducen los tiempos y costos de traslado.</p>
 
@@ -203,18 +207,20 @@ const modalData = {
             </ul>
 
             <div class="carousel-wrapper"><div class="carousel-track" id="car-movilidad">
-                <div class="carousel-item-wrapper" onclick="openModal('proj_movilidad')" style="cursor: pointer;"><img src="images/movilidad.PNG"></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_cetram')" style="cursor: pointer;"><img src="images/movilidad.PNG"></div>
             </div></div>
         `
     },
 
-    // CLONES DE PROYECTOS
-    proj_tlaxco: { tag: "Proyecto", title: "Atlas Regional Estratégico", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
-    proj_mapas: { tag: "Proyecto", title: "Zonificación de Salud", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
-    proj_render: { tag: "Proyecto", title: "Parque Central", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
-    proj_diagrama: { tag: "Proyecto", title: "Reporte Ejecutivo de Cabildo", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación política.<span class=\"brk\">]</span></p>" },
-    proj_instalaciones: { tag: "Proyecto", title: "Mitigación Hídrica", image: "images/instalaciones.PNG", content: "<p><span class=\"brk\">[</span>Mapeo de vulnerabilidades hidrológicas.<span class=\"brk\">]</span></p>" },
-    proj_movilidad: { tag: "Proyecto", title: "Red Ciclista Urbana", image: "images/movilidad.PNG", content: "<p><span class=\"brk\">[</span>Planeación de conectividad urbana integral.<span class=\"brk\">]</span></p>" },
+    // CLONES DE PROYECTOS ACTUALIZADOS
+    proj_iztapalapa: { tag: "Proyecto", title: "Juego de Pelota Iztapalapa", image: "images/tlaxco.PNG", content: "<p><span class=\"brk\">[</span>Detalle del proyecto técnico realizado para la prospección regional.<span class=\"brk\">]</span></p>" },
+    proj_zmvm: { tag: "Proyecto", title: "Estudio Zona Metropolitana", image: "images/mapas.PNG", content: "<p><span class=\"brk\">[</span>Detalle algorítmico del proyecto de inversión eficiente.<span class=\"brk\">]</span></p>" },
+    proj_mixto: { tag: "Proyecto", title: "Conjunto de Uso Mixto", image: "images/render.PNG", content: "<p><span class=\"brk\">[</span>Visualización arquitectónica de las obras de impacto municipal.<span class=\"brk\">]</span></p>" },
+    proj_viabilidad: { tag: "Proyecto", title: "Reporte de Viabilidad", image: "images/diagrama.PNG", content: "<p><span class=\"brk\">[</span>Esquemas visuales para comunicación estratégica.<span class=\"brk\">]</span></p>" },
+    proj_casa: { tag: "Proyecto", title: "Casa-Habitación", image: "images/instalaciones.PNG", content: "<p><span class=\"brk\">[</span>Mapeo de vulnerabilidades estructurales y constructivas.<span class=\"brk\">]</span></p>" },
+    proj_cetram: { tag: "Proyecto", title: "Rediseño CETRAM", image: "images/movilidad.PNG", content: "<p><span class=\"brk\">[</span>Planeación de conectividad urbana y conciliación territorial.<span class=\"brk\">]</span></p>" },
+
+    // LEGAL
     privacidad: { tag: "Legal", title: "Aviso de Privacidad", content: "<p><span class=\"brk\">[</span>Garantizamos confidencialidad absoluta en el manejo de datos.<span class=\"brk\">]</span></p>" },
     terminos: { tag: "Legal", title: "Términos Legales", content: "<p><span class=\"brk\">[</span>Nuestros servicios se adaptan a la Ley de Obra Pública.<span class=\"brk\">]</span></p>" }
 };
@@ -248,7 +254,7 @@ function renderModal(key) {
 
     mContent.innerHTML = data.content;
 
-    if(['victor', 'karen', 'brandon', 'cristian', 'tlaxco', 'mapas', 'render', 'diagrama', 'instalaciones', 'movilidad'].includes(key)) {
+    if(['victor', 'karen', 'brandon', 'cristian', 'mapas', 'render', 'diagrama', 'instalaciones', 'movilidad'].includes(key)) {
         setTimeout(() => initCarousel(`car-${key}`), 100);
     }
 }
