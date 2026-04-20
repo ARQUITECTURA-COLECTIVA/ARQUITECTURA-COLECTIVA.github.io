@@ -40,27 +40,22 @@ body {
 .menu-container { position: relative; pointer-events: auto; }
 .dropdown-menu {
     display: none; position: absolute; top: 110%; left: 0;
-    min-width: 240px; padding: 20px; z-index: 2000; overflow-y: auto;
+    min-width: 260px; padding: 20px; z-index: 2000; overflow-y: auto;
 }
 .dropdown-menu.active { display: block; }
 .menu-header { display: flex; justify-content: flex-end; margin-bottom: 5px; }
 .close-menu-btn { width: auto !important; padding: 0 !important; text-align: right !important; }
-.menu-list, .submenu-list { list-style: none; padding: 0; margin: 0; }
-.menu-item { margin-bottom: 15px; }
-.menu-btn {
-    background: none; border: none; font-weight: 800; font-family: inherit;
-    font-size: 1.1rem; cursor: pointer; text-align: left; width: 100%; color: #111;
-}
-.menu-btn:hover .brk { color: var(--accent); }
-.submenu-list {
-    display: none; padding-left: 15px; margin-top: 10px;
-    border-left: 1px solid rgba(0,0,0,0.1);
-}
-.submenu-list.active { display: block; }
+
+/* NUEVOS SUBTÍTULOS DEL MENÚ */
+.menu-subtitle { font-size: 1.05rem; font-weight: 900; color: #111; margin: 0 0 10px 0; padding-bottom: 5px; border-bottom: 1px solid rgba(0,0,0,0.1); letter-spacing: 0.05em; text-transform: uppercase; }
+.menu-section { margin-bottom: 25px; }
+
+.submenu-list { list-style: none; padding: 0; margin: 0; }
+.submenu-list.always-open { display: block; }
 .submenu-list button {
-    background: none; border: none; font-weight: 500; font-family: inherit;
+    background: none; border: none; font-weight: 600; font-family: inherit;
     font-size: 0.95rem; cursor: pointer; text-align: left; width: 100%;
-    padding: 6px 0; color: var(--text-muted); transition: color 0.2s;
+    padding: 8px 5px; color: var(--text-muted); transition: color 0.2s;
 }
 .submenu-list button:hover { color: #111; font-weight: 800; }
 .submenu-list button:hover .brk { color: var(--accent); }
@@ -134,7 +129,7 @@ body {
 .instalaciones-huge { width: 150%; margin-left: -30vw; }
 .flush-right { width: 120%; justify-content: flex-end; margin-right: -10vw;}
 
-/* PÍLDORAS FLOTANTES UNIFICADAS (Pequeñas, 1-2 líneas, centro abajo) */
+/* PÍLDORAS FLOTANTES UNIFICADAS (Pequeñas, sin texto extra) */
 .floating-pill {
     position: absolute;
     background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -146,10 +141,7 @@ body {
 }
 .floating-pill:hover .brk { color: var(--accent); }
 
-/* Posición única para píldoras de secciones: Centro horizontal, un poco por debajo del medio vertical */
 .pill-center { top: 60%; left: 50%; transform: translate(-50%, -50%); }
-
-/* Posición específica para el Hero (fondo de la imagen) */
 .pill-hero { bottom: 40px; left: 50%; transform: translateX(-50%); }
 
 /* TIPOGRAFÍA SECCIONES */
@@ -245,8 +237,10 @@ body {
     .team-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
     .team-grid .btn-box { font-size: 0.75rem; padding: 6px 8px; }
 
+    /* CORRECCIÓN MODAL MÓVIL: Se fuerza alineación al tope y altura exacta de la pantalla */
+    .modal-overlay { padding: 0; align-items: flex-start; }
+    .modal-card { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; margin: 0;}
     .modal-body-container { padding: 30px 20px; }
     .modal-body-container h3 { font-size: 1.6rem; }
-    .modal-card { width: 100vw; height: 100vh; border-radius: 0; }
     .modal-banner-ribbon { height: 150px; }
 }

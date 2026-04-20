@@ -18,27 +18,27 @@
                 <div class="menu-header">
                     <button class="menu-btn close-menu-btn" onclick="toggleMainMenu(event)"><span class="brk">[</span>×<span class="brk">]</span></button>
                 </div>
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <button class="menu-btn" onclick="toggleSubMenu('serviciosSubmenu', event)"><span class="brk">[</span>Servicios<span class="brk">]</span></button>
-                        <ul id="serviciosSubmenu" class="submenu-list">
-                            <li><button onclick="openModalAndCloseMenu('mapas')"><span class="brk">[</span>Servicios Cartográficos<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('render')"><span class="brk">[</span>Servicios de Diseño<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('diagrama')"><span class="brk">[</span>Servicios de Comunicación<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('instalaciones')"><span class="brk">[</span>Servicios de Consultoría<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('movilidad')"><span class="brk">[</span>Soluciones de Conciliación<span class="brk">]</span></button></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <button class="menu-btn" onclick="toggleSubMenu('equipoSubmenu', event)"><span class="brk">[</span>Colaboradores<span class="brk">]</span></button>
-                        <ul id="equipoSubmenu" class="submenu-list">
-                            <li><button onclick="openModalAndCloseMenu('victor')"><span class="brk">[</span>Víctor Luna<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('karen')"><span class="brk">[</span>Karen Josseline<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('brandon')"><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></button></li>
-                            <li><button onclick="openModalAndCloseMenu('cristian')"><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></button></li>
-                        </ul>
-                    </li>
-                </ul>
+
+                <div class="menu-section">
+                    <h4 class="menu-subtitle"><span class="brk">[</span>Servicios<span class="brk">]</span></h4>
+                    <ul class="submenu-list always-open">
+                        <li><button onclick="openModalAndCloseMenu('mapas')"><span class="brk">[</span>Servicios Cartográficos<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('render')"><span class="brk">[</span>Servicios de Diseño<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('diagrama')"><span class="brk">[</span>Servicios de Comunicación<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('instalaciones')"><span class="brk">[</span>Servicios de Consultoría<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('movilidad')"><span class="brk">[</span>Soluciones de Conciliación<span class="brk">]</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h4 class="menu-subtitle"><span class="brk">[</span>Colaboradores<span class="brk">]</span></h4>
+                    <ul class="submenu-list always-open">
+                        <li><button onclick="openModalAndCloseMenu('victor')"><span class="brk">[</span>Víctor Luna<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('karen')"><span class="brk">[</span>Karen Josseline<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('brandon')"><span class="brk">[</span>Brándon Yáñez<span class="brk">]</span></button></li>
+                        <li><button onclick="openModalAndCloseMenu('cristian')"><span class="brk">[</span>Cristian Mendoza<span class="brk">]</span></button></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -86,7 +86,7 @@
 
         <div class="hero-img-wrapper z-back">
             <img src="images/tlaxco.PNG" alt="Juego de Pelota Iztapalapa">
-            <button class="floating-pill pill-hero" onclick="openModal('proj_iztapalapa')"><span class="brk">[</span>PROY: JUEGO DE PELOTA IZTAPALAPA<span class="brk">]</span></button>
+            <button class="floating-pill pill-hero" onclick="openModal('proj_iztapalapa')"><span class="brk">[</span>JUEGO DE PELOTA IZTAPALAPA<span class="brk">]</span></button>
         </div>
     </header>
 
@@ -101,7 +101,7 @@
             <div class="img-col z-back">
                 <div class="img-wrapper mapas-huge">
                     <img src="images/mapas.PNG" class="mapas-faded" alt="Estudio Zona Metropolitana">
-                    <button class="floating-pill pill-center" onclick="openModal('proj_zmvm')"><span class="brk">[</span>PROY: ESTUDIO ZONA METROPOLITANA<span class="brk">]</span></button>
+                    <button class="floating-pill pill-center" onclick="openModal('proj_zmvm')"><span class="brk">[</span>ESTUDIO ZONA METROPOLITANA<span class="brk">]</span></button>
                 </div>
             </div>
         </section>
@@ -110,7 +110,7 @@
             <div class="img-col z-back render-huge">
                 <div class="img-wrapper">
                     <img src="images/render.PNG" alt="Conjunto de Uso Mixto">
-                    <button class="floating-pill pill-center" onclick="openModal('proj_mixto')"><span class="brk">[</span>PROY: CONJUNTO DE USO MIXTO<span class="brk">]</span></button>
+                    <button class="floating-pill pill-center" onclick="openModal('proj_mixto')"><span class="brk">[</span>CONJUNTO DE USO MIXTO<span class="brk">]</span></button>
                 </div>
             </div>
             <div class="text-col z-front">
@@ -129,7 +129,7 @@
             <div class="img-col z-back diagrama-huge">
                 <div class="img-wrapper">
                     <img src="images/diagrama.PNG" class="diagrama-faded" alt="Reporte de Viabilidad">
-                    <button class="floating-pill pill-center" onclick="openModal('proj_viabilidad')"><span class="brk">[</span>PROY: REPORTE DE VIABILIDAD<span class="brk">]</span></button>
+                    <button class="floating-pill pill-center" onclick="openModal('proj_viabilidad')"><span class="brk">[</span>REPORTE DE VIABILIDAD<span class="brk">]</span></button>
                 </div>
             </div>
         </section>
@@ -138,7 +138,7 @@
             <div class="img-col z-back instalaciones-huge">
                 <div class="img-wrapper">
                     <img src="images/instalaciones.PNG" alt="Casa-Habitación">
-                    <button class="floating-pill pill-center" onclick="openModal('proj_casa')"><span class="brk">[</span>PROY: CASA-HABITACIÓN<span class="brk">]</span></button>
+                    <button class="floating-pill pill-center" onclick="openModal('proj_casa')"><span class="brk">[</span>CASA-HABITACIÓN<span class="brk">]</span></button>
                 </div>
             </div>
             <div class="text-col z-front">
@@ -157,7 +157,7 @@
             <div class="img-col z-back flush-right">
                 <div class="img-wrapper">
                     <img src="images/movilidad.PNG" alt="Rediseño CETRAM">
-                    <button class="floating-pill pill-center" onclick="openModal('proj_cetram')"><span class="brk">[</span>PROY: REDISEÑO CETRAM<span class="brk">]</span></button>
+                    <button class="floating-pill pill-center" onclick="openModal('proj_cetram')"><span class="brk">[</span>REDISEÑO CETRAM<span class="brk">]</span></button>
                 </div>
             </div>
         </section>

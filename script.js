@@ -5,12 +5,6 @@ function toggleMainMenu(event) {
     menu.classList.toggle('active');
 }
 
-function toggleSubMenu(submenuId, event) {
-    event.stopPropagation();
-    const submenu = document.getElementById(submenuId);
-    submenu.classList.toggle('active');
-}
-
 function openModalAndCloseMenu(key) {
     document.getElementById('mainMenu').classList.remove('active');
     openModal(key);
