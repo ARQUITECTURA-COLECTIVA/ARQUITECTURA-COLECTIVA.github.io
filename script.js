@@ -1,20 +1,21 @@
 // LÓGICA DEL MENÚ DE NAVEGACIÓN
 function toggleMainMenu(event) {
-    event.stopPropagation();
+    if (event) event.stopPropagation(); // Evita que el clic en el botón se interprete como clic afuera
     const menu = document.getElementById('mainMenu');
     menu.classList.toggle('active');
 }
 
 function openModalAndCloseMenu(key) {
-    document.getElementById('mainMenu').classList.remove('active');
+    const menu = document.getElementById('mainMenu');
+    if(menu) menu.classList.remove('active');
     openModal(key);
 }
 
-// Cierra el menú al hacer clic fuera
+// Cierra el menú al hacer clic en cualquier otro lado de la página
 document.addEventListener('click', (e) => {
     const menu = document.getElementById('mainMenu');
     const menuContainer = document.querySelector('.menu-container');
-    if (menu.classList.contains('active') && !menuContainer.contains(e.target)) {
+    if (menu && menu.classList.contains('active') && !menuContainer.contains(e.target)) {
         menu.classList.remove('active');
     }
 });
