@@ -1,6 +1,6 @@
 // LÓGICA DEL MENÚ DE NAVEGACIÓN
 function toggleMainMenu(event) {
-    if (event) event.stopPropagation(); // Evita que el clic se cierre instantáneamente
+    if (event) event.stopPropagation(); // Impide que el JS crea que hiciste clic fuera del menú
     const menu = document.getElementById('mainMenu');
     menu.classList.toggle('active');
 }
@@ -11,7 +11,7 @@ function openModalAndCloseMenu(key) {
     openModal(key);
 }
 
-// Cierra el menú al hacer clic en cualquier otro lado de la página
+// Cierra el menú al hacer clic en cualquier lugar fuera del contenedor del menú
 document.addEventListener('click', (e) => {
     const menu = document.getElementById('mainMenu');
     const menuContainer = document.querySelector('.menu-container');

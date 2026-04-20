@@ -27,7 +27,7 @@ body {
     transition: color 0.3s;
 }
 
-/* NAV TRANSPARENTE CON Z-INDEX ALTO PARA EL LOGO */
+/* NAV TRANSPARENTE */
 .top-nav {
     position: fixed; top: 0; width: 100%; height: 80px;
     background: transparent;
@@ -36,21 +36,23 @@ body {
     pointer-events: none;
 }
 
-/* MENÚ FLOTANTE Y LATERAL (LÓGICA BLINDADA) */
-.menu-container { position: relative; pointer-events: auto; }
-.dropdown-menu {
-    display: none; /* Asegura que nazca oculto en escritorio */
-    position: absolute; top: 110%; left: 0;
-    min-width: 240px; padding: 15px; z-index: 2000;
-}
-.dropdown-menu.active {
-    display: block;
-    animation: fadeInMenu 0.2s ease forwards;
+/* LOGO BLINDADO SIEMPRE HASTA ARRIBA */
+#logoBtn {
+    position: relative;
+    z-index: 9999;
 }
 
-@keyframes fadeInMenu {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+/* MENÚ FLOTANTE Y LATERAL (LÓGICA BLINDADA ESCRITORIO) */
+.menu-container { position: relative; pointer-events: auto; }
+.dropdown-menu {
+    position: absolute; top: 110%; left: 0;
+    min-width: 240px; padding: 15px; z-index: 2000;
+    /* Comienza totalmente oculto e intocable */
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.dropdown-menu.active {
+    opacity: 1; visibility: visible; pointer-events: auto;
 }
 
 /* SUBTÍTULOS DEL MENÚ MINIMALISTAS Y PEQUEÑOS */
@@ -133,11 +135,10 @@ body {
 .text-col { flex: 1; max-width: 750px; }
 .img-col { flex: 1.2; display: flex; position: relative; z-index: 1;}
 
-/* === TAMAÑOS DE IMÁGENES REDUCIDOS Y PROPORCIONADOS === */
+/* === TAMAÑOS DE IMÁGENES REDUCIDOS === */
 .img-wrapper { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; }
 .img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
 
-/* Mapas devuelto a tamaño normal */
 .mapas-huge { width: 100%; margin-left: 0; }
 .mapas-faded { -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); }
 
@@ -147,7 +148,7 @@ body {
 .instalaciones-huge { width: 150%; margin-left: -30vw; }
 .flush-right { width: 120%; justify-content: flex-end; margin-right: -10vw;}
 
-/* PÍLDORAS FLOTANTES UNIFICADAS (Pequeñas, sin texto extra) */
+/* PÍLDORAS FLOTANTES UNIFICADAS */
 .floating-pill {
     position: absolute;
     background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -197,9 +198,10 @@ body {
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
 .modal-card { background: #fff; width: 96vw; max-width: 1400px; height: 96vh; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 80px rgba(0,0,0,0.2); }
 .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 2%; position: absolute; top: 0; left: 0; width: 100%; z-index: 20; pointer-events: none; }
-.glass-frag-small { pointer-events: auto; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 8px 15px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); display: flex; align-items: center; }
-.modal-brand { font-weight: 900; font-size: 1rem; letter-spacing: 0.05em; color: #000; position: absolute; left: 50%; transform: translateX(-50%); }
-.modal-nav-controls { gap: 10px; margin-left: auto; display: flex; flex-wrap: nowrap; }
+.glass-frag-small { pointer-events: auto; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); display: flex; align-items: center; }
+.modal-brand { font-weight: 900; font-size: 1rem; letter-spacing: 0.05em; color: #000; position: absolute; left: 50%; transform: translateX(-50%); transition: transform 0.2s;}
+.modal-brand:hover { transform: translateX(-50%) scale(1.05); }
+.modal-nav-controls { gap: 10px; margin-left: auto; display: flex; flex-wrap: nowrap; padding: 8px 15px;}
 .modal-header-btn { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s; display: flex; align-items: center; padding: 0 5px; flex-shrink: 0;}
 .modal-header-btn:hover .brk { color: var(--accent); }
 .modal-banner-ribbon { height: 250px; width: 100%; background: #f5f5f5; flex-shrink: 0; margin-top: 0; }
@@ -228,15 +230,16 @@ body {
 
 /* RESPONSIVE MÓVIL ESTRICTO */
 @media (max-width: 900px) {
-    /* MENÚ MÓVIL (Con z-index inferior al header) */
+    /* MENÚ MÓVIL BLINDADO */
     .dropdown-menu {
-        display: block; /* Debe renderizarse para que funcione el transform */
-        position: fixed; top: 0; left: 0; height: 100dvh; width: 80vw; max-width: 320px;
-        border-radius: 0; transform: translateX(-100%); transition: transform 0.3s ease; padding-top: 90px;
+        position: fixed; top: 0; left: -100%; height: 100dvh; width: 80vw; max-width: 320px;
+        border-radius: 0; transition: left 0.3s ease; padding-top: 90px;
         background: rgba(255, 255, 255, 0.98); box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-        z-index: 1500;
+        /* En móvil usamos posición para ocultar, así que siempre está visible y clicable internamente */
+        opacity: 1; visibility: visible; pointer-events: auto;
+        z-index: 2000;
     }
-    .dropdown-menu.active { transform: translateX(0); }
+    .dropdown-menu.active { left: 0; }
 
     .nav-box-btn, .btn-box, .action-btn { font-size: 0.8rem; padding: 6px 14px; }
 
