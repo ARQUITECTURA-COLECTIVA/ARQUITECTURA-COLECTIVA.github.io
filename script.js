@@ -3,64 +3,59 @@ let modalHistory = [];
 
 const modalData = {
     victor: {
-        tag: "Coordinación", title: "Víctor Luna",
+        title: "Víctor Luna",
         content: `
             <span class="person-phone"><span class="brk">[</span>55 1702 8519<span class="brk">]</span></span>
             <p><span class="brk">[</span>Especialista en Sistemas de Información Geográfica y estrategia territorial para la administración pública. Con amplia experiencia en la coordinación de proyectos urbanos a gran escala, integrando análisis de datos socioespaciales con normatividad vigente para garantizar la viabilidad técnica y financiera de cada intervención. Su enfoque permite transformar bases de datos complejas en herramientas de decisión ejecutiva claras y contundentes.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-victor">
-                    <div class="carousel-item-wrapper">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_mapas')" style="cursor: pointer;">
                         <img src="images/mapas.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>PROY: SALUD<span class="brk">]</span></button>
                     </div>
-                    <div class="carousel-item-wrapper">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_tlaxco')" style="cursor: pointer;">
                         <img src="images/tlaxco.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
     karen: {
-        tag: "Consultoría", title: "Karen Josseline",
+        title: "Karen Josseline",
         content: `
             <span class="person-phone"><span class="brk">[</span>55 1471 4640<span class="brk">]</span></span>
             <p><span class="brk">[</span>Experta en normatividad, viabilidad legal de proyectos y políticas públicas urbanas. Posee una profunda comprensión de los marcos regulatorios a nivel municipal, estatal y federal. Su labor asegura que cada desarrollo territorial cumpla con los más altos estándares legales, facilitando la obtención de permisos y minimizando los riesgos jurídicos en la ejecución de obra pública y privada.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-karen">
-                    <div class="carousel-item-wrapper">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_diagrama')" style="cursor: pointer;">
                         <img src="images/diagrama.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>PROY: CABILDO<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
     brandon: {
-        tag: "Estrategia", title: "Brándon Yáñez",
+        title: "Brándon Yáñez",
         content: `
             <span class="person-phone"><span class="brk">[</span>55 3972 7186<span class="brk">]</span></span>
             <p><span class="brk">[</span>Coordinador de resiliencia territorial, prevención de riesgos y participación ciudadana. Especializado en la elaboración de Atlas de Riesgo y el diseño de planes de contingencia para escenarios hidrológicos, geológicos y climáticos. Además, lidera metodologías de integración social para garantizar que la infraestructura propuesta cuente con la apropiación y respaldo de las comunidades locales.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-brandon">
-                    <div class="carousel-item-wrapper">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_instalaciones')" style="cursor: pointer;">
                         <img src="images/instalaciones.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>PROY: MITIGACIÓN<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
         `
     },
     cristian: {
-        tag: "Diseño", title: "Cristian Mendoza",
+        title: "Cristian Mendoza",
         content: `
             <span class="person-phone"><span class="brk">[</span>56 1184 7429<span class="brk">]</span></span>
             <p><span class="brk">[</span>Diseñador Industrial encargado del mobiliario urbano y modelado 3D de envolventes funcionales. Transforma los diagnósticos espaciales y urbanos en elementos tangibles que interactúan directamente con el usuario. Su trabajo garantiza que la infraestructura no solo sea eficiente a nivel técnico, sino también estéticamente perdurable, ergonómica y adaptable a las exigencias climáticas de cada territorio.<span class="brk">]</span></p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="car-cristian">
-                    <div class="carousel-item-wrapper">
+                    <div class="carousel-item-wrapper" onclick="openModal('proj_render')" style="cursor: pointer;">
                         <img src="images/render.PNG">
-                        <button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>PROY: PARQUE<span class="brk">]</span></button>
                     </div>
                 </div>
             </div>
@@ -73,7 +68,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>Rezago Social<span class="brk">]</span></strong> Identificación geoespacializada.</li><li><strong><span class="brk">[</span>Cartografía<span class="brk">]</span></strong> Actualización para Planes.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-tlaxco">
-                <div class="carousel-item-wrapper"><img src="images/tlaxco.PNG"><button class="floating-pill" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_tlaxco')" style="cursor: pointer;"><img src="images/tlaxco.PNG"></div>
             </div></div>
         `
     },
@@ -82,7 +77,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>Ubicación<span class="brk">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class="brk">[</span>Reactivación<span class="brk">]</span></strong> Acupuntura espacial.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-mapas">
-                <div class="carousel-item-wrapper"><img src="images/mapas.PNG"><button class="floating-pill" onclick="openModal('proj_mapas')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_mapas')" style="cursor: pointer;"><img src="images/mapas.PNG"></div>
             </div></div>
         `
     },
@@ -91,7 +86,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>Planes Maestros<span class="brk">]</span></strong> Rescate de parques.</li><li><strong><span class="brk">[</span>Proyectos Ejecutivos<span class="brk">]</span></strong> Listos para obra pública.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-render">
-                <div class="carousel-item-wrapper"><img src="images/render.PNG"><button class="floating-pill" onclick="openModal('proj_render')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_render')" style="cursor: pointer;"><img src="images/render.PNG"></div>
             </div></div>
         `
     },
@@ -100,7 +95,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>One-Pagers<span class="brk">]</span></strong> Jerarquía de datos.</li><li><strong><span class="brk">[</span>Infografías<span class="brk">]</span></strong> Visualización de avance.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-diagrama">
-                <div class="carousel-item-wrapper"><img src="images/diagrama.PNG"><button class="floating-pill" onclick="openModal('proj_diagrama')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_diagrama')" style="cursor: pointer;"><img src="images/diagrama.PNG"></div>
             </div></div>
         `
     },
@@ -109,7 +104,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>Atlas de Riesgo<span class="brk">]</span></strong> Modelación climática.</li><li><strong><span class="brk">[</span>Vulnerabilidad<span class="brk">]</span></strong> Zonas de estrés.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-instalaciones">
-                <div class="carousel-item-wrapper"><img src="images/instalaciones.PNG"><button class="floating-pill" onclick="openModal('proj_instalaciones')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_instalaciones')" style="cursor: pointer;"><img src="images/instalaciones.PNG"></div>
             </div></div>
         `
     },
@@ -118,7 +113,7 @@ const modalData = {
         content: `
             <ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li></ul>
             <div class="carousel-wrapper"><div class="carousel-track" id="car-movilidad">
-                <div class="carousel-item-wrapper"><img src="images/movilidad.PNG"><button class="floating-pill" onclick="openModal('proj_movilidad')"><span class="brk">[</span>Ver<span class="brk">]</span></button></div>
+                <div class="carousel-item-wrapper" onclick="openModal('proj_movilidad')" style="cursor: pointer;"><img src="images/movilidad.PNG"></div>
             </div></div>
         `
     },
@@ -149,11 +144,16 @@ function renderModal(key) {
     backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
 
     mBanner.style.display = 'block';
-    mTag.style.display = 'block';
     mTitle.style.display = 'block';
 
-    mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
-    mTitle.innerHTML = `<span class="brk">[</span>${data.title}<span class="brk">]</span>`;
+    if (data.tag) {
+        mTag.style.display = 'block';
+        mTag.innerHTML = `<span class="brk">[</span>${data.tag}<span class="brk">]</span>`;
+    } else {
+        mTag.style.display = 'none';
+    }
+
+    mTitle.innerHTML = data.title;
     if(mImg) mImg.src = data.image ? data.image : '';
 
     mContent.innerHTML = data.content;

@@ -58,16 +58,21 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     margin-bottom: 15px; display: block; width: fit-content; max-width: 100%;
 }
-.hero-tag.glass-frag, .tag.glass-frag { padding: 6px 12px; margin-bottom: 12px; display: inline-block; }
-.hero-subtitle.glass-frag, .hero-body.glass-frag, .text-col p.glass-frag { padding: 15px 22px; line-height: 1.6; margin-bottom: 20px; }
+.tag.glass-frag {
+    padding: 6px 12px; margin-bottom: 12px; display: inline-block;
+    font-size: 0.75rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.text-col p.glass-frag { padding: 15px 22px; line-height: 1.6; margin-bottom: 20px; }
 
 /* === HERO UNIFICADO === */
-.hero-centered { text-align: center; padding: 120px 5% 0px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
+/* Título pegado arriba, empujando con 100px para librar la nav de 80px + 20px de espacio real */
+.hero-centered { text-align: center; padding: 100px 5% 0px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
 .hero-text-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 0; position: relative; z-index: 10;}
+.hero-tag { font-size: 1rem; font-weight: 800; margin-bottom: 5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 .light-title { font-size: 3.6rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; color: #111; }
-.hero-subtitle { font-size: 1.25rem; color: var(--text); font-weight: 800; }
-.hero-body { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
-.cta-hero { font-size: 1.2rem; padding: 12px 30px; margin-top: 10px; border: 1px solid rgba(0,0,0,0.1); }
+.hero-subtitle { font-size: 1.25rem; color: var(--text); font-weight: 800; margin-bottom: 15px; }
+.hero-body { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 20px; }
+.cta-hero { font-size: 1rem; padding: 8px 20px; margin-top: 10px; border: 1px solid rgba(0,0,0,0.1); }
 .cta-hero:hover { border-color: var(--accent); }
 
 /* IMAGEN HERO */
@@ -75,8 +80,9 @@ body {
 .hero-img-wrapper img { width: 100%; height: auto; mix-blend-mode: multiply; }
 
 /* === LÓGICA ZIGZAG === */
-.zigzag-container { width: 100%; overflow: hidden; padding-bottom: 60px; }
+.zigzag-container { width: 100%; overflow: hidden; padding-bottom: 0px; }
 .zigzag-row { display: flex; align-items: center; justify-content: space-between; padding: 60px 0; margin-bottom: 20px; position: relative; }
+.last-row { margin-bottom: 0; padding-bottom: 0; }
 
 .z-front { position: relative; z-index: 10; }
 .z-back { position: relative; z-index: 1; }
@@ -93,24 +99,23 @@ body {
 .text-col { flex: 1; max-width: 750px; }
 .img-col { flex: 1.2; display: flex; position: relative; z-index: 1;}
 
-/* === TAMAÑOS DE IMÁGENES CORREGIDOS === */
-.img-wrapper { position: relative; display: inline-block; width: 100%; }
+/* === TAMAÑOS DE IMÁGENES INCREMENTADOS === */
+.img-wrapper { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; }
 .img-wrapper img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
 
-.mapas-huge { width: 120%; margin-left: -5vw;}
+.mapas-huge { width: 160%; margin-left: -30vw;}
 .mapas-faded { -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); }
 
-.render-huge { width: 85%; margin: 0 auto; }
+.render-huge { width: 130%; margin-left: -15vw; }
 
-.diagrama-huge { width: 110%; margin-left: -15vw; }
+.diagrama-huge { width: 140%; margin-left: -20vw; }
 .diagrama-faded { -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black); mask-image: linear-gradient(to right, transparent, black 20%, black); }
 
-.instalaciones-huge { width: 110%; margin-left: -25vw; }
+.instalaciones-huge { width: 150%; margin-left: -30vw; }
 
-.flush-right { width: 100%; justify-content: flex-end; margin-right: -5vw;}
-.flush-left { width: 100%; justify-content: flex-start;}
+.flush-right { width: 120%; justify-content: flex-end; margin-right: -10vw;}
 
-/* PÍLDORAS FLOTANTES PROTEGIDAS DEL Z-INDEX */
+/* PÍLDORAS FLOTANTES (AHORA SOBRE LA IMAGEN) */
 .floating-pill {
     position: absolute;
     background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -119,12 +124,15 @@ body {
     cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s;
     z-index: 50;
 }
-.pill-left { left: 5vw; bottom: 20px; }
-.pill-right { right: 5vw; bottom: 20px; }
-.pill-center { left: 50%; transform: translateX(-50%); bottom: 20px; }
-.pill-center:hover { transform: translate(-50%, -2px); }
-.floating-pill:hover { background: rgba(255,255,255,1); transform: translateY(-2px); }
+.floating-pill:hover { background: rgba(255,255,255,1); transform: scale(1.05); }
 .floating-pill:hover .brk { color: var(--accent); }
+
+/* Posiciones variables relativas al centro de la imagen */
+.pill-var-1 { top: 50%; left: 50%; transform: translate(calc(-50% + 80px), calc(-50% - 60px)); }
+.pill-var-2 { top: 50%; left: 50%; transform: translate(calc(-50% - 90px), calc(-50% + 70px)); }
+.pill-var-3 { top: 50%; left: 50%; transform: translate(calc(-50% + 60px), calc(-50% + 90px)); }
+.pill-var-4 { top: 50%; left: 50%; transform: translate(calc(-50% - 70px), calc(-50% - 80px)); }
+.pill-var-5 { top: 50%; left: 50%; transform: translate(calc(-50% + 90px), calc(-50% + 20px)); }
 
 /* TIPOGRAFÍA SECCIONES */
 .text-col h2 { font-size: 2.4rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; color: #000; }
@@ -136,21 +144,25 @@ body {
 .action-btn:hover .brk { color: var(--accent); }
 
 /* === CONTACTO DIRECTO === */
-.contact-section { text-align: center; padding: 40px 5% 100px 5%; }
+.contact-section { text-align: center; padding: 0px 5% 100px 5%; }
 .email-title-link { display: inline-block; font-size: 4rem; font-weight: 300; color: #111; text-decoration: none; margin-bottom: 50px; transition: transform 0.3s; line-height: 1; letter-spacing: -0.02em; }
 .email-title-link:hover { transform: scale(1.02); }
 .email-title-link:hover .brk { color: var(--accent); }
-.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
+
+/* === INTEGRANTES A DOS COLUMNAS === */
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 600px; margin: 0 auto; }
+.team-grid .btn-box { width: 100%; text-align: center; }
 
 /* FOOTER SÚPER TRANSPARENTE */
 .footer-curvas { background-image: url('images/curvas.jpg'); background-size: cover; background-position: center; padding: 80px 5% 40px 5%; color: #111; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 
-.glass-text-box { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); padding: 10px 15px; border-radius: 6px; margin-bottom: 10px; color: #111; font-weight: 800; display: inline-block; width: 100%; }
+.glass-text-box { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); padding: 10px 15px; border-radius: 6px; margin-bottom: 10px; color: #111; font-weight: 800; display: inline-block; width: fit-content; max-width: 100%; }
 .footer-brand { font-weight: 900; font-size: 2.2rem; letter-spacing: 0.1em; color: #111; margin-bottom: 10px; }
 .footer-col h4 { font-size: 1rem; font-weight: 900; color: #111; margin: 0; text-transform: uppercase; letter-spacing: 0.1em; }
+.font-ligera { font-weight: 300 !important; font-size: 0.9rem; }
 
-.glass-btn { display: block; width: 100%; text-align: left; background: rgba(255,255,255,0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: none; color: #111; font-size: 0.95rem; font-weight: 800; padding: 10px 15px; margin-bottom: 10px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: all 0.3s; }
+.glass-btn { display: block; width: fit-content; text-align: left; background: rgba(255,255,255,0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: none; color: #111; font-size: 0.95rem; font-weight: 800; padding: 10px 15px; margin-bottom: 10px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: all 0.3s; }
 .glass-btn:hover { background: rgba(255,255,255,0.8); transform: translateX(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
 .glass-btn:hover .brk { color: var(--accent); }
 
@@ -169,9 +181,9 @@ body {
 .modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
 
 /* Menos aire arriba */
-.modal-banner-ribbon { height: 140px; width: 100%; background: #f5f5f5; flex-shrink: 0; margin-top: 60px; }
+.modal-banner-ribbon { height: 100px; width: 100%; background: #f5f5f5; flex-shrink: 0; margin-top: 55px; }
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
-.modal-body-container { padding: 30px 80px; overflow-y: auto; background: #fff; flex: 1; }
+.modal-body-container { padding: 15px 80px 30px 80px; overflow-y: auto; background: #fff; flex: 1; }
 .modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
 .modal-body-container h3 { font-size: 2.8rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
 .modal-body-container p { font-size: 1rem; font-weight: 500; margin-bottom: 20px; line-height: 1.7;}
@@ -181,35 +193,32 @@ body {
 /* Modal Personas */
 .person-phone { display: block; margin: 10px 0 20px 0; font-size: 1.1rem; font-weight: 800; color: #111; }
 
-/* Carrusel Delgado */
+/* Carrusel Delgado - Entero clickable */
 .carousel-wrapper { margin-top: 30px; width: 100%; overflow: hidden; position: relative; }
 .carousel-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 20px; cursor: grab; }
 .carousel-track:active { cursor: grabbing; }
 .carousel-track::-webkit-scrollbar { height: 8px; }
 .carousel-track::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-.carousel-item-wrapper { position: relative; height: 200px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;}
+.carousel-item-wrapper { position: relative; height: 200px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
+.carousel-item-wrapper:hover { transform: translateY(-3px); }
 .carousel-item-wrapper img { height: 100%; width: auto; object-fit: cover; pointer-events: none;}
-.carousel-item-wrapper .floating-pill { bottom: 10px; right: 10px; left: auto; font-size: 0.6rem; padding: 4px 10px;}
 
 /* RESPONSIVE MÓVIL ESTRICTO */
 @media (max-width: 900px) {
     .hero-centered { padding-top: 100px; }
-
     .zigzag-row { flex-direction: column !important; text-align: center; padding: 20px 5%; margin-bottom: 40px; }
-
-    /* En móvil el texto SIEMPRE va primero, bloques centrados */
     .text-col { order: 1; padding: 0 !important; margin-top: 0; max-width: 100%; z-index: 10; align-items: center; text-align: center;}
     .img-col { order: 2; width: 100%; margin: 20px 0 0 0 !important; justify-content: center; align-self: center !important; z-index: 1;}
 
-    .pill-left, .pill-right, .pill-center { position: relative; left: auto !important; right: auto !important; bottom: auto; margin: 10px auto 0 auto; display: inline-block;}
+    .floating-pill { position: relative; top: auto !important; left: auto !important; transform: none !important; margin: 10px auto 0 auto; display: inline-block;}
 
     .row-img-left .img-col, .row-img-right .img-col { margin-left: 0; margin-right: 0; }
-    .mapas-huge, .diagrama-huge, .instalaciones-huge { width: 100%; margin-left: 0; margin-right: 0; transform: none; }
+    .mapas-huge, .diagrama-huge, .instalaciones-huge, .flush-right, .render-huge { width: 100%; margin-left: 0; margin-right: 0; transform: none; }
 
-    /* Títulos achicados en móvil */
     .light-title { font-size: 2.6rem; }
     .text-col h2 { font-size: 2.1rem; }
     .email-title-link { font-size: 2.2rem; }
+    .team-grid { grid-template-columns: 1fr; }
 
     .modal-body-container { padding: 30px 20px; }
     .modal-card { width: 100vw; height: 100vh; border-radius: 0; }
