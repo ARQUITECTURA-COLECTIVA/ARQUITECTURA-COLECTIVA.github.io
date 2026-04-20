@@ -20,13 +20,15 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card" id="modalCardBox">
             <div class="modal-header">
-                <button class="modal-header-btn back-modal" onclick="goBackModal()">
-                    <span class="brk">[</span>←<span class="brk">]</span>
-                </button>
-                <div class="modal-brand"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
-                <button class="modal-header-btn close-modal" onclick="closeModal()">
-                    <span class="brk">[</span>×<span class="brk">]</span>
-                </button>
+                <div class="modal-brand glass-frag-small"><span class="brk">[</span>ARQ<span class="brk">|</span>COL<span class="brk">]</span></div>
+                <div class="modal-nav-controls glass-frag-small">
+                    <button class="modal-header-btn back-modal" onclick="goBackModal()">
+                        <span class="brk">[</span>←<span class="brk">]</span>
+                    </button>
+                    <button class="modal-header-btn close-modal" onclick="closeModal()">
+                        <span class="brk">[</span>×<span class="brk">]</span>
+                    </button>
+                </div>
             </div>
 
             <div class="modal-banner-ribbon" id="modalBanner">
@@ -54,7 +56,7 @@
 
         <div class="hero-img-wrapper z-back">
             <img src="images/tlaxco.PNG" alt="Diagnóstico y Contexto Estratégico">
-            <button class="floating-pill pill-var-1" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS REGIONAL<span class="brk">]</span></button>
+            <button class="floating-pill pill-hero" onclick="openModal('proj_tlaxco')"><span class="brk">[</span>PROY: ATLAS REGIONAL<span class="brk">]</span></button>
         </div>
     </header>
 

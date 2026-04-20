@@ -65,7 +65,6 @@ body {
 .text-col p.glass-frag { padding: 15px 22px; line-height: 1.6; margin-bottom: 20px; }
 
 /* === HERO UNIFICADO === */
-/* Título pegado arriba, empujando con 100px para librar la nav de 80px + 20px de espacio real */
 .hero-centered { text-align: center; padding: 100px 5% 0px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
 .hero-text-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 0; position: relative; z-index: 10;}
 .hero-tag { font-size: 1rem; font-weight: 800; margin-bottom: 5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -115,17 +114,19 @@ body {
 
 .flush-right { width: 120%; justify-content: flex-end; margin-right: -10vw;}
 
-/* PÍLDORAS FLOTANTES (AHORA SOBRE LA IMAGEN) */
+/* PÍLDORAS FLOTANTES ESTÁTICAS (AHORA SOBRE LA IMAGEN Y SIN HOVER EFFECT DE TAMAÑO) */
 .floating-pill {
     position: absolute;
     background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border: none; padding: 6px 12px; border-radius: 50px; font-size: 0.65rem;
     font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #111;
-    cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s;
+    cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: color 0.3s; /* Solo cambia el color del brk */
     z-index: 50;
 }
-.floating-pill:hover { background: rgba(255,255,255,1); transform: scale(1.05); }
 .floating-pill:hover .brk { color: var(--accent); }
+
+/* Posición específica para el Hero (60px desde abajo) */
+.pill-hero { bottom: 60px; left: 50%; transform: translateX(-50%); }
 
 /* Posiciones variables relativas al centro de la imagen */
 .pill-var-1 { top: 50%; left: 50%; transform: translate(calc(-50% + 80px), calc(-50% - 60px)); }
@@ -143,14 +144,22 @@ body {
 .action-btn:hover { background: #fff; border-color: var(--accent); transform: translateY(-2px); }
 .action-btn:hover .brk { color: var(--accent); }
 
-/* === CONTACTO DIRECTO === */
-.contact-section { text-align: center; padding: 0px 5% 100px 5%; }
+/* === CONTACTO DIRECTO CENTRADO === */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 5%; /* Espaciado uniforme para centrar mejor en su bloque */
+    min-height: 400px;
+}
 .email-title-link { display: inline-block; font-size: 4rem; font-weight: 300; color: #111; text-decoration: none; margin-bottom: 50px; transition: transform 0.3s; line-height: 1; letter-spacing: -0.02em; }
 .email-title-link:hover { transform: scale(1.02); }
 .email-title-link:hover .brk { color: var(--accent); }
 
 /* === INTEGRANTES A DOS COLUMNAS === */
-.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 600px; margin: 0 auto; }
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 600px; margin: 0 auto; width: 100%; }
 .team-grid .btn-box { width: 100%; text-align: center; }
 
 /* FOOTER SÚPER TRANSPARENTE */
@@ -169,26 +178,37 @@ body {
 .footer-bottom { margin-top: 60px; text-align: center; }
 .copyright { font-size: 0.85rem; font-weight: 800; color: #111; margin: 0; }
 
-/* === MODALES OPTIMIZADOS === */
+/* === MODALES OPTIMIZADOS (IMAGEN COMPLETA, HEADER FLOTANTE Y SERVICIOS EXTENSOS) === */
 .modal-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2vh 2vw; }
 .modal-card { background: #fff; width: 96vw; max-width: 1400px; height: 96vh; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 80px rgba(0,0,0,0.2); }
 
-/* Header de Modal (Barra completa Blur) */
-.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(255,255,255,0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); position: absolute; width: 100%; z-index: 20; }
-.modal-nav-controls { display: flex; gap: 20px; }
-.modal-header-btn { background: transparent; border: none; font-size: 2rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s; display: flex; align-items: center;}
-.modal-header-btn:hover .brk { color: var(--accent); }
-.modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; }
+/* Header de Modal (Elementos Flotantes Blurry) */
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 2%; position: absolute; top: 0; left: 0; width: 100%; z-index: 20; pointer-events: none; }
+.glass-frag-small { pointer-events: auto; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 8px 15px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); display: flex; align-items: center; }
 
-/* Menos aire arriba */
-.modal-banner-ribbon { height: 100px; width: 100%; background: #f5f5f5; flex-shrink: 0; margin-top: 55px; }
+/* Logo al centro */
+.modal-brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; color: #000; position: absolute; left: 50%; transform: translateX(-50%); }
+
+/* Controles agrupados a la derecha */
+.modal-nav-controls { gap: 10px; margin-left: auto; }
+.modal-header-btn { background: transparent; border: none; font-size: 1.5rem; cursor: pointer; color: #111; font-weight: 300; transition: color 0.3s; display: flex; align-items: center; padding: 0 5px;}
+.modal-header-btn:hover .brk { color: var(--accent); }
+
+/* Imagen abarca hasta arriba */
+.modal-banner-ribbon { height: 250px; width: 100%; background: #f5f5f5; flex-shrink: 0; margin-top: 0; }
 .modal-banner-ribbon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: multiply; }
-.modal-body-container { padding: 15px 80px 30px 80px; overflow-y: auto; background: #fff; flex: 1; }
+.modal-body-container { padding: 30px 80px 30px 80px; overflow-y: auto; background: #fff; flex: 1; }
 .modal-tag { display: block; font-size: 0.9rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
 .modal-body-container h3 { font-size: 2.8rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
 .modal-body-container p { font-size: 1rem; font-weight: 500; margin-bottom: 20px; line-height: 1.7;}
-.modal-body-container ul { padding-left: 20px; margin-bottom: 20px; }
-.modal-body-container li { margin-bottom: 10px; color: #111; font-weight: 700; font-size: 1rem; }
+
+/* Estilo para las listas detalladas de servicios */
+.modal-body-container h4 { font-size: 1.2rem; font-weight: 900; color: #111; margin: 30px 0 15px 0; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; }
+.modal-body-container ul { padding-left: 20px; margin-bottom: 20px; list-style-type: none; }
+.modal-body-container li { margin-bottom: 12px; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; line-height: 1.5; position: relative; }
+.modal-body-container li::before { content: "["; font-weight: 300; position: absolute; left: -15px; color: var(--text); }
+.modal-body-container li::after { content: "]"; font-weight: 300; margin-left: 3px; color: var(--text); }
+.modal-body-container li strong { color: #111; font-weight: 800; }
 
 /* Modal Personas */
 .person-phone { display: block; margin: 10px 0 20px 0; font-size: 1.1rem; font-weight: 800; color: #111; }
@@ -211,6 +231,7 @@ body {
     .img-col { order: 2; width: 100%; margin: 20px 0 0 0 !important; justify-content: center; align-self: center !important; z-index: 1;}
 
     .floating-pill { position: relative; top: auto !important; left: auto !important; transform: none !important; margin: 10px auto 0 auto; display: inline-block;}
+    .pill-hero { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%) !important; }
 
     .row-img-left .img-col, .row-img-right .img-col { margin-left: 0; margin-right: 0; }
     .mapas-huge, .diagrama-huge, .instalaciones-huge, .flush-right, .render-huge { width: 100%; margin-left: 0; margin-right: 0; transform: none; }
@@ -222,4 +243,5 @@ body {
 
     .modal-body-container { padding: 30px 20px; }
     .modal-card { width: 100vw; height: 100vh; border-radius: 0; }
+    .modal-banner-ribbon { height: 150px; }
 }

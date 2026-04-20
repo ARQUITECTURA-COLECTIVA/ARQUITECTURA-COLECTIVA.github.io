@@ -62,11 +62,26 @@ const modalData = {
         `
     },
 
-    // SECCIONES NORMALES
+    // SECCIONES EXTENSAS DE SERVICIOS
     tlaxco: {
         tag: "Planificación", title: "Diagnóstico y Contexto Estratégico", image: "images/tlaxco.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>Rezago Social<span class="brk">]</span></strong> Identificación geoespacializada.</li><li><strong><span class="brk">[</span>Cartografía<span class="brk">]</span></strong> Actualización para Planes.</li></ul>
+            <p>Comprendemos el territorio antes de intervenirlo. Ofrecemos herramientas de diagnóstico robustas para la correcta toma de decisiones a nivel municipal y regional.</p>
+
+            <h4>Planeación Municipal</h4>
+            <ul>
+                <li><strong>Planes Municipales de Desarrollo Urbano (PMDU):</strong> Elaboración integral alineada a la normativa vigente.</li>
+                <li><strong>Actualización Cartográfica:</strong> Levantamiento y rectificación de límites urbanos y ejidales.</li>
+                <li><strong>Zonificación Primaria y Secundaria:</strong> Definición de usos de suelo y coeficientes de ocupación.</li>
+            </ul>
+
+            <h4>Análisis Demográfico y Social</h4>
+            <ul>
+                <li><strong>Identificación de Rezago Social:</strong> Mapeo de indicadores de marginación para focalizar inversión.</li>
+                <li><strong>Estudios de Crecimiento Poblacional:</strong> Proyecciones a corto, mediano y largo plazo.</li>
+                <li><strong>Diagnóstico de Equipamiento:</strong> Evaluación de déficit y superávit de infraestructura pública.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-tlaxco">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_tlaxco')" style="cursor: pointer;"><img src="images/tlaxco.PNG"></div>
             </div></div>
@@ -75,7 +90,22 @@ const modalData = {
     mapas: {
         tag: "Geointeligencia", title: "Inversión y Desarrollo Eficiente", image: "images/mapas.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>Ubicación<span class="brk">]</span></strong> Localización óptima de equipamiento.</li><li><strong><span class="brk">[</span>Reactivación<span class="brk">]</span></strong> Acupuntura espacial.</li></ul>
+            <p>Utilizamos Sistemas de Información Geográfica (SIG) para traducir datos abstractos en mapas estratégicos que garantizan el éxito de los proyectos.</p>
+
+            <h4>Análisis Geoespacial</h4>
+            <ul>
+                <li><strong>Modelos de Idoneidad:</strong> Algoritmos para encontrar la ubicación óptima de nuevos equipamientos (hospitales, escuelas, parques).</li>
+                <li><strong>Acupuntura Urbana Espacial:</strong> Identificación de lotes baldíos o subutilizados con alto potencial de reactivación.</li>
+                <li><strong>Análisis de Redes:</strong> Evaluación de tiempos de traslado y cobertura de servicios básicos.</li>
+            </ul>
+
+            <h4>Viabilidad Privada</h4>
+            <ul>
+                <li><strong>Estudios de Mercado Inmobiliario:</strong> Cruce de datos demográficos con valor de suelo para desarrolladores.</li>
+                <li><strong>Factibilidad de Sitio:</strong> Evaluación normativa, topográfica y de servicios para predios específicos.</li>
+                <li><strong>Mapeo de Competencia:</strong> Análisis de isócronas para comercios y servicios privados.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-mapas">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_mapas')" style="cursor: pointer;"><img src="images/mapas.PNG"></div>
             </div></div>
@@ -84,7 +114,22 @@ const modalData = {
     render: {
         tag: "Proyección", title: "Arquitectura de Impacto", image: "images/render.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>Planes Maestros<span class="brk">]</span></strong> Rescate de parques.</li><li><strong><span class="brk">[</span>Proyectos Ejecutivos<span class="brk">]</span></strong> Listos para obra pública.</li></ul>
+            <p>Llevamos la estrategia del papel a la realidad construida. Diseñamos espacios que trascienden su escala y generan arraigo comunitario.</p>
+
+            <h4>Diseño Urbano y Paisaje</h4>
+            <ul>
+                <li><strong>Planes Maestros:</strong> Diseño integral de grandes superficies, parques urbanos y reservas ecológicas.</li>
+                <li><strong>Regeneración de Espacios Públicos:</strong> Rescate de plazas, mercados y centros de barrio.</li>
+                <li><strong>Mobiliario Urbano:</strong> Diseño industrial de elementos funcionales y adaptados al clima local.</li>
+            </ul>
+
+            <h4>Arquitectura y Obra Civil</h4>
+            <ul>
+                <li><strong>Proyectos Ejecutivos:</strong> Planos técnicos, memorias de cálculo y catálogos de conceptos listos para licitación.</li>
+                <li><strong>Modelado 3D y Visualización:</strong> Renders y recorridos virtuales de alta fidelidad.</li>
+                <li><strong>Diseño de Vivienda Social y Privada:</strong> Modelos habitacionales eficientes, sustentables y arraigados al contexto.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-render">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_render')" style="cursor: pointer;"><img src="images/render.PNG"></div>
             </div></div>
@@ -93,7 +138,22 @@ const modalData = {
     diagrama: {
         tag: "Comunicación", title: "Comunicación y Claridad", image: "images/diagrama.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>One-Pagers<span class="brk">]</span></strong> Jerarquía de datos.</li><li><strong><span class="brk">[</span>Infografías<span class="brk">]</span></strong> Visualización de avance.</li></ul>
+            <p>Transformamos expedientes técnicos complejos en herramientas de comunicación visual claras para autoridades, inversores y ciudadanos.</p>
+
+            <h4>Material Ejecutivo</h4>
+            <ul>
+                <li><strong>Reportes para Cabildo:</strong> Dossiers condensados con la jerarquía de datos necesaria para la aprobación política.</li>
+                <li><strong>Infografías de Avance:</strong> Visualización clara del progreso de obra o del impacto de políticas públicas.</li>
+                <li><strong>One-Pagers Estratégicos:</strong> Resúmenes visuales para atracción de inversión privada o fondos gubernamentales.</li>
+            </ul>
+
+            <h4>Participación Ciudadana</h4>
+            <ul>
+                <li><strong>Talleres de Codiseño:</strong> Metodologías participativas para integrar a la comunidad en el diseño de su entorno.</li>
+                <li><strong>Material de Difusión Social:</strong> Carteles, folletos y esquemas didácticos para socializar proyectos complejos.</li>
+                <li><strong>Estrategias de Validación Social:</strong> Herramientas para reducir la fricción vecinal ante nuevas obras de infraestructura.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-diagrama">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_diagrama')" style="cursor: pointer;"><img src="images/diagrama.PNG"></div>
             </div></div>
@@ -102,7 +162,22 @@ const modalData = {
     instalaciones: {
         tag: "Protección Civil", title: "Prevención y Seguridad Estructural", image: "images/instalaciones.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>Atlas de Riesgo<span class="brk">]</span></strong> Modelación climática.</li><li><strong><span class="brk">[</span>Vulnerabilidad<span class="brk">]</span></strong> Zonas de estrés.</li></ul>
+            <p>Modelamos y prevenimos riesgos territoriales para garantizar la seguridad de la población y la resiliencia de la infraestructura a largo plazo.</p>
+
+            <h4>Gestión Integral de Riesgos</h4>
+            <ul>
+                <li><strong>Atlas Municipales de Riesgo:</strong> Elaboración y actualización de instrumentos de prevención reconocidos por CENAPRED.</li>
+                <li><strong>Modelación Hidrológica:</strong> Mapas de inundación, escurrimientos y zonas de encharcamiento histórico.</li>
+                <li><strong>Vulnerabilidad Geológica:</strong> Identificación de fallas, fracturas y zonas de deslizamiento de laderas.</li>
+            </ul>
+
+            <h4>Ingeniería y Mitigación</h4>
+            <ul>
+                <li><strong>Obras de Mitigación:</strong> Diseño de infraestructura verde, presas de gavión y sistemas de retención pluvial.</li>
+                <li><strong>Dictámenes de Seguridad Estructural:</strong> Evaluaciones técnicas para edificaciones existentes o por construir.</li>
+                <li><strong>Planes de Contingencia:</strong> Protocolos de acción a nivel municipal o barrial ante desastres naturales.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-instalaciones">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_instalaciones')" style="cursor: pointer;"><img src="images/instalaciones.PNG"></div>
             </div></div>
@@ -111,7 +186,22 @@ const modalData = {
     movilidad: {
         tag: "Ordenamiento", title: "Flujo e Integración Espacial", image: "images/movilidad.PNG",
         content: `
-            <ul><li><strong><span class="brk">[</span>Ordenamiento<span class="brk">]</span></strong> Reordenamiento vehicular.</li><li><strong><span class="brk">[</span>Movilidad Activa<span class="brk">]</span></strong> Ciclovías seguras.</li></ul>
+            <p>Diseñamos sistemas de movimiento que priorizan a las personas, mejoran la accesibilidad y reducen los tiempos y costos de traslado.</p>
+
+            <h4>Movilidad Activa y Sustentable</h4>
+            <ul>
+                <li><strong>Redes de Infraestructura Ciclista:</strong> Diseño geométrico de ciclovías, ciclocarriles y biciestacionamientos.</li>
+                <li><strong>Calles Completas:</strong> Rediseño de vialidades priorizando al peatón, la accesibilidad universal y el transporte público.</li>
+                <li><strong>Auditorías de Seguridad Vial:</strong> Identificación de puntos negros e intersecciones peligrosas.</li>
+            </ul>
+
+            <h4>Ingeniería de Tránsito</h4>
+            <ul>
+                <li><strong>Estudios de Impacto Vial:</strong> Evaluaciones necesarias para la autorización de nuevos desarrollos inmobiliarios o comerciales.</li>
+                <li><strong>Reordenamiento de Transporte Público:</strong> Optimización de rutas, paraderos y bases de transferencia.</li>
+                <li><strong>Sincronización Semafórica:</strong> Análisis de aforos vehiculares para mejorar el flujo en arterias principales.</li>
+            </ul>
+
             <div class="carousel-wrapper"><div class="carousel-track" id="car-movilidad">
                 <div class="carousel-item-wrapper" onclick="openModal('proj_movilidad')" style="cursor: pointer;"><img src="images/movilidad.PNG"></div>
             </div></div>
@@ -141,7 +231,7 @@ function renderModal(key) {
     const data = modalData[key];
     if (!data) return;
 
-    backBtn.style.visibility = modalHistory.length > 1 ? 'visible' : 'hidden';
+    backBtn.style.display = modalHistory.length > 1 ? 'flex' : 'none';
 
     mBanner.style.display = 'block';
     mTitle.style.display = 'block';
