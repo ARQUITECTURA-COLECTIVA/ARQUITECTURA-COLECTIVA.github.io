@@ -1,6 +1,6 @@
 // LÓGICA DEL MENÚ DE NAVEGACIÓN
 function toggleMainMenu(event) {
-    if (event) event.stopPropagation(); // Evita que el clic en el botón se interprete como clic afuera
+    if (event) event.stopPropagation(); // Evita que el clic se cierre instantáneamente
     const menu = document.getElementById('mainMenu');
     menu.classList.toggle('active');
 }
